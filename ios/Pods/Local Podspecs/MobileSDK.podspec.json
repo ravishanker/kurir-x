@@ -1,0 +1,22 @@
+{
+  "name": "MobileSDK",
+  "version": "1.0.0",
+  "summary": "Crazybean Studio MobileSDK.",
+  "description": "Crazybean Studio Mobile SDK for iOS platform",
+  "homepage": "https://bitbucket.org/crazybeanstudio/mobile-sdk-ios/src/master/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Crazybean Studio": "crazybean.studio@gmail.com"
+  },
+  "source": {
+    "git": "https://crazybeanstudio@bitbucket.org/crazybeanstudio/mobile-sdk-ios.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "MobileSDK/Classes/**/*"
+}

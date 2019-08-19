@@ -1,0 +1,799 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A49D56513043D863EECA3C61 /* Pods_Kurir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B9012C96E598F4C0E8115E /* Pods_Kurir.framework */; };
+		B422A59D230854A4007B3CCB /* Mobilex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B422A59C230854A4007B3CCB /* Mobilex.framework */; };
+		B422A5A02308559D007B3CCB /* UIViewController+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A59F2308559D007B3CCB /* UIViewController+Dependency.swift */; };
+		B422A615230A3574007B3CCB /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A614230A3574007B3CCB /* AuthDelegate.swift */; };
+		B422A616230A3574007B3CCB /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A614230A3574007B3CCB /* AuthDelegate.swift */; };
+		B422A617230A3574007B3CCB /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A614230A3574007B3CCB /* AuthDelegate.swift */; };
+		B422A619230A3587007B3CCB /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A618230A3587007B3CCB /* AuthViewModel.swift */; };
+		B422A61A230A3587007B3CCB /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A618230A3587007B3CCB /* AuthViewModel.swift */; };
+		B422A61B230A3587007B3CCB /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A618230A3587007B3CCB /* AuthViewModel.swift */; };
+		B422A61D230A9CB3007B3CCB /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A61C230A9CB3007B3CCB /* Module.swift */; };
+		B422A61E230A9CB3007B3CCB /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A61C230A9CB3007B3CCB /* Module.swift */; };
+		B422A61F230A9CB3007B3CCB /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A61C230A9CB3007B3CCB /* Module.swift */; };
+		B422A621230A9CCF007B3CCB /* AuthModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A620230A9CCF007B3CCB /* AuthModule.swift */; };
+		B422A622230A9CCF007B3CCB /* AuthModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A620230A9CCF007B3CCB /* AuthModule.swift */; };
+		B422A623230A9CCF007B3CCB /* AuthModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A620230A9CCF007B3CCB /* AuthModule.swift */; };
+		B422A625230A9D82007B3CCB /* DomainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A624230A9D82007B3CCB /* DomainModule.swift */; };
+		B422A626230A9D82007B3CCB /* DomainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A624230A9D82007B3CCB /* DomainModule.swift */; };
+		B422A627230A9D82007B3CCB /* DomainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A624230A9D82007B3CCB /* DomainModule.swift */; };
+		B4947C0323084C6700D3971D /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0123084C6700D3971D /* Dependency.swift */; };
+		B4947C0423084C6700D3971D /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0123084C6700D3971D /* Dependency.swift */; };
+		B4947C0523084C6700D3971D /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0123084C6700D3971D /* Dependency.swift */; };
+		B4947C0623084C6700D3971D /* StorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* StorageImpl.swift */; };
+		B4947C0723084C6700D3971D /* StorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* StorageImpl.swift */; };
+		B4947C0823084C6700D3971D /* StorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* StorageImpl.swift */; };
+		FAB5AA262273D1190095C309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA252273D1190095C309 /* AppDelegate.swift */; };
+		FAB5AA282273D1190095C309 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA272273D1190095C309 /* AuthViewController.swift */; };
+		FAB5AA2B2273D1190095C309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB5AA292273D1190095C309 /* Main.storyboard */; };
+		FAB5AA2D2273D11A0095C309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB5AA2C2273D11A0095C309 /* Assets.xcassets */; };
+		FAB5AA302273D11A0095C309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB5AA2E2273D11A0095C309 /* LaunchScreen.storyboard */; };
+		FAB5AA3B2273D11A0095C309 /* KurirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA3A2273D11A0095C309 /* KurirTests.swift */; };
+		FAB5AA462273D11A0095C309 /* KurirUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB5AA452273D11A0095C309 /* KurirUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAB5AA372273D11A0095C309 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAB5AA1A2273D1190095C309 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAB5AA212273D1190095C309;
+			remoteInfo = Kurir;
+		};
+		FAB5AA422273D11A0095C309 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAB5AA1A2273D1190095C309 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAB5AA212273D1190095C309;
+			remoteInfo = Kurir;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		17B9012C96E598F4C0E8115E /* Pods_Kurir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kurir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E608E4D8299066B8C801E0D /* Pods-Kurir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kurir.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kurir/Pods-Kurir.release.xcconfig"; sourceTree = "<group>"; };
+		A3C3F1BE9EDBE28B81CC0A8A /* Pods-Kurir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kurir.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kurir/Pods-Kurir.debug.xcconfig"; sourceTree = "<group>"; };
+		B422A59C230854A4007B3CCB /* Mobilex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mobilex.framework; path = ../Mobilex/build/cocoapods/framework/Mobilex.framework; sourceTree = "<group>"; };
+		B422A59F2308559D007B3CCB /* UIViewController+Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Dependency.swift"; sourceTree = "<group>"; };
+		B422A614230A3574007B3CCB /* AuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDelegate.swift; sourceTree = "<group>"; };
+		B422A618230A3587007B3CCB /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		B422A61C230A9CB3007B3CCB /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		B422A620230A9CCF007B3CCB /* AuthModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModule.swift; sourceTree = "<group>"; };
+		B422A624230A9D82007B3CCB /* DomainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainModule.swift; sourceTree = "<group>"; };
+		B4947C0123084C6700D3971D /* Dependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
+		B4947C0223084C6700D3971D /* StorageImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageImpl.swift; sourceTree = "<group>"; };
+		FAB5AA222273D1190095C309 /* Kurir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kurir.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB5AA252273D1190095C309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAB5AA272273D1190095C309 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		FAB5AA2A2273D1190095C309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAB5AA2C2273D11A0095C309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAB5AA2F2273D11A0095C309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FAB5AA312273D11A0095C309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAB5AA362273D11A0095C309 /* KurirTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurirTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB5AA3A2273D11A0095C309 /* KurirTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurirTests.swift; sourceTree = "<group>"; };
+		FAB5AA3C2273D11A0095C309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAB5AA412273D11A0095C309 /* KurirUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurirUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB5AA452273D11A0095C309 /* KurirUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurirUITests.swift; sourceTree = "<group>"; };
+		FAB5AA472273D11A0095C309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAB5AA1F2273D1190095C309 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B422A59D230854A4007B3CCB /* Mobilex.framework in Frameworks */,
+				A49D56513043D863EECA3C61 /* Pods_Kurir.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB5AA332273D11A0095C309 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB5AA3E2273D11A0095C309 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5446D2642E2A1F6C564D2D5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B422A59C230854A4007B3CCB /* Mobilex.framework */,
+				17B9012C96E598F4C0E8115E /* Pods_Kurir.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58DFE6252863A29446D7FBF8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3C3F1BE9EDBE28B81CC0A8A /* Pods-Kurir.debug.xcconfig */,
+				8E608E4D8299066B8C801E0D /* Pods-Kurir.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B422A59E23085583007B3CCB /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				B422A59F2308559D007B3CCB /* UIViewController+Dependency.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		B422A5A2230855FB007B3CCB /* dependency */ = {
+			isa = PBXGroup;
+			children = (
+				B422A5A8230856C0007B3CCB /* global */,
+				B422A5A7230856BA007B3CCB /* domain */,
+				B422A5A6230856B3007B3CCB /* auth */,
+				B4947C0123084C6700D3971D /* Dependency.swift */,
+				B422A61C230A9CB3007B3CCB /* Module.swift */,
+			);
+			path = dependency;
+			sourceTree = "<group>";
+		};
+		B422A5A323085631007B3CCB /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				B422A5A423085644007B3CCB /* auth */,
+				B422A5A52308564C007B3CCB /* domain */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
+		B422A5A423085644007B3CCB /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				B422A60F230A34BF007B3CCB /* impl */,
+				B422A614230A3574007B3CCB /* AuthDelegate.swift */,
+				B422A618230A3587007B3CCB /* AuthViewModel.swift */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		B422A5A52308564C007B3CCB /* domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		B422A5A6230856B3007B3CCB /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				B422A620230A9CCF007B3CCB /* AuthModule.swift */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		B422A5A7230856BA007B3CCB /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				B422A624230A9D82007B3CCB /* DomainModule.swift */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		B422A5A8230856C0007B3CCB /* global */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = global;
+			sourceTree = "<group>";
+		};
+		B422A60F230A34BF007B3CCB /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				FAB5AA272273D1190095C309 /* AuthViewController.swift */,
+			);
+			path = impl;
+			sourceTree = "<group>";
+		};
+		B4947C0023084C5200D3971D /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				B4947C0223084C6700D3971D /* StorageImpl.swift */,
+			);
+			path = impl;
+			sourceTree = "<group>";
+		};
+		FAB5AA192273D1190095C309 = {
+			isa = PBXGroup;
+			children = (
+				FAB5AA242273D1190095C309 /* Kurir */,
+				FAB5AA392273D11A0095C309 /* KurirTests */,
+				FAB5AA442273D11A0095C309 /* KurirUITests */,
+				FAB5AA232273D1190095C309 /* Products */,
+				5446D2642E2A1F6C564D2D5C /* Frameworks */,
+				58DFE6252863A29446D7FBF8 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		FAB5AA232273D1190095C309 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAB5AA222273D1190095C309 /* Kurir.app */,
+				FAB5AA362273D11A0095C309 /* KurirTests.xctest */,
+				FAB5AA412273D11A0095C309 /* KurirUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAB5AA242273D1190095C309 /* Kurir */ = {
+			isa = PBXGroup;
+			children = (
+				B422A5A2230855FB007B3CCB /* dependency */,
+				B422A59E23085583007B3CCB /* extension */,
+				B4947C0023084C5200D3971D /* impl */,
+				B422A5A323085631007B3CCB /* modules */,
+				FAB5AA252273D1190095C309 /* AppDelegate.swift */,
+				FAB5AA292273D1190095C309 /* Main.storyboard */,
+				FAB5AA2C2273D11A0095C309 /* Assets.xcassets */,
+				FAB5AA2E2273D11A0095C309 /* LaunchScreen.storyboard */,
+				FAB5AA312273D11A0095C309 /* Info.plist */,
+			);
+			path = Kurir;
+			sourceTree = "<group>";
+		};
+		FAB5AA392273D11A0095C309 /* KurirTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAB5AA3A2273D11A0095C309 /* KurirTests.swift */,
+				FAB5AA3C2273D11A0095C309 /* Info.plist */,
+			);
+			path = KurirTests;
+			sourceTree = "<group>";
+		};
+		FAB5AA442273D11A0095C309 /* KurirUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAB5AA452273D11A0095C309 /* KurirUITests.swift */,
+				FAB5AA472273D11A0095C309 /* Info.plist */,
+			);
+			path = KurirUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAB5AA212273D1190095C309 /* Kurir */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB5AA4A2273D11A0095C309 /* Build configuration list for PBXNativeTarget "Kurir" */;
+			buildPhases = (
+				44FD8BAB7607653BEF8BCC50 /* [CP] Check Pods Manifest.lock */,
+				FAB5AA1E2273D1190095C309 /* Sources */,
+				FAB5AA1F2273D1190095C309 /* Frameworks */,
+				FAB5AA202273D1190095C309 /* Resources */,
+				261A386348C6FD06AC4182CD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kurir;
+			productName = Kurir;
+			productReference = FAB5AA222273D1190095C309 /* Kurir.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAB5AA352273D11A0095C309 /* KurirTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB5AA4D2273D11A0095C309 /* Build configuration list for PBXNativeTarget "KurirTests" */;
+			buildPhases = (
+				FAB5AA322273D11A0095C309 /* Sources */,
+				FAB5AA332273D11A0095C309 /* Frameworks */,
+				FAB5AA342273D11A0095C309 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAB5AA382273D11A0095C309 /* PBXTargetDependency */,
+			);
+			name = KurirTests;
+			productName = KurirTests;
+			productReference = FAB5AA362273D11A0095C309 /* KurirTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAB5AA402273D11A0095C309 /* KurirUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB5AA502273D11A0095C309 /* Build configuration list for PBXNativeTarget "KurirUITests" */;
+			buildPhases = (
+				FAB5AA3D2273D11A0095C309 /* Sources */,
+				FAB5AA3E2273D11A0095C309 /* Frameworks */,
+				FAB5AA3F2273D11A0095C309 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAB5AA432273D11A0095C309 /* PBXTargetDependency */,
+			);
+			name = KurirUITests;
+			productName = KurirUITests;
+			productReference = FAB5AA412273D11A0095C309 /* KurirUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAB5AA1A2273D1190095C309 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Crazybean Studio";
+				TargetAttributes = {
+					FAB5AA212273D1190095C309 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FAB5AA352273D11A0095C309 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FAB5AA212273D1190095C309;
+					};
+					FAB5AA402273D11A0095C309 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FAB5AA212273D1190095C309;
+					};
+				};
+			};
+			buildConfigurationList = FAB5AA1D2273D1190095C309 /* Build configuration list for PBXProject "Kurir" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAB5AA192273D1190095C309;
+			productRefGroup = FAB5AA232273D1190095C309 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAB5AA212273D1190095C309 /* Kurir */,
+				FAB5AA352273D11A0095C309 /* KurirTests */,
+				FAB5AA402273D11A0095C309 /* KurirUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAB5AA202273D1190095C309 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB5AA302273D11A0095C309 /* LaunchScreen.storyboard in Resources */,
+				FAB5AA2D2273D11A0095C309 /* Assets.xcassets in Resources */,
+				FAB5AA2B2273D1190095C309 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB5AA342273D11A0095C309 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB5AA3F2273D11A0095C309 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		261A386348C6FD06AC4182CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Kurir/Pods-Kurir-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MobileSDK/MobileSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MobileSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kurir/Pods-Kurir-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44FD8BAB7607653BEF8BCC50 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kurir-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAB5AA1E2273D1190095C309 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4947C0323084C6700D3971D /* Dependency.swift in Sources */,
+				B422A625230A9D82007B3CCB /* DomainModule.swift in Sources */,
+				FAB5AA282273D1190095C309 /* AuthViewController.swift in Sources */,
+				FAB5AA262273D1190095C309 /* AppDelegate.swift in Sources */,
+				B422A619230A3587007B3CCB /* AuthViewModel.swift in Sources */,
+				B4947C0623084C6700D3971D /* StorageImpl.swift in Sources */,
+				B422A61D230A9CB3007B3CCB /* Module.swift in Sources */,
+				B422A621230A9CCF007B3CCB /* AuthModule.swift in Sources */,
+				B422A615230A3574007B3CCB /* AuthDelegate.swift in Sources */,
+				B422A5A02308559D007B3CCB /* UIViewController+Dependency.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB5AA322273D11A0095C309 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B422A622230A9CCF007B3CCB /* AuthModule.swift in Sources */,
+				B4947C0723084C6700D3971D /* StorageImpl.swift in Sources */,
+				B4947C0423084C6700D3971D /* Dependency.swift in Sources */,
+				B422A626230A9D82007B3CCB /* DomainModule.swift in Sources */,
+				B422A61A230A3587007B3CCB /* AuthViewModel.swift in Sources */,
+				B422A616230A3574007B3CCB /* AuthDelegate.swift in Sources */,
+				FAB5AA3B2273D11A0095C309 /* KurirTests.swift in Sources */,
+				B422A61E230A9CB3007B3CCB /* Module.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB5AA3D2273D11A0095C309 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B422A623230A9CCF007B3CCB /* AuthModule.swift in Sources */,
+				B4947C0823084C6700D3971D /* StorageImpl.swift in Sources */,
+				B4947C0523084C6700D3971D /* Dependency.swift in Sources */,
+				B422A627230A9D82007B3CCB /* DomainModule.swift in Sources */,
+				B422A61B230A3587007B3CCB /* AuthViewModel.swift in Sources */,
+				B422A617230A3574007B3CCB /* AuthDelegate.swift in Sources */,
+				FAB5AA462273D11A0095C309 /* KurirUITests.swift in Sources */,
+				B422A61F230A9CB3007B3CCB /* Module.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAB5AA382273D11A0095C309 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAB5AA212273D1190095C309 /* Kurir */;
+			targetProxy = FAB5AA372273D11A0095C309 /* PBXContainerItemProxy */;
+		};
+		FAB5AA432273D11A0095C309 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAB5AA212273D1190095C309 /* Kurir */;
+			targetProxy = FAB5AA422273D11A0095C309 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FAB5AA292273D1190095C309 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAB5AA2A2273D1190095C309 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FAB5AA2E2273D11A0095C309 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAB5AA2F2273D11A0095C309 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B422A60D230A3139007B3CCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3C3F1BE9EDBE28B81CC0A8A /* Pods-Kurir.debug.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = WJYBXH459T;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "$(SRCROOT)/Kurir/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.crazybean.mobilex.kurir;
+				PRODUCT_NAME = Kurir;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		B422A60E230A3139007B3CCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E608E4D8299066B8C801E0D /* Pods-Kurir.release.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = WJYBXH459T;
+				INFOPLIST_FILE = "$(SRCROOT)/Kurir/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.crazybean.mobilex.kurir;
+				PRODUCT_NAME = Kurir;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		FAB5AA482273D11A0095C309 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FAB5AA492273D11A0095C309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAB5AA4E2273D11A0095C309 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KurirTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.crazybean.mobilex.KurirTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mobilex.Kurir/Kurir";
+			};
+			name = Debug;
+		};
+		FAB5AA4F2273D11A0095C309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KurirTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.crazybean.mobilex.KurirTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mobilex.Kurir/Kurir";
+			};
+			name = Release;
+		};
+		FAB5AA512273D11A0095C309 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KurirUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.crazybean.mobilex.KurirUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Kurir;
+			};
+			name = Debug;
+		};
+		FAB5AA522273D11A0095C309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = KurirUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.crazybean.mobilex.KurirUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Kurir;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAB5AA1D2273D1190095C309 /* Build configuration list for PBXProject "Kurir" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB5AA482273D11A0095C309 /* Debug */,
+				FAB5AA492273D11A0095C309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB5AA4A2273D11A0095C309 /* Build configuration list for PBXNativeTarget "Kurir" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B422A60D230A3139007B3CCB /* Debug */,
+				B422A60E230A3139007B3CCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB5AA4D2273D11A0095C309 /* Build configuration list for PBXNativeTarget "KurirTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB5AA4E2273D11A0095C309 /* Debug */,
+				FAB5AA4F2273D11A0095C309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB5AA502273D11A0095C309 /* Build configuration list for PBXNativeTarget "KurirUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB5AA512273D11A0095C309 /* Debug */,
+				FAB5AA522273D11A0095C309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAB5AA1A2273D1190095C309 /* Project object */;
+}

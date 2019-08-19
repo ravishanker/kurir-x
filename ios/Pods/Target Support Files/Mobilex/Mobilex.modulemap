@@ -1,0 +1,6 @@
+framework module Mobilex_umbrella {
+  umbrella header "Mobilex-umbrella.h"
+
+  export *
+  module * { export * }
+}

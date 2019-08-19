@@ -1,0 +1,34 @@
+PODS:
+  - MobileSDK (1.0.0)
+  - Mobilex (0.0.1-SNAPSHOT)
+  - Swinject (2.5.0)
+
+DEPENDENCIES:
+  - "MobileSDK (from `https://crazybeanstudio@bitbucket.org/crazybeanstudio/mobile-sdk-ios.git`, tag `1.0.0`)"
+  - Mobilex (from `../Mobilex`)
+  - Swinject
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Swinject
+
+EXTERNAL SOURCES:
+  MobileSDK:
+    :git: "https://crazybeanstudio@bitbucket.org/crazybeanstudio/mobile-sdk-ios.git"
+    :tag: 1.0.0
+  Mobilex:
+    :path: "../Mobilex"
+
+CHECKOUT OPTIONS:
+  MobileSDK:
+    :git: "https://crazybeanstudio@bitbucket.org/crazybeanstudio/mobile-sdk-ios.git"
+    :tag: 1.0.0
+
+SPEC CHECKSUMS:
+  MobileSDK: 3c3bad758af413bbdd1b764930aafc8beb8e9568
+  Mobilex: 9d901b7dbe56f770ec32325478617e666da77efc
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+
+PODFILE CHECKSUM: 7a3b5d99293b8044bbeefb5ff0ebaff3e72e7c2c
+
+COCOAPODS: 1.5.3

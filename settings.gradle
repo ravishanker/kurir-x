@@ -1,0 +1,9 @@
+rootProject.name = 'kurir'
+def buildAndroid = properties['org.gradle.project.buildAndroid'].toBoolean()
+if (buildAndroid) {
+    include 'android'
+}
+
+include 'Mobilex'
+
+enableFeaturePreview('GRADLE_METADATA')
