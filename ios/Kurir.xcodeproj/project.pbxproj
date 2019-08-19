@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A49D56513043D863EECA3C61 /* Pods_Kurir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B9012C96E598F4C0E8115E /* Pods_Kurir.framework */; };
+		2A14617F31866C88E0FCA6E0 /* Pods_Kurir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84113ACB4F05C6E555251AD2 /* Pods_Kurir.framework */; };
 		B422A59D230854A4007B3CCB /* Mobilex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B422A59C230854A4007B3CCB /* Mobilex.framework */; };
 		B422A5A02308559D007B3CCB /* UIViewController+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A59F2308559D007B3CCB /* UIViewController+Dependency.swift */; };
 		B422A615230A3574007B3CCB /* AuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A614230A3574007B3CCB /* AuthDelegate.swift */; };
@@ -58,7 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17B9012C96E598F4C0E8115E /* Pods_Kurir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kurir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84113ACB4F05C6E555251AD2 /* Pods_Kurir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kurir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E608E4D8299066B8C801E0D /* Pods-Kurir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kurir.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kurir/Pods-Kurir.release.xcconfig"; sourceTree = "<group>"; };
 		A3C3F1BE9EDBE28B81CC0A8A /* Pods-Kurir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kurir.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kurir/Pods-Kurir.debug.xcconfig"; sourceTree = "<group>"; };
 		B422A59C230854A4007B3CCB /* Mobilex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mobilex.framework; path = ../Mobilex/build/cocoapods/framework/Mobilex.framework; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B422A59D230854A4007B3CCB /* Mobilex.framework in Frameworks */,
-				A49D56513043D863EECA3C61 /* Pods_Kurir.framework in Frameworks */,
+				2A14617F31866C88E0FCA6E0 /* Pods_Kurir.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				B422A59C230854A4007B3CCB /* Mobilex.framework */,
-				17B9012C96E598F4C0E8115E /* Pods_Kurir.framework */,
+				84113ACB4F05C6E555251AD2 /* Pods_Kurir.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

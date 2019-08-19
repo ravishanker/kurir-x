@@ -8,7 +8,6 @@
 
 import Foundation
 import Swinject
-import Mobilex
 
 class Dependency {
     private var mModules = [Module]()
