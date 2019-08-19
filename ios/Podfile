@@ -8,6 +8,6 @@ target 'Kurir' do
   use_frameworks!
   
   pod 'Mobilex', :path => '../Mobilex'
-  pod 'MobileSDK', :git => 'https://crazybeanstudio@bitbucket.org/crazybeanstudio/mobile-sdk-ios.git', :tag => '1.0.0'
+  pod 'MobileSDK', :git => 'https://github.com/crazybeanstudio/mobile-ios.git', :tag => '1.0.0'
   pod 'Swinject'
 end
