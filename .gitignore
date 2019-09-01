@@ -9,5 +9,11 @@ android/*.iml
 Mobilex/*.iml
 
 # Ignore for iOS
+ios/Pods/Target Support Files/**
 ios/Pods/Swinject/**
 ios/Pods/Pods.xcodeproj/**
+ios/Pods/BoringSSL/**
+ios/Pods/Firebase*/**
+ios/Pods/gRPC-*/**
+ios/Pods/leveldb-*/**
+ios/Pods/Protobuf/**
