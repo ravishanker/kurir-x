@@ -17,3 +17,5 @@ ios/Pods/Firebase*/**
 ios/Pods/gRPC-*/**
 ios/Pods/leveldb-*/**
 ios/Pods/Protobuf/**
+ios/Pods/Google*/**
+ios/Pods/nanopb/**
