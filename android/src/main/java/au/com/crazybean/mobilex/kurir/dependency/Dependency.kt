@@ -1,9 +1,10 @@
 package au.com.crazybean.mobilex.kurir.dependency
 
 import android.app.Application
-import au.com.crazybean.mobilex.kurir.dependency.auth.authModule
 import au.com.crazybean.mobilex.kurir.dependency.domain.domainModule
 import au.com.crazybean.mobilex.kurir.dependency.global.appModule
+import au.com.crazybean.mobilex.kurir.dependency.login.loginModule
+import au.com.crazybean.mobilex.kurir.dependency.signup.signupModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -17,7 +18,8 @@ class Dependency private constructor() {
                 // Modules
                 modules(listOf(appModule,
                         domainModule,
-                        authModule))
+                        loginModule,
+                        signupModule))
             }
         }
     }

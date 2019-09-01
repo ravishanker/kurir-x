@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "982709307007",
+    "firebase_url": "https://kurirx.firebaseio.com",
+    "project_id": "kurirx",
+    "storage_bucket": "kurirx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982709307007:android:a86a3704d7e24826",
+        "android_client_info": {
+          "package_name": "au.com.crazybean.mobilex.kurir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982709307007-8af0s8m0h2uafrg9diuah65u2hi375m7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9aPIanhnbDU06IGp4P9ZNThvQZ_KLMyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982709307007-8af0s8m0h2uafrg9diuah65u2hi375m7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

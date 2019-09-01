@@ -6,7 +6,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 open class Wrapper(private val mainScope: CoroutineScope = customMainScope) : CoroutineScope by mainScope {
-    protected open fun onRelease() {
+    open fun onRelease() {
         cancel()
     }
 

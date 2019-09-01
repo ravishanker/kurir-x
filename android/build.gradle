@@ -12,6 +12,7 @@ android {
         targetSdkVersion project.targetSdkVersion
         versionCode 1
         versionName "0.0.1"
+        multiDexEnabled true
     }
 
     signingConfigs {}
@@ -19,7 +20,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
@@ -71,6 +73,7 @@ dependencies {
 
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
     implementation "androidx.cardview:cardview:$cardviewVersion"
+    implementation "androidx.multidex:multidex:$multidexVersion"
     implementation "androidx.recyclerview:recyclerview:$recyclerviewVersion"
     implementation "com.google.android.material:material:$materialVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
@@ -81,6 +84,9 @@ dependencies {
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-firestore:21.0.0'
 
     // Koin AndroidX Scope features
     implementation "org.koin:koin-androidx-scope:$koinVersion"
@@ -97,3 +103,5 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
 }
+
+apply plugin: 'com.google.gms.google-services'

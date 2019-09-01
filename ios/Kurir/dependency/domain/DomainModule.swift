@@ -18,9 +18,15 @@ class DomainModule: Module {
             }!
         }
         
+        register(UsersDatabase.self) { r in
+            return self.fetch(forType: UsersDatabase.self) {
+                UsersDatabase(database: DatabaseImpl())
+                }!
+        }
+        
         // Domain Repository
         register(AuthRepository.self) { r in
-            AuthRepository(dataSource: r.resolve(AuthNetworkDataSource.self)!)
+            AuthRepository(database: r.resolve(UsersDatabase.self)!)
         }
     }
 }

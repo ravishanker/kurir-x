@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MobileX</string>
+    <string name="app_name">Courier App</string>
+    <string name="user_name_hint">Mobile Number or Email</string>
+    <string name="password_hint">Password</string>
+    <string name="mobile_hint">Mobile Number</string>
+    <string name="email_hint">Email</string>
+
+    <!-- Button -->
+    <string name="button_login">Login</string>
+    <string name="button_signup">Sign Up</string>
+
+    <!-- Error -->
+    <string name="error_user_not_found">User not found</string>
+    <string name="error_wrong_password">Incorrect password</string>
 </resources>
