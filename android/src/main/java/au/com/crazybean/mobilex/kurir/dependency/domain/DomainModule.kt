@@ -2,8 +2,8 @@ package au.com.crazybean.mobilex.kurir.dependency.domain
 
 import au.com.crazybean.mobilex.database.Database
 import au.com.crazybean.mobilex.kurir.impl.DatabaseImpl
-import au.com.crazybean.mobilex.repository.auth.AuthRepository
-import au.com.crazybean.mobilex.repository.auth.database.UsersDatabase
+import au.com.crazybean.mobilex.kurir.repository.auth.AuthRepository
+import au.com.crazybean.mobilex.kurir.repository.auth.database.UsersDatabase
 import org.koin.dsl.module
 
 val domainModule = module {

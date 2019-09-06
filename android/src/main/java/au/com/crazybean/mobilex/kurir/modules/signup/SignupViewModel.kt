@@ -2,8 +2,8 @@ package au.com.crazybean.mobilex.kurir.modules.signup
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import au.com.crazybean.mobilex.data.model.Auth
-import au.com.crazybean.mobilex.repository.auth.AuthRepository
+import au.com.crazybean.mobilex.kurir.data.model.Auth
+import au.com.crazybean.mobilex.kurir.repository.auth.AuthRepository
 import au.com.crazybean.sdk.mvvm.ViewModel
 
 class SignupViewModel(private val repository: AuthRepository?) : ViewModel() {

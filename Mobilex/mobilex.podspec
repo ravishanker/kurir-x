@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'Mobilex'
-    spec.version                  = '0.0.1-SNAPSHOT'
+    spec.version                  = '1.0.0-BETA'
     spec.homepage                 = 'https://bitbucket.org/crazybeanstudio/mobilex'
     spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.authors                  = ''
@@ -32,7 +32,7 @@ Pod::Spec.new do |spec|
                     -Pkotlin.native.cocoapods.cflags="$OTHER_CFLAGS" \
                     -Pkotlin.native.cocoapods.paths.headers="$HEADER_SEARCH_PATHS" \
                     -Pkotlin.native.cocoapods.paths.frameworks="$FRAMEWORK_SEARCH_PATHS" \
-                    -Porg.gradle.project.buildAndroid=false
+                    -Pmobilex.target.useAndroid=false
             SCRIPT
         }
     ]

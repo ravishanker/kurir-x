@@ -86,7 +86,7 @@ PODS:
   - gRPC-Core/Interface (1.14.0)
   - leveldb-library (1.20)
   - MobileSDK (1.0.0)
-  - Mobilex (0.0.1-SNAPSHOT)
+  - Mobilex (1.0.0-BETA)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -146,7 +146,7 @@ SPEC CHECKSUMS:
   gRPC-Core: f4836515817c0eb479aeeb9cc27c91c4ba62a9f6
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MobileSDK: c893154885c2cccd0523854ac1e5e665be520d16
-  Mobilex: 1f73a3a2576b45d54ac11aeb5fe48f242471d531
+  Mobilex: 4577f9a49fbaedf5acaf226ab555293f1e2596cb
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e

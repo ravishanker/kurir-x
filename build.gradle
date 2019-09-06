@@ -14,7 +14,6 @@ buildscript {
         classpath 'com.google.gms:google-services:4.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
-        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion"
         classpath 'co.touchlab:kotlinxcodesync:0.1.2'
     }
 }
@@ -39,17 +38,6 @@ subprojects {
         google()
         maven { url "https://kotlin.bintray.com/kotlinx" }
         maven { url "http://dl.bintray.com/kotlin/ktor" }
-    }
-
-    apply plugin: "io.gitlab.arturbosch.detekt"
-
-    detekt {
-        toolVersion = "$detektVersion"
-        filters = ".*/resources/.*,.*/build/.*"
-        config = files("$rootDir/detekt.yml")
-    }
-    dependencies {
-        detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
     }
 }
 
