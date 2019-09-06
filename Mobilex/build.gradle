@@ -5,9 +5,7 @@ apply plugin: 'co.touchlab.kotlinxcodesync'
 apply from: '../version.gradle'
 
 kotlin {
-
     jvm {
-
     }
 
     sourceSets {
@@ -84,7 +82,7 @@ kotlin {
     }
 
     cocoapods {
-        summary = "MobileX module"
+        summary = "Mobilex module"
         homepage = "https://bitbucket.org/crazybeanstudio/mobilex"
     }
 }
@@ -96,12 +94,4 @@ configurations {
 xcode {
     projectPath = "../ios/Kurir.xcodeproj"
     target = "Kurir"
-}
-
-detekt {
-    input = files(
-            "src/commonMain/kotlin",
-            "src/iOSMain/kotlin",
-            "src/jvmMain/kotlin",
-    )
 }

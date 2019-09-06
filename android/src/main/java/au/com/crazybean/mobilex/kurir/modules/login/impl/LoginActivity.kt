@@ -3,14 +3,14 @@ package au.com.crazybean.mobilex.kurir.modules.login.impl
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import au.com.crazybean.mobilex.data.model.Auth
-import au.com.crazybean.mobilex.data.model.ERR_NOT_FOUND
-import au.com.crazybean.mobilex.data.model.ERR_PASSWORD
+import au.com.crazybean.mobilex.kurir.data.model.Auth
+import au.com.crazybean.mobilex.kurir.data.model.ERR_NOT_FOUND
+import au.com.crazybean.mobilex.kurir.data.model.ERR_PASSWORD
 import au.com.crazybean.mobilex.kurir.R
 import au.com.crazybean.mobilex.kurir.modules.login.LoginDelegate
 import au.com.crazybean.mobilex.kurir.modules.base.BaseActivity
 import au.com.crazybean.mobilex.kurir.modules.base.Module
-import au.com.crazybean.mobilex.modules.login.LoginView
+import au.com.crazybean.mobilex.kurir.modules.login.LoginView
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 

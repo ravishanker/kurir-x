@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2A14617F31866C88E0FCA6E0 /* Pods_Kurir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84113ACB4F05C6E555251AD2 /* Pods_Kurir.framework */; };
-		B422A59D230854A4007B3CCB /* Mobilex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B422A59C230854A4007B3CCB /* Mobilex.framework */; };
+		B421912A232298BA00107110 /* Mobilex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B422A59C230854A4007B3CCB /* Mobilex.framework */; };
+		B421912B232298BA00107110 /* Mobilex.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B422A59C230854A4007B3CCB /* Mobilex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B422A5A02308559D007B3CCB /* UIViewController+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A59F2308559D007B3CCB /* UIViewController+Dependency.swift */; };
 		B422A61D230A9CB3007B3CCB /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A61C230A9CB3007B3CCB /* Module.swift */; };
 		B422A61E230A9CB3007B3CCB /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A61C230A9CB3007B3CCB /* Module.swift */; };
@@ -26,9 +27,9 @@
 		B4947C0323084C6700D3971D /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0123084C6700D3971D /* Dependency.swift */; };
 		B4947C0423084C6700D3971D /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0123084C6700D3971D /* Dependency.swift */; };
 		B4947C0523084C6700D3971D /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0123084C6700D3971D /* Dependency.swift */; };
-		B4947C0623084C6700D3971D /* StorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* StorageImpl.swift */; };
-		B4947C0723084C6700D3971D /* StorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* StorageImpl.swift */; };
-		B4947C0823084C6700D3971D /* StorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* StorageImpl.swift */; };
+		B4947C0623084C6700D3971D /* DefaultsUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* DefaultsUserData.swift */; };
+		B4947C0723084C6700D3971D /* DefaultsUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* DefaultsUserData.swift */; };
+		B4947C0823084C6700D3971D /* DefaultsUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* DefaultsUserData.swift */; };
 		B49ADB95231BC72500C79FC3 /* SignupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49ADB94231BC72400C79FC3 /* SignupDelegate.swift */; };
 		B49ADB96231BC72500C79FC3 /* SignupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49ADB94231BC72400C79FC3 /* SignupDelegate.swift */; };
 		B49ADB97231BC72500C79FC3 /* SignupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49ADB94231BC72400C79FC3 /* SignupDelegate.swift */; };
@@ -66,6 +67,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B421912C232298BA00107110 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B421912B232298BA00107110 /* Mobilex.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		84113ACB4F05C6E555251AD2 /* Pods_Kurir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kurir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E608E4D8299066B8C801E0D /* Pods-Kurir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kurir.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kurir/Pods-Kurir.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,7 +95,7 @@
 		B44C2F24231ABDBF006AF28F /* LoginModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
 		B44C2F26231AC017006AF28F /* DatabaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseImpl.swift; sourceTree = "<group>"; };
 		B4947C0123084C6700D3971D /* Dependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
-		B4947C0223084C6700D3971D /* StorageImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageImpl.swift; sourceTree = "<group>"; };
+		B4947C0223084C6700D3971D /* DefaultsUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsUserData.swift; sourceTree = "<group>"; };
 		B49ADB94231BC72400C79FC3 /* SignupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDelegate.swift; sourceTree = "<group>"; };
 		B49ADB98231BC72F00C79FC3 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		B49ADB9D231BC74B00C79FC3 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B422A59D230854A4007B3CCB /* Mobilex.framework in Frameworks */,
+				B421912A232298BA00107110 /* Mobilex.framework in Frameworks */,
 				2A14617F31866C88E0FCA6E0 /* Pods_Kurir.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,7 +225,7 @@
 		B4947C0023084C5200D3971D /* impl */ = {
 			isa = PBXGroup;
 			children = (
-				B4947C0223084C6700D3971D /* StorageImpl.swift */,
+				B4947C0223084C6700D3971D /* DefaultsUserData.swift */,
 				B44C2F26231AC017006AF28F /* DatabaseImpl.swift */,
 			);
 			path = impl;
@@ -311,6 +326,7 @@
 				FAB5AA202273D1190095C309 /* Resources */,
 				261A386348C6FD06AC4182CD /* [CP] Embed Pods Frameworks */,
 				4A214613D4485A01CD4EB05B /* [CP] Copy Pods Resources */,
+				B421912C232298BA00107110 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -524,7 +540,7 @@
 				FAB5AA262273D1190095C309 /* AppDelegate.swift in Sources */,
 				B49ADBA3231BC84600C79FC3 /* SignupModule.swift in Sources */,
 				B44C2F25231ABDBF006AF28F /* LoginModule.swift in Sources */,
-				B4947C0623084C6700D3971D /* StorageImpl.swift in Sources */,
+				B4947C0623084C6700D3971D /* DefaultsUserData.swift in Sources */,
 				B49ADB99231BC72F00C79FC3 /* SignupViewModel.swift in Sources */,
 				B49ADB9E231BC74B00C79FC3 /* SignupViewController.swift in Sources */,
 				B422A61D230A9CB3007B3CCB /* Module.swift in Sources */,
@@ -540,7 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B49ADB9F231BC74B00C79FC3 /* SignupViewController.swift in Sources */,
-				B4947C0723084C6700D3971D /* StorageImpl.swift in Sources */,
+				B4947C0723084C6700D3971D /* DefaultsUserData.swift in Sources */,
 				B4947C0423084C6700D3971D /* Dependency.swift in Sources */,
 				B49ADB9A231BC72F00C79FC3 /* SignupViewModel.swift in Sources */,
 				B44C2F28231AC017006AF28F /* DatabaseImpl.swift in Sources */,
@@ -557,7 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B49ADBA0231BC74B00C79FC3 /* SignupViewController.swift in Sources */,
-				B4947C0823084C6700D3971D /* StorageImpl.swift in Sources */,
+				B4947C0823084C6700D3971D /* DefaultsUserData.swift in Sources */,
 				B4947C0523084C6700D3971D /* Dependency.swift in Sources */,
 				B49ADB9B231BC72F00C79FC3 /* SignupViewModel.swift in Sources */,
 				B44C2F29231AC017006AF28F /* DatabaseImpl.swift in Sources */,
@@ -613,6 +629,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "$(SRCROOT)/Kurir/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.crazybean.mobilex.kurir;
 				PRODUCT_NAME = Kurir;
 				SWIFT_VERSION = 4.2;
@@ -627,6 +647,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = WJYBXH459T;
 				INFOPLIST_FILE = "$(SRCROOT)/Kurir/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.crazybean.mobilex.kurir;
 				PRODUCT_NAME = Kurir;
 				SWIFT_VERSION = 4.2;

@@ -1,6 +1,5 @@
 rootProject.name = 'kurir'
-def buildAndroid = properties['org.gradle.project.buildAndroid'].toBoolean()
-if (buildAndroid) {
+if (properties['mobilex.target.useAndroid'].toBoolean()) {
     include 'android'
 }
 

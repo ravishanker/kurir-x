@@ -1,8 +1,7 @@
 package au.com.crazybean.mobilex.kurir.modules.login
 
 import androidx.lifecycle.Observer
-import au.com.crazybean.mobilex.data.model.ERR_NONE
-import au.com.crazybean.mobilex.modules.login.LoginView
+import au.com.crazybean.mobilex.kurir.data.model.ERR_NONE
 import au.com.crazybean.sdk.mvvm.Delegate
 
 class LoginDelegate(view: LoginView?,
