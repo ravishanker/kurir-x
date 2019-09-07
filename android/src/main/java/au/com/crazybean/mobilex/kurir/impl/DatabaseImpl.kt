@@ -1,6 +1,6 @@
 package au.com.crazybean.mobilex.kurir.impl
 
-import au.com.crazybean.mobilex.database.Database
+import au.com.crazybean.mobilex.kurir.database.Database
 import com.google.firebase.firestore.FirebaseFirestore
 
 class DatabaseImpl : Database {

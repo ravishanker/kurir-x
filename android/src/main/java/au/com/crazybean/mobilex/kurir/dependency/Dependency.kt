@@ -1,6 +1,7 @@
 package au.com.crazybean.mobilex.kurir.dependency
 
 import android.app.Application
+import au.com.crazybean.mobilex.kurir.dependency.dashboard.dashboardModule
 import au.com.crazybean.mobilex.kurir.dependency.domain.domainModule
 import au.com.crazybean.mobilex.kurir.dependency.global.appModule
 import au.com.crazybean.mobilex.kurir.dependency.login.loginModule
@@ -16,10 +17,15 @@ class Dependency private constructor() {
                 androidContext(context)
 
                 // Modules
-                modules(listOf(appModule,
+                modules(
+                    listOf(
+                        appModule,
                         domainModule,
+                        dashboardModule,
                         loginModule,
-                        signupModule))
+                        signupModule
+                    )
+                )
             }
         }
     }

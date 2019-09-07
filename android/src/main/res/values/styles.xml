@@ -31,4 +31,12 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
+
+    <!-- Editor Style -->
+    <style name="Editor" parent="Widget.AppCompat.EditText" />
+
+    <style name="Editor.Password" parent="Editor">
+        <item name="android:inputType">textPassword</item>
+    </style>
+
 </resources>

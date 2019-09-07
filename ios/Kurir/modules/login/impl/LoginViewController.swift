@@ -3,7 +3,6 @@ import Mobilex
 import MobileSDK
 
 class LoginViewController: UICompatViewController, LoginView {
-    
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
@@ -28,6 +27,12 @@ class LoginViewController: UICompatViewController, LoginView {
     }
     
     func showDashboard() {
+    }
+    
+    func showNotFound() {
+    }
+    
+    func dismiss() {
     }
     
     @IBAction func onLoginTap(_ sender: Any) {

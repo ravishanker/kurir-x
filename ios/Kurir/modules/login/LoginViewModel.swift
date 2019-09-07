@@ -11,9 +11,9 @@ import MobileSDK
 import Mobilex
 
 class LoginViewModel: ViewModel {
-    private let repository: AuthRepository?
+    private let repository: UsersRepository?
     
-    init(_ repository: AuthRepository?) {
+    init(_ repository: UsersRepository?) {
         self.repository = repository
     }
     

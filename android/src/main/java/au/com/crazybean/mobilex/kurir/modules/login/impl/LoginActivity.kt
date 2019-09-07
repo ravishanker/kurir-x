@@ -2,10 +2,6 @@ package au.com.crazybean.mobilex.kurir.modules.login.impl
 
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
-import au.com.crazybean.mobilex.kurir.data.model.Auth
-import au.com.crazybean.mobilex.kurir.data.model.ERR_NOT_FOUND
-import au.com.crazybean.mobilex.kurir.data.model.ERR_PASSWORD
 import au.com.crazybean.mobilex.kurir.R
 import au.com.crazybean.mobilex.kurir.modules.login.LoginDelegate
 import au.com.crazybean.mobilex.kurir.modules.base.BaseActivity
@@ -46,12 +42,8 @@ class LoginActivity : BaseActivity<LoginDelegate>(), LoginView {
         navigate(Module.Dashboard)
     }
 
-    override fun showError(auth: Auth?) {
-        when (auth?.result) {
-            ERR_NOT_FOUND -> Toast.makeText(this, R.string.error_user_not_found, Toast.LENGTH_SHORT).show()
-            ERR_PASSWORD -> Toast.makeText(this, R.string.error_wrong_password, Toast.LENGTH_SHORT).show()
-            else -> Unit
-        }
+    override fun showNotFound() {
+        showError(R.string.error_user_not_found)
     }
 
     override fun showRegister() {
@@ -62,5 +54,6 @@ class LoginActivity : BaseActivity<LoginDelegate>(), LoginView {
     }
 
     override fun showPasswordError() {
+        showError(R.string.error_wrong_password)
     }
 }

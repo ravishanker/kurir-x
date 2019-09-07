@@ -1,4 +1,4 @@
-package au.com.crazybean.mobilex.database
+package au.com.crazybean.mobilex.kurir.database
 
 interface Database {
     fun readData(tableName: String, onSuccess: (List<Map<String, Any?>>) -> Unit, onError: ((Throwable) -> Unit)? = null)
