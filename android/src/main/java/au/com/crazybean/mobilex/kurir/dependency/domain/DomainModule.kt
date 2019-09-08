@@ -1,9 +1,13 @@
 package au.com.crazybean.mobilex.kurir.dependency.domain
 
-import au.com.crazybean.mobilex.database.Database
+import au.com.crazybean.mobilex.kurir.database.Database
 import au.com.crazybean.mobilex.kurir.impl.DatabaseImpl
-import au.com.crazybean.mobilex.kurir.repository.auth.AuthRepository
-import au.com.crazybean.mobilex.kurir.repository.auth.database.UsersDatabase
+import au.com.crazybean.mobilex.kurir.repository.tasks.TasksRepository
+import au.com.crazybean.mobilex.kurir.repository.tasks.TasksSource
+import au.com.crazybean.mobilex.kurir.repository.tasks.database.TasksDatabase
+import au.com.crazybean.mobilex.kurir.repository.users.UsersRepository
+import au.com.crazybean.mobilex.kurir.repository.users.UsersSource
+import au.com.crazybean.mobilex.kurir.repository.users.database.UsersDatabase
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -11,7 +15,11 @@ val domainModule = module {
         DatabaseImpl()
     }
 
-    single { UsersDatabase(get()) }
+    // Users Repository
+    single<UsersSource> { UsersDatabase(get()) }
+    single { UsersRepository(get()) }
 
-    single { AuthRepository(get()) }
+    // Tasks Repository
+    single<TasksSource> { TasksDatabase(get()) }
+    single { TasksRepository(get()) }
 }

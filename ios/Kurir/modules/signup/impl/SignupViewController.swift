@@ -11,7 +11,6 @@ import MobileSDK
 import Mobilex
 
 class SignupViewController: UICompatViewController, SignupView {
-    
     private(set) lazy var delegate = UIViewController.resolve(type: SignupDelegate.self, argument: self as SignupView)
     
     func showSignup() {
@@ -23,6 +22,21 @@ class SignupViewController: UICompatViewController, SignupView {
     func showVerify() {
     }
     
+    func showProfile() {
+    }
+    
+    func showCodeError() {
+    }
+    
+    func showExists() {
+    }
+    
+    func showError() {
+    }
+    
     func showDashboard() {
+    }
+    
+    func dismiss() {
     }
 }

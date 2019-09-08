@@ -13,7 +13,7 @@ class LoginModule: Module {
     override func inject() {
         // ViewModel
         register(LoginViewModel.self) { r in
-            LoginViewModel(r.resolve(AuthRepository.self)!)
+            LoginViewModel(r.resolve(UsersRepository.self)!)
         }
         
         // Delegate

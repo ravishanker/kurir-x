@@ -18,11 +18,19 @@ class LoginDelegate: Delegate<LoginView, LoginViewModel> {
         if let name = name, let password = password {
             viewModel.login(name: name, password: password)
                 .observe { [weak self] auth in
-                    // Check the result
-                    if auth?.result != AuthKt.ERR_NONE {
-                        self?.view?.showError(auth: auth)
-                    } else {
+                    switch auth?.result {
+                    case AuthKt.ERR_NONE:
                         self?.view?.showDashboard()
+                        self?.view?.dismiss()
+                        
+                    case AuthKt.ERR_NOT_FOUND:
+                        self?.view?.showNotFound()
+                        
+                    case AuthKt.ERR_PASSWORD:
+                        self?.view?.showPasswordError()
+                        
+                    default:
+                        self?.view?.dismiss()
                     }
             }
         }

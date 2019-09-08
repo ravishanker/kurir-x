@@ -14,6 +14,6 @@ val signupModule = module {
 
     // ViewModel
     viewModel {
-        SignupViewModel(get())
+        SignupViewModel(get(), get())
     }
 }
