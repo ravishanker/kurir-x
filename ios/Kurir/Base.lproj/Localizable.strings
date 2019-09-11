@@ -1,0 +1,27 @@
+// App
+"APP_NAME" = "Kurirx";
+
+// Hints
+"USER_NAME_HINT" = "Mobile Number or Email";
+"PASSWORD_HINT" = "Password";
+"PASSWORD_CONFIRM_HINT" = "Confirm Password";
+"PASSCODE_HINT" = "Passcode";
+"MOBILE_HINT" = "Mobile Number";
+"EMAIL_HINT" = "Email";
+"FIRST_NAME_HINT" = "First Name";
+"LAST_NAME_HINT" = "Last Name";
+
+// Buttons
+"BUTTON_LOGIN" = "Login";
+"BUTTON_SIGNUP" = "Sign Up";
+"BUTTON_VERIFY" = "Verify";
+"BUTTON_FINISH" = "Let's Go";
+"BUTTON_GOTCHA" = "Gotcha";
+
+// Error Message
+"ERROR_TITLE" = "Sorry";
+"ERROR_GENERIC" = "Oops! Something went wrong:( ";
+"ERROR_USER_NOT_FOUND" = "User not found";
+"ERROR_USER_EXISTS" = "User already exists";
+"ERROR_WRONG_PASSWORD" = "Incorrect password";
+"ERROR_WRONG_CODE" = "Incorrect code (Try: 123456)";

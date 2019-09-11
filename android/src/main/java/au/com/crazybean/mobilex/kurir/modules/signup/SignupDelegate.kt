@@ -2,9 +2,9 @@ package au.com.crazybean.mobilex.kurir.modules.signup
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import au.com.crazybean.foundation.mvvm.Delegate
 import au.com.crazybean.mobilex.kurir.data.model.ERR_EXISTS
 import au.com.crazybean.mobilex.kurir.data.model.ERR_NOT_FOUND
-import au.com.crazybean.sdk.mvvm.Delegate
 
 class SignupDelegate(view: SignupView?,
                      viewModel: SignupViewModel) : Delegate<SignupView, SignupViewModel>(view, viewModel) {

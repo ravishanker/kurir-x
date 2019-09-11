@@ -11,41 +11,43 @@ import Swinject
 import Mobilex
 
 class Module {
-    static let container = Container() // TODO: Remove the static variable
-    private lazy var singletons = [String : Any]()
-    
-    init() {
-        inject()
-    }
+    internal var container: Container?
+    internal var singletons: [String : Any]?
     
     func resolve<Target: Any>(type: Target.Type) -> Target? {
-        return Module.container.resolve(type)
+        return container?.resolve(type)
     }
     
     func resolve<Target: Any, Argument: Any>(type: Target.Type, argument: Argument) -> Target? {
-        return Module.container.resolve(type, argument: argument)
+        return container?.resolve(type, argument: argument)
     }
     
-    func fetch<Target: Any>(forType type: Target.Type, factory: (() -> Target?)? = nil) -> Target? {
-        var instance = singletons[key(forType: type)] as? Target
+    func single<Target: Any>(_ type: Target.Type, resolver: ((Resolver) -> Target?)? = nil) {
+        factory(type) { r in
+            return self.fetch(forType: type, resolver: r, factory: resolver)!
+        }
+    }
+    
+    func factory<Target>(_ type: Target.Type, resolver: @escaping (Resolver) -> Target) {
+        container?.register(type, factory: resolver)
+    }
+    
+    func factory<Target, Argument>(_ type: Target.Type, resolver: @escaping (Resolver, Argument) -> Target) {
+        container?.register(type, factory: resolver)
+    }
+    
+    internal func inject() {
+        preconditionFailure("You must override register method")
+    }
+    
+    private func fetch<Target: Any>(forType type: Target.Type, resolver: Resolver, factory: ((Resolver) -> Target?)? = nil) -> Target? {
+        var instance = singletons?[key(forType: type)] as? Target
         if instance == nil {
-            instance = factory?()
-            self.singletons[key(forType: type)] = instance
+            instance = factory?(resolver)
+            singletons?[key(forType: type)] = instance
         }
         
         return instance
-    }
-    
-    public func register<Target>(_ type: Target.Type, name: String? = nil, factory: @escaping (Resolver) -> Target) {
-        Module.container.register(type, name: name, factory: factory)
-    }
-    
-    public func register<Target, Argument>(_ type: Target.Type, name: String? = nil, factory: @escaping (Resolver, Argument) -> Target) {
-        Module.container.register(type, name: name, factory: factory)
-    }
-    
-    func inject() {
-        preconditionFailure("You must override register method")
     }
 }
 

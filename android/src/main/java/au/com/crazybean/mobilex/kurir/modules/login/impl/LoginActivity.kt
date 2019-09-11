@@ -56,4 +56,12 @@ class LoginActivity : BaseActivity<LoginDelegate>(), LoginView {
     override fun showPasswordError() {
         showError(R.string.error_wrong_password)
     }
+
+    override fun showSpinner() {
+        showLoading()
+    }
+
+    override fun hideSpinner() {
+        hideLoading()
+    }
 }

@@ -3,10 +3,10 @@ package au.com.crazybean.mobilex.kurir.modules.base
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import au.com.crazybean.foundation.navigator.Arguments
 import au.com.crazybean.mobilex.kurir.modules.dashboard.impl.DashboardActivity
 import au.com.crazybean.mobilex.kurir.modules.login.impl.LoginActivity
 import au.com.crazybean.mobilex.kurir.modules.signup.impl.SignupActivity
-import au.com.crazybean.sdk.navigator.Arguments
 
 enum class Module {
     Login,

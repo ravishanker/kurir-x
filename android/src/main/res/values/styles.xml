@@ -13,6 +13,14 @@
         <item name="android:layout_marginEnd">@dimen/margin_tiny</item>
     </style>
 
+    <!-- Loading Theme -->
+    <style name="LoadingTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowFixedWidthMajor">75%</item>
+        <item name="windowFixedWidthMinor">75%</item>
+        <item name="windowFixedHeightMajor">30%</item>
+        <item name="windowFixedHeightMinor">30%</item>
+    </style>
+
     <!-- Button Style -->
     <style name="Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:layout_width">match_parent</item>

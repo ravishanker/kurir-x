@@ -1,8 +1,8 @@
 import UIKit
 import Mobilex
-import MobileSDK
+import Crazybean
 
-class LoginViewController: UICompatViewController, LoginView {
+class LoginViewController: AppViewController, LoginView {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
@@ -20,26 +20,28 @@ class LoginViewController: UICompatViewController, LoginView {
     }
     
     func showPasswordError() {
-    }
-    
-    func showRegister() {
-        // Goto Signup ViewController
+        showError("ERROR_WRONG_PASSWORD")
     }
     
     func showDashboard() {
     }
     
     func showNotFound() {
+        showError("ERROR_USER_NOT_FOUND")
     }
     
     func dismiss() {
     }
     
-    @IBAction func onLoginTap(_ sender: Any) {
-        delegate?.onLoginClick(name: userNameField.text, password: passwordField.text)
+    func showSpinner() {
+        isIndicatorHidden = false
     }
     
-    @IBAction func onSignupTap(_ sender: Any) {
-        delegate?.onSignupClick()
+    func hideSpinner() {
+        isIndicatorHidden = true
+    }
+    
+    @IBAction func onLoginTap(_ sender: Any) {
+        delegate?.onLoginClick(name: userNameField.text, password: passwordField.text)
     }
 }

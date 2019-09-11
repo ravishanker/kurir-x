@@ -2,13 +2,13 @@ package au.com.crazybean.mobilex.kurir.modules.signup
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import au.com.crazybean.foundation.mvvm.ViewModel
 import au.com.crazybean.mobilex.foundation.userdata.UserData
 import au.com.crazybean.mobilex.kurir.data.kFirebaseToken
 import au.com.crazybean.mobilex.kurir.data.model.Auth
 import au.com.crazybean.mobilex.kurir.data.model.ERR_NOT_FOUND
 import au.com.crazybean.mobilex.kurir.data.model.User
 import au.com.crazybean.mobilex.kurir.repository.users.UsersRepository
-import au.com.crazybean.sdk.mvvm.ViewModel
 import com.google.firebase.iid.FirebaseInstanceId
 
 class SignupViewModel(private val userData: UserData?,

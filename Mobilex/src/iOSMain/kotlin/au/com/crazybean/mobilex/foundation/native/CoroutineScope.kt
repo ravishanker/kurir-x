@@ -1,5 +1,6 @@
 package au.com.crazybean.mobilex.foundation.native
 
+import au.com.crazybean.mobilex.foundation.logger.Logger
 import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -16,6 +17,19 @@ import platform.darwin.dispatch_get_main_queue
 import platform.darwin.dispatch_time
 import kotlin.coroutines.CoroutineContext
 
+internal actual val mainScope: CoroutineScope = MainScope()
+
+private class MainScope : CoroutineScope {
+    private val dispatcher = MainDispatcher()
+    private val job = Job()
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        Logger.d("${throwable.message}: ${throwable.cause}")
+    }
+
+    override val coroutineContext: CoroutineContext
+        get() = dispatcher + job + exceptionHandler
+}
+
 @UseExperimental(InternalCoroutinesApi::class)
 private class MainDispatcher : CoroutineDispatcher(), Delay {
     @Suppress("TooGenericExceptionCaught")
@@ -24,7 +38,7 @@ private class MainDispatcher : CoroutineDispatcher(), Delay {
             try {
                 block.run()
             } catch (err: Throwable) {
-                logError("UNCAUGHT", err.message ?: "", err)
+                Logger.d(err)
                 throw err
             }
         }
@@ -39,7 +53,7 @@ private class MainDispatcher : CoroutineDispatcher(), Delay {
                     resumeUndispatched(Unit)
                 }
             } catch (err: Throwable) {
-                logError("UNCAUGHT", err.message ?: "", err)
+                Logger.d(err)
                 throw err
             }
         }
@@ -62,29 +76,11 @@ private class MainDispatcher : CoroutineDispatcher(), Delay {
                     block.run()
                 }
             } catch (err: Throwable) {
-                logError("UNCAUGHT", err.message ?: "", err)
+                Logger.d(err)
                 throw err
             }
         }
 
         return handle
     }
-}
-
-private fun logError(label: String, message: String, throwable: Throwable) {
-    println("$label: $message")
-    throwable.printStackTrace()
-}
-
-internal actual val coroutineScope: CoroutineScope = CoroutineScopeImpl()
-
-internal class CoroutineScopeImpl : CoroutineScope {
-    private val dispatcher = MainDispatcher()
-    private val job = Job()
-    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-        println("${throwable.message}: ${throwable.cause}")
-    }
-
-    override val coroutineContext: CoroutineContext
-        get() = dispatcher + job + exceptionHandler
 }

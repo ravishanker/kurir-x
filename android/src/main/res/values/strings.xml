@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Courier App</string>
+    <!-- Hints -->
+    <string name="app_name">Kurir App</string>
     <string name="user_name_hint">Mobile Number or Email</string>
     <string name="password_hint">Password</string>
     <string name="password_confirm_hint">Confirm Password</string>
@@ -10,18 +11,18 @@
     <string name="first_name_hint">First Name</string>
     <string name="last_name_hint">Last Name</string>
 
-    <!-- Button -->
+    <!-- Buttons -->
     <string name="button_login">Login</string>
     <string name="button_signup">Sign Up</string>
     <string name="button_verify">Verify</string>
     <string name="button_finish">Let\'s Go</string>
     <string name="button_gotcha">Gotcha</string>
 
-    <!-- Error -->
+    <!-- Error Message -->
     <string name="error_title">Sorry</string>
+    <string name="error_generic">Oops! Something went wrong:( </string>
     <string name="error_user_not_found">User not found</string>
     <string name="error_user_exists">User already exists</string>
     <string name="error_wrong_password">Incorrect password</string>
     <string name="error_wrong_code">Incorrect code (Try: 123456)</string>
-    <string name="error_something_went_wrong">Oops! Something went wrong:( </string>
 </resources>
