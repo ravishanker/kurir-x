@@ -3,14 +3,14 @@ package au.com.crazybean.mobilex.kurir.modules.signup.impl
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import au.com.crazybean.foundation.sketch.Sketch
+import au.com.crazybean.foundation.sketch.SketchBoard
 import au.com.crazybean.mobilex.kurir.R
 import au.com.crazybean.mobilex.kurir.modules.base.BaseActivity
 import au.com.crazybean.mobilex.kurir.modules.base.BaseSketch
 import au.com.crazybean.mobilex.kurir.modules.base.Module
 import au.com.crazybean.mobilex.kurir.modules.signup.SignupDelegate
 import au.com.crazybean.mobilex.kurir.modules.signup.SignupView
-import au.com.crazybean.sdk.sketch.Sketch
-import au.com.crazybean.sdk.sketch.SketchBoard
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
@@ -81,7 +81,7 @@ class SignupActivity : BaseActivity<SignupDelegate>(), SignupView {
     }
 
     override fun showError() {
-        showError(R.string.error_something_went_wrong)
+        showError(R.string.error_generic)
     }
 
     override fun showDashboard() {

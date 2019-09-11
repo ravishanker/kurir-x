@@ -7,17 +7,16 @@
 //
 
 import Foundation
-import MobileSDK
+import Crazybean
 import Mobilex
 
 class LoginDelegate: Delegate<LoginView, LoginViewModel> {
-    override func onCreate(_ params: [String : Any?]? = nil) {
-    }
-    
     func onLoginClick(name: String?, password: String?) {
         if let name = name, let password = password {
+            view?.showSpinner()
             viewModel.login(name: name, password: password)
                 .observe { [weak self] auth in
+                    self?.view?.hideSpinner()
                     switch auth?.result {
                     case AuthKt.ERR_NONE:
                         self?.view?.showDashboard()
@@ -34,9 +33,5 @@ class LoginDelegate: Delegate<LoginView, LoginViewModel> {
                     }
             }
         }
-    }
-    
-    func onSignupClick() {
-        view?.showRegister()
     }
 }

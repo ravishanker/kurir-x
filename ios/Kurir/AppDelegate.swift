@@ -1,5 +1,6 @@
 import UIKit
 import Mobilex
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,10 +9,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private(set) lazy var dependency = Dependency(DomainModule(),
                                                   LoginModule(),
-                                                  SignupModule())
+                                                  SignupModule(),
+                                                  VerifyModule())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
     }
 
@@ -36,13 +39,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-
-extension UIViewController {
-    var appDelegate: AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
-}
-

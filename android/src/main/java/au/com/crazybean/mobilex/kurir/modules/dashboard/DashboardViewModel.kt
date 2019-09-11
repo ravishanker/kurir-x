@@ -1,7 +1,5 @@
 package au.com.crazybean.mobilex.kurir.modules.dashboard
 
-import au.com.crazybean.sdk.mvvm.ViewModel
+import au.com.crazybean.foundation.mvvm.ViewModel
 
-class DashboardViewModel : ViewModel() {
-
-}
+class DashboardViewModel : ViewModel()

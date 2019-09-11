@@ -6,14 +6,16 @@
 //  Copyright © 2019 Crazybean Studio. All rights reserved.
 //
 
-import Foundation
 import Mobilex
 import Firebase
 
 class DatabaseImpl: Database {
     private lazy var firestore: Firestore = {
-        FirebaseApp.configure()
-        return Firestore.firestore()
+        let firestore = Firestore.firestore()
+        let settings = firestore.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        firestore.settings = settings
+        return firestore
     }()
     
     func readData(tableName: String, onSuccess: @escaping ([[String : Any]]) -> Void, onError: ((KotlinThrowable) -> Void)? = nil) {

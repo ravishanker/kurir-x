@@ -6,26 +6,24 @@
 //  Copyright © 2019 Crazybean Studio. All rights reserved.
 //
 
-import Foundation
-import MobileSDK
+import Crazybean
 import Mobilex
 
-class SignupViewController: UICompatViewController, SignupView {
+class SignupViewController: AppViewController, SignupView {
+    @IBOutlet weak var mobileField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    
     private(set) lazy var delegate = UIViewController.resolve(type: SignupDelegate.self, argument: self as SignupView)
     
     func showSignup() {
     }
     
     func showLogin() {
+        dismiss(animated: true, completion: nil)
     }
     
-    func showVerify() {
-    }
-    
-    func showProfile() {
-    }
-    
-    func showCodeError() {
+    func showVerify(user: User?) {
+        performSegue(withIdentifier: "verifyView", sender: self, object: user)
     }
     
     func showExists() {
@@ -34,9 +32,23 @@ class SignupViewController: UICompatViewController, SignupView {
     func showError() {
     }
     
-    func showDashboard() {
+    func showSpinner() {
+        isIndicatorHidden = false
     }
     
-    func dismiss() {
+    func hideSpinner() {
+        isIndicatorHidden = true
+    }
+    
+    @IBAction func onLoginTap(_ sender: Any) {
+        delegate?.onLoginClick()
+    }
+    
+    @IBAction func onCancelTap(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onSignupTap(_ sender: Any) {
+        delegate?.onRegister(mobile: mobileField?.text ?? "", email: emailField?.text ?? "")
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import MobileSDK
+import Crazybean
 import Mobilex
 
 class LoginViewModel: ViewModel {

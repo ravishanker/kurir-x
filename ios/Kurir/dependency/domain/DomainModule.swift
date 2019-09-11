@@ -12,21 +12,17 @@ import Mobilex
 
 class DomainModule: Module {
     override func inject() {
-        register(UsersNetworkSource.self) { _ in
-            return self.fetch(forType: UsersNetworkSource.self) {
-                UsersNetworkSource()
-            }!
+        single(UsersNetworkSource.self) { _ in
+            UsersNetworkSource()
         }
         
-        register(UsersSource.self) { r in
-            return self.fetch(forType: UsersSource.self) {
-                UsersDatabase(database: DatabaseImpl())
-                }!
+        single(UsersSource.self) { r in
+            UsersDatabase(database: DatabaseImpl())
         }
         
         // Domain Repository
-        register(UsersRepository.self) { r in
-            UsersRepository(dbSource: r.resolve(UsersDatabase.self), networkSource: nil)
+        single(UsersRepository.self) { r in
+            UsersRepository(dbSource: r.resolve(UsersSource.self), networkSource: nil)
         }
     }
 }

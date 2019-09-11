@@ -10,11 +10,16 @@ import Foundation
 import Swinject
 
 class Dependency {
+    private let container = Container()
+    private lazy var singletons = [String : Any]()
     private var mModules = [Module]()
     
     init(_ modules: Module...) {
         for module: Module in modules {
             mModules.append(module)
+            module.container = container
+            module.singletons = singletons
+            module.inject()
         }
     }
     
