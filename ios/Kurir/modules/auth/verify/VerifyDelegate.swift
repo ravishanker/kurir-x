@@ -19,7 +19,7 @@ class VerifyDelegate: Delegate<VerifyView, VerifyViewModel> {
     
     func onVerifyClick(passcode: String) {
         if (passcode == "123456") {
-            view?.showProfile()
+            view?.showProfile(user: user)
         } else {
             view?.showCodeError()
         }

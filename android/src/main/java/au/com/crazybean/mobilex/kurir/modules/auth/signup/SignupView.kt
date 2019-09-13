@@ -1,4 +1,4 @@
-package au.com.crazybean.mobilex.kurir.modules.signup
+package au.com.crazybean.mobilex.kurir.modules.auth.signup
 
 import au.com.crazybean.mobilex.kurir.modules.base.View
 
@@ -11,4 +11,6 @@ interface SignupView : View {
     fun showExists()
     fun showError()
     fun showDashboard()
+    fun showButton()
+    fun hideButton()
 }

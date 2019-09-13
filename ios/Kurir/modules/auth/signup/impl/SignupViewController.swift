@@ -27,9 +27,11 @@ class SignupViewController: AppViewController, SignupView {
     }
     
     func showExists() {
+        showError("ERROR_USER_EXISTS")
     }
     
     func showError() {
+        showError("ERROR_GENERIC")
     }
     
     func showSpinner() {

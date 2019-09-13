@@ -9,6 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private(set) lazy var dependency = Dependency(DomainModule(),
                                                   LoginModule(),
+                                                  ProfileModule(),
                                                   SignupModule(),
                                                   VerifyModule())
 

@@ -1,4 +1,4 @@
-package au.com.crazybean.mobilex.kurir.modules.login
+package au.com.crazybean.mobilex.kurir.modules.auth.login
 
 import au.com.crazybean.mobilex.kurir.modules.base.View
 

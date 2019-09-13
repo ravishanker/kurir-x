@@ -8,7 +8,7 @@ class DatabaseImpl : Database {
         FirebaseFirestore.getInstance()
     }
 
-    override fun readData(tableName: String, onSuccess: (List<Map<String, Any?>>) -> Unit, onError: ((Throwable) -> Unit)?) {
+    override fun readData(tableName: String, onSuccess: (List<Map<String, Any?>>) -> Unit, onError: (Throwable) -> Unit) {
         firestore.collection(tableName)
                 .get()
                 .addOnSuccessListener {
@@ -18,18 +18,18 @@ class DatabaseImpl : Database {
                     onSuccess(entities)
                 }
                 .addOnFailureListener {
-                    onError?.invoke(it)
+                    onError(it)
                 }
     }
 
-    override fun writeData(tableName: String, payload: Map<String, Any?>, onSuccess: (String) -> Unit, onError: ((Throwable) -> Unit)?) {
+    override fun writeData(tableName: String, payload: Map<String, Any?>, onSuccess: (String) -> Unit, onError: (Throwable) -> Unit) {
         firestore.collection(tableName)
                 .add(payload)
                 .addOnSuccessListener {
                     onSuccess(it.id)
                 }
                 .addOnFailureListener {
-                    onError?.invoke(it)
+                    onError(it)
                 }
     }
 }

@@ -4,8 +4,6 @@ import au.com.crazybean.mobilex.kurir.data.model.User
 import au.com.crazybean.mobilex.foundation.logger.Logger
 import au.com.crazybean.mobilex.kurir.database.Database
 import au.com.crazybean.mobilex.kurir.repository.users.UsersSource
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 private const val kEmail = "email"
 private const val kMobile = "mobile"
@@ -17,30 +15,26 @@ private const val kDeviceToken = "device_token"
 private const val TABLE_NAME = "users"
 
 class UsersDatabase(private val database: Database) : UsersSource {
-    override suspend fun getUser(mobile: String?, email: String?): User? {
-        return suspendCoroutine {
-            database.readData(TABLE_NAME, onSuccess = { entities ->
-                entities.firstOrNull { map ->
-                    (map[kEmail] as String?)?.equals(email, true)?: false || (map[kMobile] as String?)?.equals(mobile, true)?: false
-                }?.let { payload ->
-                    it.resume(payload.toUser)
-                }?: it.resume(null)
-            }, onError = { throwable ->
-                Logger.d(throwable)
-                it.resume(null)
-            })
-        }
+    override fun getUser(mobile: String?, email: String?, callback: (User?) -> Unit) {
+        database.readData(TABLE_NAME, onSuccess = { entities ->
+            entities.firstOrNull { map ->
+                (map[kEmail] as String?)?.equals(email, true)?: false || (map[kMobile] as String?)?.equals(mobile, true)?: false
+            }?.let { payload ->
+                callback(payload.toUser)
+            }?: callback(null)
+        }, onError = { throwable ->
+            Logger.d(throwable)
+            callback(null)
+        })
     }
 
-    override suspend fun addUser(user: User): User? {
-        return suspendCoroutine {
-            database.writeData(TABLE_NAME, user.toMap, onSuccess = { _ ->
-                it.resume(user)
-            }, onError = { throwable ->
-                Logger.d(throwable)
-                it.resume(null)
-            })
-        }
+    override fun addUser(user: User, callback: (User?) -> Unit) {
+        database.writeData(TABLE_NAME, user.toMap, onSuccess = {
+            callback(user)
+        }, onError = { throwable ->
+            Logger.d(throwable)
+            callback(null)
+        })
     }
 
     private val Map<String, Any?>.toUser: User

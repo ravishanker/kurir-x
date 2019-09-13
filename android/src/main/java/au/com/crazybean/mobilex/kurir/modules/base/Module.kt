@@ -5,8 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import au.com.crazybean.foundation.navigator.Arguments
 import au.com.crazybean.mobilex.kurir.modules.dashboard.impl.DashboardActivity
-import au.com.crazybean.mobilex.kurir.modules.login.impl.LoginActivity
-import au.com.crazybean.mobilex.kurir.modules.signup.impl.SignupActivity
+import au.com.crazybean.mobilex.kurir.modules.auth.login.impl.LoginActivity
+import au.com.crazybean.mobilex.kurir.modules.auth.signup.impl.SignupActivity
 
 enum class Module {
     Login,

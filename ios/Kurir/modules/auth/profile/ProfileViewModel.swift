@@ -16,4 +16,12 @@ class ProfileViewModel: ViewModel {
     init(_ repository: UsersRepository?) {
         self.repository = repository
     }
+    
+    func register(user: User)-> LiveData<Auth?> {
+        return LiveData<Auth?> { [weak self] liveData in
+            self?.repository?.register(user: user, callback: { auth in
+                liveData.value = auth
+            })
+        }
+    }
 }

@@ -19,9 +19,17 @@ class SignupDelegate: Delegate<SignupView, SignupViewModel> {
     func onRegister(mobile: String, email: String) {
         view?.showSpinner()
         viewModel.signup(mobile: mobile, email: email).observe { [weak self] auth in
-            if let this = self {
-                this.view?.hideSpinner()
-                this.view?.showVerify(user: this.viewModel.user)
+            self?.view?.hideSpinner()
+            
+            switch auth?.result {
+            case AuthKt.ERR_NOT_FOUND:
+                self?.view?.showVerify(user: self?.viewModel.user)
+                
+            case AuthKt.ERR_EXISTS:
+                self?.view?.showExists()
+                
+            default:
+                self?.view?.showError()
             }
         }
     }

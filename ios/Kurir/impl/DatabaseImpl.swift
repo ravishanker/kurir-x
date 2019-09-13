@@ -18,12 +18,11 @@ class DatabaseImpl: Database {
         return firestore
     }()
     
-    func readData(tableName: String, onSuccess: @escaping ([[String : Any]]) -> Void, onError: ((KotlinThrowable) -> Void)? = nil) {
+    func readData(tableName: String, onSuccess: @escaping ([[String : Any]]) -> Void, onError: @escaping (KotlinThrowable) -> Void) {
         firestore.collection(tableName)
             .getDocuments { snapshot, error in
                 if let error = error {
-                    let throwable = KotlinThrowable(message: error.localizedDescription)
-                    onError?(throwable)
+                    onError(error.throwable)
                 } else {
                     let result = snapshot!.documents.map{ $0.data() }
                     onSuccess(result)
@@ -31,20 +30,27 @@ class DatabaseImpl: Database {
         }
     }
     
-    func writeData(tableName: String, payload: [String : Any], onSuccess: @escaping (String) -> Void, onError: ((KotlinThrowable) -> Void)? = nil) {
+    func writeData(tableName: String, payload: [String : Any], onSuccess: @escaping (String) -> Void, onError: @escaping (KotlinThrowable) -> Void) {
         var ref: DocumentReference? = nil
         ref = firestore.collection(tableName)
             .addDocument(data: payload) { error in
                 if let error = error {
-                    let throwable = KotlinThrowable(message: error.localizedDescription)
-                    onError?(throwable)
+                    onError(error.throwable)
                 } else {
                     if let documentId = ref?.documentID {
                         onSuccess(documentId)
                     } else {
-                        onError?(KotlinThrowable(message: "Unknown error"))
+                        onError(KotlinThrowable(message: "Unknown error"))
                     }
                 }
+        }
+    }
+}
+
+extension Error {
+    var throwable: KotlinThrowable {
+        get {
+            return KotlinThrowable(message: localizedDescription)
         }
     }
 }
