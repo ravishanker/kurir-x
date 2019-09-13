@@ -283,10 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				B401773623273448001750E2 /* common */,
-				B44C2F1B231ABC0C006AF28F /* login */,
-				B49ADB93231BC70D00C79FC3 /* signup */,
-				B401772423268431001750E2 /* verify */,
-				B4218FA22327C81D00B34140 /* profile */,
+				B43E9B9B232B17A00021A7B1 /* auth */,
+				B43E9B9C232B1A600021A7B1 /* dashboard */,
 			);
 			path = modules;
 			sourceTree = "<group>";
@@ -297,6 +295,24 @@
 				B422A624230A9D82007B3CCB /* DomainModule.swift */,
 			);
 			path = domain;
+			sourceTree = "<group>";
+		};
+		B43E9B9B232B17A00021A7B1 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				B44C2F1B231ABC0C006AF28F /* login */,
+				B49ADB93231BC70D00C79FC3 /* signup */,
+				B401772423268431001750E2 /* verify */,
+				B4218FA22327C81D00B34140 /* profile */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		B43E9B9C232B1A600021A7B1 /* dashboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = dashboard;
 			sourceTree = "<group>";
 		};
 		B44C2F1B231ABC0C006AF28F /* login */ = {

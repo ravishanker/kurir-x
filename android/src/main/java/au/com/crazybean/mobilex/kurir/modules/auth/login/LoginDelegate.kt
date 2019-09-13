@@ -1,4 +1,4 @@
-package au.com.crazybean.mobilex.kurir.modules.login
+package au.com.crazybean.mobilex.kurir.modules.auth.login
 
 import androidx.lifecycle.Observer
 import au.com.crazybean.foundation.mvvm.Delegate
@@ -7,7 +7,8 @@ import au.com.crazybean.mobilex.kurir.data.model.ERR_NOT_FOUND
 import au.com.crazybean.mobilex.kurir.data.model.ERR_PASSWORD
 
 class LoginDelegate(view: LoginView?,
-                    viewModel: LoginViewModel) : Delegate<LoginView, LoginViewModel>(view, viewModel) {
+                    viewModel: LoginViewModel
+) : Delegate<LoginView, LoginViewModel>(view, viewModel) {
 
     fun onLoginClick(name: String?, password: String?) {
         when {

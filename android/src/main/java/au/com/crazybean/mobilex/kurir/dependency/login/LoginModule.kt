@@ -1,8 +1,8 @@
 package au.com.crazybean.mobilex.kurir.dependency.login
 
-import au.com.crazybean.mobilex.kurir.modules.login.LoginDelegate
-import au.com.crazybean.mobilex.kurir.modules.login.LoginViewModel
-import au.com.crazybean.mobilex.kurir.modules.login.LoginView
+import au.com.crazybean.mobilex.kurir.modules.auth.login.LoginDelegate
+import au.com.crazybean.mobilex.kurir.modules.auth.login.LoginViewModel
+import au.com.crazybean.mobilex.kurir.modules.auth.login.LoginView
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

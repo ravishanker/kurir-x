@@ -10,6 +10,11 @@ import Foundation
 
 protocol ProfileView {
     func showDashboard()
+    func showError()
     func showNameError()
     func showPasswordError()
+    func showButton()
+    func hideButton()
+    func showSpinner()
+    func hideSpinner()
 }

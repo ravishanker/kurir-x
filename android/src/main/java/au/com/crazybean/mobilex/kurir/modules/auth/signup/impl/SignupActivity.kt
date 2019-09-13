@@ -1,5 +1,7 @@
-package au.com.crazybean.mobilex.kurir.modules.signup.impl
+package au.com.crazybean.mobilex.kurir.modules.auth.signup.impl
 
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -9,8 +11,8 @@ import au.com.crazybean.mobilex.kurir.R
 import au.com.crazybean.mobilex.kurir.modules.base.BaseActivity
 import au.com.crazybean.mobilex.kurir.modules.base.BaseSketch
 import au.com.crazybean.mobilex.kurir.modules.base.Module
-import au.com.crazybean.mobilex.kurir.modules.signup.SignupDelegate
-import au.com.crazybean.mobilex.kurir.modules.signup.SignupView
+import au.com.crazybean.mobilex.kurir.modules.auth.signup.SignupDelegate
+import au.com.crazybean.mobilex.kurir.modules.auth.signup.SignupView
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
@@ -87,6 +89,14 @@ class SignupActivity : BaseActivity<SignupDelegate>(), SignupView {
     override fun showDashboard() {
         navigate(Module.Dashboard)
     }
+
+    override fun showButton() {
+        (sketchBoard.activeSketch as ProfileSketch?)?.showButton = true
+    }
+
+    override fun hideButton() {
+        (sketchBoard.activeSketch as ProfileSketch?)?.showButton = false
+    }
 }
 
 /**
@@ -141,13 +151,59 @@ private class ProfileSketch(delegate: SignupDelegate?) : BaseSketch<SignupDelega
         layout?.findViewById<EditText>(R.id.password_edit)
     }
 
+    private val confirmEdit by lazy {
+        layout?.findViewById<EditText>(R.id.password_confirm_edit)
+    }
+
+    private val button by lazy {
+        layout?.findViewById<View>(R.id.finish_button)
+    }
+
     override fun onRender(rootView: ViewGroup) {
         super.onRender(rootView)
-        rootView.findViewById<View>(R.id.finish_button)?.setOnClickListener {
+        button?.setOnClickListener {
             val firstName = firstNameEdit?.text?.toString()?.trim()
             val lastName = lastNameEdit?.text?.toString()?.trim()
             val password = passwordEdit?.text?.toString()
             delegate?.onComplete(firstName, lastName, password)
+        }
+
+        passwordEdit?.addTextChangedListener(object: EditorWatcher {
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                super.onTextChanged(p0, p1, p2, p3)
+                onPasswordEditing()
+            }
+        })
+
+        confirmEdit?.addTextChangedListener(object: EditorWatcher {
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                super.onTextChanged(p0, p1, p2, p3)
+                onPasswordEditing()
+            }
+        })
+
+        showButton = false
+    }
+
+    var showButton: Boolean = false
+        set(value) {
+            button?.visibility = if (value) View.VISIBLE else View.INVISIBLE
+        }
+
+    private fun onPasswordEditing() {
+        val password = passwordEdit?.text?.toString()?.trim()
+        val confirm = confirmEdit?.text?.toString()?.trim()
+        delegate?.onPasswordEditing(password, confirm)
+    }
+
+    private interface EditorWatcher : TextWatcher {
+        override fun afterTextChanged(p0: Editable?) {
+        }
+
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        }
+
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
         }
     }
 }

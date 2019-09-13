@@ -1,4 +1,4 @@
-package au.com.crazybean.mobilex.kurir.modules.signup
+package au.com.crazybean.mobilex.kurir.modules.auth.signup
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -7,7 +7,8 @@ import au.com.crazybean.mobilex.kurir.data.model.ERR_EXISTS
 import au.com.crazybean.mobilex.kurir.data.model.ERR_NOT_FOUND
 
 class SignupDelegate(view: SignupView?,
-                     viewModel: SignupViewModel) : Delegate<SignupView, SignupViewModel>(view, viewModel) {
+                     viewModel: SignupViewModel
+) : Delegate<SignupView, SignupViewModel>(view, viewModel) {
     override fun onCreate(params: Bundle) {
         super.onCreate(params)
         view?.showSignup()
@@ -38,6 +39,16 @@ class SignupDelegate(view: SignupView?,
             view?.showProfile()
         } else {
             view?.showCodeError()
+        }
+    }
+
+    fun onPasswordEditing(password: String?, confirm: String?) {
+        if (password.isNullOrBlank() || confirm.isNullOrBlank()) {
+            view?.hideButton()
+        } else if (password == confirm) {
+            view?.showButton()
+        } else {
+            view?.hideButton()
         }
     }
 

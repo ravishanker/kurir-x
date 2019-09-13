@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Mobilex
 
 protocol VerifyView {
     func showCodeError()
-    func showProfile()
+    func showProfile(user: User?)
     func showSpinner()
     func hideSpinner()
 }

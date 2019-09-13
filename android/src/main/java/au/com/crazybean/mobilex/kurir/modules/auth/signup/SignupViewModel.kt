@@ -1,4 +1,4 @@
-package au.com.crazybean.mobilex.kurir.modules.signup
+package au.com.crazybean.mobilex.kurir.modules.auth.signup
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

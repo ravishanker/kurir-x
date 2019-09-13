@@ -6,8 +6,8 @@
 //  Copyright © 2019 Crazybean Studio. All rights reserved.
 //
 
-import Foundation
 import Crazybean
+import Mobilex
 
 class VerifyViewController: AppViewController, VerifyView {
     @IBOutlet weak var passcodeField: UITextField!
@@ -19,8 +19,8 @@ class VerifyViewController: AppViewController, VerifyView {
         delegate?.authorise(self, params: params)
     }
     
-    func showProfile() {
-        performSegue(withIdentifier: "profileView", sender: self)
+    func showProfile(user: User?) {
+        performSegue(withIdentifier: "profileView", sender: self, object: user)
     }
     
     func showCodeError() {
