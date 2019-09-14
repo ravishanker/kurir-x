@@ -11,7 +11,7 @@ import Mobilex
 protocol SignupView {
     func showSignup()
     func showLogin()
-    func showVerify(user: User?)
+    func showVerify(enroll: Enroll?)
     func showExists()
     func showError()
     func showSpinner()

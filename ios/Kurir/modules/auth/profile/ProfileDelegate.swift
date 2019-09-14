@@ -10,10 +10,10 @@ import Crazybean
 import Mobilex
 
 class ProfileDelegate: Delegate<ProfileView, ProfileViewModel> {
-    private var user: User? = nil
+    private var enroll: Enroll? = nil
     
     override func onCreate(_ params: [String : Any?]? = nil) {
-        user = fetch()
+        enroll = fetch()
         view?.hideButton()
     }
     
@@ -30,8 +30,8 @@ class ProfileDelegate: Delegate<ProfileView, ProfileViewModel> {
     }
     
     func onRegister(firstName: String?, lastName: String?, password: String?) {
-        if let user = user {
-            let newUser = User(email: user.email, mobile: user.mobile, password: password, firstName: firstName, lastName: lastName, userToken: "")
+        if let enroll = enroll {
+            let newUser = User(email: enroll.email, mobile: enroll.mobile, password: password, firstName: firstName, lastName: lastName)
             view?.showSpinner()
             viewModel.register(user: newUser).observe { [weak self] auth in
                 self?.view?.hideSpinner()

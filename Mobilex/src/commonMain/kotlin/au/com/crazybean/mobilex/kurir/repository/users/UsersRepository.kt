@@ -35,4 +35,12 @@ class UsersRepository(private val usersSource: UsersSource?) : Repository() {
             }
         }
     }
+
+    fun signup(enroll: Enroll, callback: (Auth?) -> Unit) {
+        usersSource?.addEnroll(enroll) { result ->
+            result?.let {
+                callback(Auth(ERR_NONE))
+            } ?: callback(Auth(ERR_UNKNOWN))
+        }
+    }
 }

@@ -13,4 +13,6 @@ interface SignupView : View {
     fun showDashboard()
     fun showButton()
     fun hideButton()
+    fun showSpinner()
+    fun hideSpinner()
 }

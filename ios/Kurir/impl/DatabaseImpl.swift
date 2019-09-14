@@ -18,31 +18,58 @@ class DatabaseImpl: Database {
         return firestore
     }()
     
-    func readData(tableName: String, onSuccess: @escaping ([[String : Any]]) -> Void, onError: @escaping (KotlinThrowable) -> Void) {
-        firestore.collection(tableName)
-            .getDocuments { snapshot, error in
+    func readData(tableName: String, filters: [String : Any]?, onSuccess: @escaping ([[String : Any]]) -> Void, onError: @escaping (KotlinThrowable) -> Void) {
+        let reference = firestore.collection(tableName)
+        if let filters = filters {
+            var query: Query? = reference
+            for filter in filters {
+                query = query?.whereField(filter.key, isEqualTo: filter.value)
+            }
+            query?.getDocuments { snapshot, error in
                 if let error = error {
                     onError(error.throwable)
                 } else {
                     let result = snapshot!.documents.map{ $0.data() }
                     onSuccess(result)
                 }
+            }
+        } else {
+            reference.getDocuments { snapshot, error in
+                    if let error = error {
+                        onError(error.throwable)
+                    } else {
+                        let result = snapshot!.documents.map{ $0.data() }
+                        onSuccess(result)
+                    }
+            }
         }
     }
     
-    func writeData(tableName: String, payload: [String : Any], onSuccess: @escaping (String) -> Void, onError: @escaping (KotlinThrowable) -> Void) {
-        var ref: DocumentReference? = nil
-        ref = firestore.collection(tableName)
-            .addDocument(data: payload) { error in
-                if let error = error {
-                    onError(error.throwable)
-                } else {
-                    if let documentId = ref?.documentID {
-                        onSuccess(documentId)
+    func writeData(tableName: String, filters: [String : Any]?, payload: [String : Any], onSuccess: @escaping (String) -> Void, onError: @escaping (KotlinThrowable) -> Void) {
+        if let identifier = filters?["id"] as? String {
+            firestore.collection(tableName)
+                .document(identifier)
+                .setData(payload) { error in
+                    if let error = error {
+                        onError(error.throwable)
                     } else {
-                        onError(KotlinThrowable(message: "Unknown error"))
+                        onSuccess(identifier)
                     }
-                }
+            }
+        } else {
+            var ref: DocumentReference? = nil
+            ref = firestore.collection(tableName)
+                .addDocument(data: payload) { error in
+                    if let error = error {
+                        onError(error.throwable)
+                    } else {
+                        if let documentId = ref?.documentID {
+                            onSuccess(documentId)
+                        } else {
+                            onError(KotlinThrowable(message: "Unknown error"))
+                        }
+                    }
+            }
         }
     }
 }

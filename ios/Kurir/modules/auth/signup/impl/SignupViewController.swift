@@ -22,8 +22,8 @@ class SignupViewController: AppViewController, SignupView {
         dismiss(animated: true, completion: nil)
     }
     
-    func showVerify(user: User?) {
-        performSegue(withIdentifier: "verifyView", sender: self, object: user)
+    func showVerify(enroll: Enroll?) {
+        performSegue(withIdentifier: "verifyView", sender: self, object: enroll)
     }
     
     func showExists() {

@@ -97,6 +97,14 @@ class SignupActivity : BaseActivity<SignupDelegate>(), SignupView {
     override fun hideButton() {
         (sketchBoard.activeSketch as ProfileSketch?)?.showButton = false
     }
+
+    override fun showSpinner() {
+        showLoading()
+    }
+
+    override fun hideSpinner() {
+        hideLoading()
+    }
 }
 
 /**
