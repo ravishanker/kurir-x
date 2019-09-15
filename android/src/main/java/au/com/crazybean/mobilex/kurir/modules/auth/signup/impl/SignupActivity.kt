@@ -110,7 +110,7 @@ class SignupActivity : BaseActivity<SignupDelegate>(), SignupView {
 /**
  * Sketches
  */
-private class RegisterSketch(delegate: SignupDelegate?) : BaseSketch<SignupDelegate>(R.layout.sketch_register, delegate) {
+private class RegisterSketch(delegate: SignupDelegate?) : BaseSketch<SignupDelegate>(R.layout.sketch_register, delegate, false) {
     private val mobEditText by lazy {
         layout?.findViewById<EditText>(R.id.mobile_edit)
     }
@@ -133,7 +133,7 @@ private class RegisterSketch(delegate: SignupDelegate?) : BaseSketch<SignupDeleg
     }
 }
 
-private class VerifySketch(delegate: SignupDelegate?) : BaseSketch<SignupDelegate>(R.layout.sketch_verify, delegate) {
+private class VerifySketch(delegate: SignupDelegate?) : BaseSketch<SignupDelegate>(R.layout.sketch_verify, delegate, false) {
     private val editText by lazy {
         layout?.findViewById<EditText>(R.id.passcode_edit)
     }
@@ -146,7 +146,7 @@ private class VerifySketch(delegate: SignupDelegate?) : BaseSketch<SignupDelegat
     }
 }
 
-private class ProfileSketch(delegate: SignupDelegate?) : BaseSketch<SignupDelegate>(R.layout.sketch_profile, delegate) {
+private class ProfileSketch(delegate: SignupDelegate?) : BaseSketch<SignupDelegate>(R.layout.sketch_profile, delegate, false) {
     private val firstNameEdit by lazy {
         layout?.findViewById<EditText>(R.id.first_name_edit)
     }

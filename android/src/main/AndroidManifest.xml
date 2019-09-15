@@ -20,7 +20,7 @@
         <activity android:name=".modules.auth.signup.impl.SignupActivity" />
 
         <service
-            android:name=".modules.messaging.CloudMessagingService"
+            android:name=".modules.firebase.CloudMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

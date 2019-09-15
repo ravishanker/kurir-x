@@ -13,7 +13,7 @@ import Mobilex
 class DomainModule: Module {
     override func inject() {
         single(UsersSource.self) { r in
-            UsersDatabase(database: DatabaseImpl())
+            CloudUsersSource(storage: FirebaseStorage())
         }
         
         // Domain Repository
