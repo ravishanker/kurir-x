@@ -63,9 +63,12 @@
 		B44C2F21231ABC0C006AF28F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F1E231ABC0C006AF28F /* LoginViewController.swift */; };
 		B44C2F22231ABC0C006AF28F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F1F231ABC0C006AF28F /* LoginViewModel.swift */; };
 		B44C2F25231ABDBF006AF28F /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F24231ABDBF006AF28F /* LoginModule.swift */; };
-		B44C2F27231AC017006AF28F /* DatabaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F26231AC017006AF28F /* DatabaseImpl.swift */; };
-		B44C2F28231AC017006AF28F /* DatabaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F26231AC017006AF28F /* DatabaseImpl.swift */; };
-		B44C2F29231AC017006AF28F /* DatabaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F26231AC017006AF28F /* DatabaseImpl.swift */; };
+		B44C2F27231AC017006AF28F /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F26231AC017006AF28F /* FirebaseStorage.swift */; };
+		B44C2F28231AC017006AF28F /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F26231AC017006AF28F /* FirebaseStorage.swift */; };
+		B44C2F29231AC017006AF28F /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F26231AC017006AF28F /* FirebaseStorage.swift */; };
+		B480F160232E6051006E2810 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B480F15F232E6051006E2810 /* Dashboard.storyboard */; };
+		B480F161232E6051006E2810 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B480F15F232E6051006E2810 /* Dashboard.storyboard */; };
+		B480F162232E6051006E2810 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B480F15F232E6051006E2810 /* Dashboard.storyboard */; };
 		B4889A34232782AE00186D36 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4889A33232782AE00186D36 /* UIColor+Hex.swift */; };
 		B4889A35232782BD00186D36 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4889A33232782AE00186D36 /* UIColor+Hex.swift */; };
 		B4889A36232782BD00186D36 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4889A33232782AE00186D36 /* UIColor+Hex.swift */; };
@@ -153,7 +156,8 @@
 		B44C2F1E231ABC0C006AF28F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B44C2F1F231ABC0C006AF28F /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B44C2F24231ABDBF006AF28F /* LoginModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
-		B44C2F26231AC017006AF28F /* DatabaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseImpl.swift; sourceTree = "<group>"; };
+		B44C2F26231AC017006AF28F /* FirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
+		B480F15F232E6051006E2810 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		B4889A33232782AE00186D36 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		B4947C0123084C6700D3971D /* Dependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		B4947C0223084C6700D3971D /* DefaultsUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsUserData.swift; sourceTree = "<group>"; };
@@ -339,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				B4947C0223084C6700D3971D /* DefaultsUserData.swift */,
-				B44C2F26231AC017006AF28F /* DatabaseImpl.swift */,
+				B44C2F26231AC017006AF28F /* FirebaseStorage.swift */,
 			);
 			path = impl;
 			sourceTree = "<group>";
@@ -394,6 +398,7 @@
 				B422A5A323085631007B3CCB /* modules */,
 				FAB5AA252273D1190095C309 /* AppDelegate.swift */,
 				FAB5AA292273D1190095C309 /* Auth.storyboard */,
+				B480F15F232E6051006E2810 /* Dashboard.storyboard */,
 				B4218F9D2327919700B34140 /* Localizable.strings */,
 				FAB5AA2C2273D11A0095C309 /* Assets.xcassets */,
 				B4218FB823289D2800B34140 /* GoogleService-Info.plist */,
@@ -536,6 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB5AA302273D11A0095C309 /* LaunchScreen.storyboard in Resources */,
+				B480F160232E6051006E2810 /* Dashboard.storyboard in Resources */,
 				B4218F9F2327919700B34140 /* Localizable.strings in Resources */,
 				B4218FB923289D2800B34140 /* GoogleService-Info.plist in Resources */,
 				FAB5AA2D2273D11A0095C309 /* Assets.xcassets in Resources */,
@@ -548,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4218FA02327919700B34140 /* Localizable.strings in Resources */,
+				B480F161232E6051006E2810 /* Dashboard.storyboard in Resources */,
 				B4218FBA23289D2800B34140 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4218FA12327919700B34140 /* Localizable.strings in Resources */,
+				B480F162232E6051006E2810 /* Dashboard.storyboard in Resources */,
 				B4218FBB23289D2800B34140 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -679,7 +687,7 @@
 				B422A61D230A9CB3007B3CCB /* Module.swift in Sources */,
 				B49ADB95231BC72500C79FC3 /* SignupDelegate.swift in Sources */,
 				B44C2F21231ABC0C006AF28F /* LoginViewController.swift in Sources */,
-				B44C2F27231AC017006AF28F /* DatabaseImpl.swift in Sources */,
+				B44C2F27231AC017006AF28F /* FirebaseStorage.swift in Sources */,
 				B422A5A02308559D007B3CCB /* AppViewController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -695,7 +703,7 @@
 				B4889A35232782BD00186D36 /* UIColor+Hex.swift in Sources */,
 				B4947C0423084C6700D3971D /* Dependency.swift in Sources */,
 				B49ADB9A231BC72F00C79FC3 /* SignupViewModel.swift in Sources */,
-				B44C2F28231AC017006AF28F /* DatabaseImpl.swift in Sources */,
+				B44C2F28231AC017006AF28F /* FirebaseStorage.swift in Sources */,
 				B49ADBA4231BC84600C79FC3 /* SignupModule.swift in Sources */,
 				B4218FB22327C8FD00B34140 /* ProfileModule.swift in Sources */,
 				B40177272326844A001750E2 /* VerifyView.swift in Sources */,
@@ -725,7 +733,7 @@
 				B4889A36232782BD00186D36 /* UIColor+Hex.swift in Sources */,
 				B4947C0523084C6700D3971D /* Dependency.swift in Sources */,
 				B49ADB9B231BC72F00C79FC3 /* SignupViewModel.swift in Sources */,
-				B44C2F29231AC017006AF28F /* DatabaseImpl.swift in Sources */,
+				B44C2F29231AC017006AF28F /* FirebaseStorage.swift in Sources */,
 				B49ADBA5231BC84600C79FC3 /* SignupModule.swift in Sources */,
 				B4218FB32327C8FD00B34140 /* ProfileModule.swift in Sources */,
 				B40177282326844A001750E2 /* VerifyView.swift in Sources */,

@@ -23,7 +23,7 @@ class SignupDelegate: Delegate<SignupView, SignupViewModel> {
             
             switch auth?.result {
             case AuthKt.ERR_NOT_FOUND:
-                self?.view?.showVerify(user: self?.viewModel.user)
+                self?.view?.showVerify(enroll: self?.viewModel.enroll)
                 
             case AuthKt.ERR_EXISTS:
                 self?.view?.showExists()

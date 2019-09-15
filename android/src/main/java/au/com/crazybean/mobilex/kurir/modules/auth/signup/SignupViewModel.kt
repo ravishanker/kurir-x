@@ -7,6 +7,7 @@ import au.com.crazybean.mobilex.foundation.userdata.UserData
 import au.com.crazybean.mobilex.kurir.data.kFirebaseToken
 import au.com.crazybean.mobilex.kurir.data.model.Auth
 import au.com.crazybean.mobilex.kurir.data.model.ERR_NOT_FOUND
+import au.com.crazybean.mobilex.kurir.data.model.Enroll
 import au.com.crazybean.mobilex.kurir.data.model.User
 import au.com.crazybean.mobilex.kurir.repository.users.UsersRepository
 import com.google.firebase.iid.FirebaseInstanceId
@@ -14,7 +15,7 @@ import com.google.firebase.iid.FirebaseInstanceId
 class SignupViewModel(private val userData: UserData?,
                       private val repository: UsersRepository?) : ViewModel() {
 
-    private var user: User? = null
+    private var enroll: Enroll? = null
 
     override fun onRelease() {
         super.onRelease()
@@ -27,8 +28,10 @@ class SignupViewModel(private val userData: UserData?,
             repository?.checkUser(mobile, email) { auth ->
                 if (auth?.result == ERR_NOT_FOUND) {
                     getUserToken { token ->
-                        user = User(mobile = mobile, email = email, userToken = token)
-                        liveData.value = auth
+                        enroll = Enroll(email, mobile, token)
+                        repository.signup(enroll!!) {
+                            liveData.value = it
+                        }
                     }
                 } else {
                     liveData.value = auth
@@ -41,11 +44,9 @@ class SignupViewModel(private val userData: UserData?,
                  lastName: String,
                  password: String): LiveData<Auth?> {
         return MutableLiveData<Auth?>().also { liveData ->
-            user?.let {
-                it.firstName = firstName
-                it.lastName = lastName
-                it.password = password
-                repository?.register(it) { auth ->
+            enroll?.let {
+                val user = User(mobile = it.mobile, email = it.email, firstName = firstName, lastName = lastName, password = password)
+                repository?.register(user) { auth ->
                     liveData.value = auth
                 }
             }

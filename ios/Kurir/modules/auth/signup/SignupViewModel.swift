@@ -12,13 +12,7 @@ import Mobilex
 
 class SignupViewModel: ViewModel {
     private let repository: UsersRepository?
-    private var optional: User? = nil
-    
-    var user: User? {
-        get {
-            return optional
-        }
-    }
+    private (set) var enroll: Enroll? = nil
     
     init(_ repository: UsersRepository?) {
         self.repository = repository
@@ -28,7 +22,7 @@ class SignupViewModel: ViewModel {
         return LiveData<Auth?> { [weak self] liveData in
             self?.repository?.checkUser(mobile: mobile, email: email, callback: { auth in
                 if auth?.result == AuthKt.ERR_NOT_FOUND {
-                    self?.optional = User(email: email, mobile: mobile, password: nil, firstName: nil, lastName: nil, userToken: nil)
+                    self?.enroll = Enroll(email: email, mobile: mobile, token: "")
                 }
                 
                 liveData.value = auth

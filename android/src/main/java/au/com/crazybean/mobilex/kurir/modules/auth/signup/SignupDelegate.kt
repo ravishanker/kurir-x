@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import au.com.crazybean.foundation.mvvm.Delegate
 import au.com.crazybean.mobilex.kurir.data.model.ERR_EXISTS
-import au.com.crazybean.mobilex.kurir.data.model.ERR_NOT_FOUND
+import au.com.crazybean.mobilex.kurir.data.model.ERR_NONE
 
 class SignupDelegate(view: SignupView?,
                      viewModel: SignupViewModel
@@ -18,14 +18,20 @@ class SignupDelegate(view: SignupView?,
         when {
             mobile.isNullOrBlank() -> Unit // TODO: Show error
             email.isNullOrBlank() -> Unit // TODO: Show error
-            else -> viewModel.signup(mobile, email)
-                .observe(this, Observer {
-                    when (it?.result) {
-                        ERR_NOT_FOUND -> view?.showVerify()
-                        ERR_EXISTS -> view?.showExists()
-                        else -> view?.showError()
-                    }
-                })
+            else -> {
+                view?.showSpinner()
+                viewModel.signup(mobile, email)
+                    .observe(this, Observer {
+                        view?.hideSpinner()
+                        if (it?.result == ERR_NONE) {
+                            view?.showVerify()
+                        } else if (it?.result == ERR_EXISTS) {
+                            view?.showExists()
+                        } else {
+                            view?.showError()
+                        }
+                    })
+            }
         }
     }
 
@@ -57,12 +63,16 @@ class SignupDelegate(view: SignupView?,
             firstName.isNullOrBlank() -> Unit
             lastName.isNullOrBlank() -> Unit
             password.isNullOrBlank() -> Unit
-            else -> viewModel.register(firstName, lastName, password)
-                .observe(this, Observer {
-                    // Handle the response.
-                    view?.showDashboard()
-                    view?.dismiss()
-                })
+            else -> {
+                view?.showSpinner()
+                viewModel.register(firstName, lastName, password)
+                    .observe(this, Observer {
+                        view?.hideSpinner()
+                        // Handle the response.
+                        view?.showDashboard()
+                        view?.dismiss()
+                    })
+            }
         }
     }
 }

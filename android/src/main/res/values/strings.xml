@@ -18,6 +18,12 @@
     <string name="button_finish">Let\'s Go</string>
     <string name="button_gotcha">Gotcha</string>
 
+    <!-- Tabs -->
+    <string name="tab_find">Find</string>
+    <string name="tab_track">Track</string>
+    <string name="tab_chat">Chat</string>
+    <string name="tab_settings">Settings</string>
+
     <!-- Error Message -->
     <string name="error_title">Sorry</string>
     <string name="error_generic">Oops! Something went wrong:( </string>
