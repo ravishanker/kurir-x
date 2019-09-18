@@ -13,6 +13,7 @@ import au.com.crazybean.mobilex.kurir.modules.base.BaseSketch
 import au.com.crazybean.mobilex.kurir.modules.base.Module
 import au.com.crazybean.mobilex.kurir.modules.auth.signup.SignupDelegate
 import au.com.crazybean.mobilex.kurir.modules.auth.signup.SignupView
+import au.com.crazybean.mobilex.kurir.modules.base.EditorWatcher
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
@@ -177,15 +178,13 @@ private class ProfileSketch(delegate: SignupDelegate?) : BaseSketch<SignupDelega
         }
 
         passwordEdit?.addTextChangedListener(object: EditorWatcher {
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                super.onTextChanged(p0, p1, p2, p3)
+            override fun onTextChanged(var1: CharSequence?, var2: Int, var3: Int, var4: Int) {
                 onPasswordEditing()
             }
         })
 
         confirmEdit?.addTextChangedListener(object: EditorWatcher {
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                super.onTextChanged(p0, p1, p2, p3)
+            override fun onTextChanged(var1: CharSequence?, var2: Int, var3: Int, var4: Int) {
                 onPasswordEditing()
             }
         })
@@ -202,16 +201,5 @@ private class ProfileSketch(delegate: SignupDelegate?) : BaseSketch<SignupDelega
         val password = passwordEdit?.text?.toString()?.trim()
         val confirm = confirmEdit?.text?.toString()?.trim()
         delegate?.onPasswordEditing(password, confirm)
-    }
-
-    private interface EditorWatcher : TextWatcher {
-        override fun afterTextChanged(p0: Editable?) {
-        }
-
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        }
-
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        }
     }
 }

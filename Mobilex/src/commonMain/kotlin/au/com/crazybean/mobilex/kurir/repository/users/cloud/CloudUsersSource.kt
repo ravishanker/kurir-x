@@ -1,7 +1,6 @@
 package au.com.crazybean.mobilex.kurir.repository.users.cloud
 
 import au.com.crazybean.mobilex.kurir.data.model.User
-import au.com.crazybean.mobilex.foundation.logger.Logger
 import au.com.crazybean.mobilex.foundation.native.currentMillis
 import au.com.crazybean.mobilex.kurir.data.model.Enroll
 import au.com.crazybean.mobilex.kurir.storage.CloudStorage
@@ -21,51 +20,45 @@ private const val TABLE_ENROLL = "enroll"
 
 class CloudUsersSource(private val storage: CloudStorage) : UsersSource {
     override fun getUser(mobile: String?, email: String?, callback: (User?) -> Unit) {
-        val filters = mobile?.takeIf { it.isNotBlank() }?.let {
-            mapOf(Pair(kMobile, it))
-        }?: email?.takeIf { it.isNotBlank() }?.let {
-            mapOf(Pair(kEmail, it))
-        }?: emptyMap()
-
-        storage.readData(TABLE_USERS, filters, onSuccess = { entities ->
-            entities.firstOrNull()?.let {
+        storage.readArray(TABLE_USERS) { entities, _ ->
+            entities?.firstOrNull {
+                (it[kEmail] as String?)?.equals(email, true) == true || (it[kMobile] as String?)?.equals(mobile, true) == true
+            }?.let {
                 callback(it.toUser)
             }?: callback(null)
-        }, onError = { throwable ->
-            Logger.d(throwable)
-            callback(null)
-        })
+        }
+    }
+
+    override fun getUsers(emails: List<String>?, callback: (List<User>?) -> Unit) {
+        storage.readArray(TABLE_USERS) { entities, _ ->
+            entities?.filter {
+                emails.isNullOrEmpty() || (it[kEmail] as String?)?.let { email ->
+                    emails.contains(email)
+                }?: false
+            }?.let { result ->
+                callback(result.map { it.toUser })
+            }?: callback(null)
+        }
     }
 
     override fun addUser(user: User, callback: (User?) -> Unit) {
-        storage.writeData(TABLE_USERS, null, user.toMap, onSuccess = {
-            callback(user)
-        }, onError = { throwable ->
-            Logger.d(throwable)
-            callback(null)
-        })
+        storage.writeData("$TABLE_USERS/${user.email}", user.toMap) { success, throwable ->
+            throwable?.let {
+                callback(null)
+            }?: callback(user)
+        }
     }
 
     override fun addEnroll(enroll: Enroll, callback: (Enroll?) -> Unit) {
-        storage.writeData(TABLE_ENROLL, null, enroll.toMap, onSuccess = {
-            callback(enroll)
-        }, onError = { throwable ->
-            Logger.d(throwable)
-            callback(null)
-        })
+        storage.writeData("$TABLE_ENROLL/${enroll.email}", enroll.toMap) { success, _ ->
+            callback(enroll.takeIf { success })
+        }
     }
 
     override fun getEnroll(token: String, callback: (Enroll?) -> Unit) {
-        storage.readData(TABLE_ENROLL, null, onSuccess = { entities ->
-            entities.firstOrNull { map ->
-                (map[kToken] as String?)?.equals(token, true)?: false
-            }?.let { payload ->
-                callback(payload.toEnroll)
-            }?: callback(null)
-        }, onError = {
-            Logger.d(it)
-            callback(null)
-        })
+        storage.readData("$TABLE_ENROLL/$token") { payload, throwable ->
+            callback(payload?.toEnroll)
+        }
     }
 
     private val Map<String, Any?>.toUser: User

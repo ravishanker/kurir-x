@@ -7,6 +7,9 @@ import au.com.crazybean.mobilex.kurir.dependency.global.appModule
 import au.com.crazybean.mobilex.kurir.modules.auth.login.impl.loginModule
 import au.com.crazybean.mobilex.kurir.modules.auth.signup.impl.signupModule
 import au.com.crazybean.mobilex.kurir.modules.chat.impl.chatModule
+import au.com.crazybean.mobilex.kurir.modules.contacts.impl.contactsModule
+import au.com.crazybean.mobilex.kurir.modules.details.impl.detailsModule
+import au.com.crazybean.mobilex.kurir.modules.explore.impl.exploreModule
 import au.com.crazybean.mobilex.kurir.modules.find.impl.findModule
 import au.com.crazybean.mobilex.kurir.modules.settings.impl.settingsModule
 import au.com.crazybean.mobilex.kurir.modules.track.impl.trackModule
@@ -31,10 +34,17 @@ class Dependency private constructor() {
 
                         // Dashboard
                         dashboardModule,
-                        chatModule,
                         findModule,
                         settingsModule,
-                        trackModule
+                        trackModule,
+
+                        // Chat
+                        contactsModule,
+                        chatModule,
+
+                        // Search
+                        exploreModule,
+                        detailsModule
                     )
                 )
             }

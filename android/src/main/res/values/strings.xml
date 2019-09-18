@@ -24,6 +24,15 @@
     <string name="tab_chat">Chat</string>
     <string name="tab_settings">Settings</string>
 
+    <!-- Labels -->
+    <string name="label_chat_with">Chat with %s</string>
+    <string name="label_me">me</string>
+    <string name="label_him">him</string>
+
+    <!-- Menus -->
+    <string name="menu_add_contact">Add contact</string>
+    <string name="menu_new_task">New task</string>
+
     <!-- Error Message -->
     <string name="error_title">Sorry</string>
     <string name="error_generic">Oops! Something went wrong:( </string>

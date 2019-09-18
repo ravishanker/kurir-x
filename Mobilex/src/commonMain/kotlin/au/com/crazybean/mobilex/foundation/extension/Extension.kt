@@ -13,7 +13,7 @@ internal val kJson by lazy {
     Json(JsonConfiguration(strictMode = false, useArrayPolymorphism = true))
 }
 
-internal fun <T: Any> String.decode(deserializer: DeserializationStrategy<T>): T? {
+fun <T: Any> String.decode(deserializer: DeserializationStrategy<T>): T? {
     return try {
         kJson.parse(deserializer, this)
     } catch (throwable: Exception) {

@@ -2,6 +2,12 @@ package au.com.crazybean.mobilex.kurir.dependency.domain
 
 import au.com.crazybean.mobilex.kurir.storage.CloudStorage
 import au.com.crazybean.mobilex.kurir.impl.FirebaseStorage
+import au.com.crazybean.mobilex.kurir.repository.contacts.ContactsRepository
+import au.com.crazybean.mobilex.kurir.repository.contacts.ContactsSource
+import au.com.crazybean.mobilex.kurir.repository.contacts.cloud.CloudContactsSource
+import au.com.crazybean.mobilex.kurir.repository.messages.MessagesRepository
+import au.com.crazybean.mobilex.kurir.repository.messages.MessagesSource
+import au.com.crazybean.mobilex.kurir.repository.messages.cloud.CloudMessagesSource
 import au.com.crazybean.mobilex.kurir.repository.users.UsersRepository
 import au.com.crazybean.mobilex.kurir.repository.users.UsersSource
 import au.com.crazybean.mobilex.kurir.repository.users.cloud.CloudUsersSource
@@ -13,6 +19,26 @@ val domainModule = module {
     }
 
     // Users Repository
-    single<UsersSource> { CloudUsersSource(get()) }
-    single { UsersRepository(get()) }
+    single<UsersSource> {
+        CloudUsersSource(get())
+    }
+    single {
+        UsersRepository(get())
+    }
+
+    // Messages Repository
+    single<MessagesSource> {
+        CloudMessagesSource(get())
+    }
+    single {
+        MessagesRepository(get())
+    }
+
+    // Contacts Repository
+    single<ContactsSource> {
+        CloudContactsSource(get())
+    }
+    single {
+        ContactsRepository(get())
+    }
 }

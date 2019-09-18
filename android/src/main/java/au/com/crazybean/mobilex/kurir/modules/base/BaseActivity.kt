@@ -36,12 +36,14 @@ abstract class BaseActivity<out DELEGATE: Delegate<View, ViewModel>> : AppCompat
         finish()
     }
 
-    protected fun showError(@StringRes resId: Int) {
+    protected fun showError(@StringRes resId: Int, onAction: (() -> Unit)? = null) {
         hideDialog(kError)
         MelonDialog.Builder()
             .setTitle(R.string.error_title)
             .setMessage(resId)
-            .setPositiveButton(R.string.button_gotcha)
+            .setPositiveButton(R.string.button_gotcha, DialogInterface.OnClickListener { _, _ ->
+                onAction?.invoke()
+            })
             .setOnDismissListener(DialogInterface.OnDismissListener {
                 dialogs.remove(kError)
             })

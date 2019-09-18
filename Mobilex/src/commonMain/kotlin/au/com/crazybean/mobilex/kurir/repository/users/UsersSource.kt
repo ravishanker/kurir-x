@@ -8,4 +8,5 @@ interface UsersSource {
     fun addUser(user: User, callback: (User?)-> Unit)
     fun addEnroll(enroll: Enroll, callback: (Enroll?) -> Unit)
     fun getEnroll(token: String, callback: (Enroll?) -> Unit)
+    fun getUsers(emails: List<String>?, callback: (List<User>?) -> Unit)
 }

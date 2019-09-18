@@ -10,4 +10,5 @@ const val ERR_UNKNOWN = -4
 
 @Serializable
 data class Auth(val result: Int,
-                val error: String? = null)
+                val error: String? = null,
+                var user: User? = null)
