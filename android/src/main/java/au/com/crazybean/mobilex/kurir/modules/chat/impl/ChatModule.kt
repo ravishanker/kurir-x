@@ -9,7 +9,7 @@ import org.koin.dsl.module
 val chatModule = module {
     // ViewModel
     viewModel {
-        ChatViewModel()
+        ChatViewModel(get(), get())
     }
 
     // Delegate

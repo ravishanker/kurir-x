@@ -2,6 +2,7 @@ package au.com.crazybean.mobilex.kurir.app
 
 import android.app.Application
 import android.content.Context
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDex
 import au.com.crazybean.mobilex.kurir.dependency.Dependency
 
@@ -17,6 +18,8 @@ class MobilexApplication : Application() {
 
         // Register dependencies
         Dependency.register(this)
+
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
     }
 
     override fun attachBaseContext(base: Context) {

@@ -15,11 +15,13 @@ class UsersRepository(private val usersSource: UsersSource?) : Repository() {
     }
 
     fun login(name: String, password: String, callback: (Auth?) -> Unit) {
-        usersSource?.getUser(name, name) { user ->
+        val email = name.takeIf { it.contains("@") }?: ""
+        val mobile = name.takeIf { email.isEmpty() }
+        usersSource?.getUser(mobile, email) { user ->
             (user?.let {
                 if (password == it.password) ERR_NONE else ERR_PASSWORD
             }?: ERR_NOT_FOUND).let { result ->
-                callback(Auth(result))
+                callback(Auth(result, user = user?.takeIf { result == ERR_NONE }))
             }
         }
     }
@@ -42,5 +44,9 @@ class UsersRepository(private val usersSource: UsersSource?) : Repository() {
                 callback(Auth(ERR_NONE))
             } ?: callback(Auth(ERR_UNKNOWN))
         }
+    }
+
+    fun getUsers(emails: List<String>?, callback: (List<User>?) -> Unit) {
+        usersSource?.getUsers(emails, callback)
     }
 }

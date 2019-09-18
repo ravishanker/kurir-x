@@ -2,50 +2,56 @@ package au.com.crazybean.mobilex.kurir.impl
 
 import au.com.crazybean.mobilex.kurir.storage.CloudStorage
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 
 class FirebaseStorage : CloudStorage {
     private val firestore by lazy {
         FirebaseFirestore.getInstance()
     }
 
-    override fun readData(tableName: String, filters: Map<String, Any?>?, onSuccess: (List<Map<String, Any?>>) -> Unit, onError: (Throwable) -> Unit) {
-        val reference = firestore.collection(tableName)
-        var query: Query? = null
-        filters?.takeIf { it.isNotEmpty() }?.forEach { filter ->
-            query = (query?: reference).whereEqualTo(filter.key, filter.value)
-        }
+    override fun readData(paths: String, onComplete: (Map<String, Any?>?, Throwable?) -> Unit) {
+        firestore.document(paths)
+            .get()
+            .addOnSuccessListener { snapshot ->
+                onComplete(snapshot.data, null)
+            }
+            .addOnFailureListener {
+                onComplete(null, it)
+            }
+    }
 
-        (query?: firestore.collection(tableName)).get()
+    override fun readArray(paths: String, onComplete: (List<Map<String, Any?>>?, Throwable?) -> Unit) {
+        firestore.collection(paths)
+            .get()
             .addOnSuccessListener {
                 val entities = it.map { document ->
                     document.data
                 }
-                onSuccess(entities)
+                onComplete(entities, null)
             }
             .addOnFailureListener {
-                onError(it)
+                onComplete(null, it)
             }
     }
 
-    override fun writeData(tableName: String, filters: Map<String, Any?>?, payload: Map<String, Any?>, onSuccess: (String) -> Unit, onError: (Throwable) -> Unit) {
-        (payload["id"] as String?)?.takeIf { it.isNotBlank() }?.let { identifier ->
-            firestore.collection(tableName)
-                .document(identifier)
-                .set(payload)
-                .addOnSuccessListener {
-                    onSuccess(identifier)
-                }
-                .addOnFailureListener {
-                    onError(it)
-                }
-        }?: firestore.collection(tableName)
-            .add(payload)
+    override fun writeData(paths: String, payload: Map<String, Any?>, onComplete: (Boolean, Throwable?) -> Unit) {
+        firestore.document(paths)
+            .set(payload)
             .addOnSuccessListener {
-                onSuccess(it.id)
+                onComplete(true, null)
             }
             .addOnFailureListener {
-                onError(it)
+                onComplete(false, it)
+            }
+    }
+
+    override fun delete(paths: String, onComplete: (Boolean, Throwable?) -> Unit) {
+        firestore.document(paths)
+            .delete()
+            .addOnSuccessListener {
+                onComplete(true, null)
+            }
+            .addOnFailureListener {
+                onComplete(false, null)
             }
     }
 }

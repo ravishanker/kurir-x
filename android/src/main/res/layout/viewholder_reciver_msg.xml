@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_small"
+    android:layout_marginEnd="@dimen/margin_xlarge">
+
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="@dimen/name_square_size"
+        android:layout_height="@dimen/name_square_size"
+        android:text="@string/label_him"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:textColor="@color/dark_text"
+        android:background="@color/label_other_bk"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/message_layout"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/name_label"
+        app:layout_constraintStart_toEndOf="@id/name_label"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.cardview.widget.CardView
+            style="@style/CardViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            card_view:cardBackgroundColor="@color/light_grey"
+            card_view:contentPadding="@dimen/padding_small"
+            android:layout_gravity="start|center_vertical">
+
+            <TextView
+                android:id="@+id/message_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@android:color/black" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/relative_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_size_small"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/message_layout"
+        app:layout_constraintStart_toStartOf="@id/message_layout"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import au.com.crazybean.mobilex.kurir.R
 import au.com.crazybean.mobilex.kurir.modules.base.BaseActivity
-import au.com.crazybean.mobilex.kurir.modules.chat.impl.ChatFragment
+import au.com.crazybean.mobilex.kurir.modules.contacts.impl.ContactsFragment
 import au.com.crazybean.mobilex.kurir.modules.dashboard.DashboardDelegate
 import au.com.crazybean.mobilex.kurir.modules.dashboard.DashboardView
 import au.com.crazybean.mobilex.kurir.modules.find.impl.FindFragment
@@ -54,6 +54,7 @@ class DashboardActivity : BaseActivity<DashboardDelegate>(), DashboardView {
 
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     tab?.position?.let { pos ->
+                        viewPager?.currentItem = pos
                         tab.setIcon(tabIcons[pos].second)
                         delegate?.onTabSelect(pos)
                     }
@@ -73,7 +74,7 @@ class DashboardActivity : BaseActivity<DashboardDelegate>(), DashboardView {
             return when(position) {
                 0 -> FindFragment()
                 1 -> TrackFragment()
-                2 -> ChatFragment()
+                2 -> ContactsFragment()
                 else -> SettingsFragment()
             }
         }
