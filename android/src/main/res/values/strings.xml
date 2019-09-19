@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Hints -->
-    <string name="app_name">Kurir App</string>
     <string name="user_name_hint">Mobile Number or Email</string>
     <string name="password_hint">Password</string>
     <string name="password_confirm_hint">Confirm Password</string>
@@ -11,13 +10,6 @@
     <string name="first_name_hint">First Name</string>
     <string name="last_name_hint">Last Name</string>
 
-    <!-- Buttons -->
-    <string name="button_login">Login</string>
-    <string name="button_signup">Sign Up</string>
-    <string name="button_verify">Verify</string>
-    <string name="button_finish">Let\'s Go</string>
-    <string name="button_gotcha">Gotcha</string>
-
     <!-- Tabs -->
     <string name="tab_find">Find</string>
     <string name="tab_track">Track</string>
@@ -25,13 +17,20 @@
     <string name="tab_settings">Settings</string>
 
     <!-- Labels -->
-    <string name="label_chat_with">Chat with %s</string>
-    <string name="label_me">me</string>
-    <string name="label_him">him</string>
+    <string name="label_chat_with" formatted="false">Chat with %s</string>
+    <string name="label_me">ME</string>
+    <string name="label_him">HIM</string>
 
     <!-- Menus -->
-    <string name="menu_add_contact">Add contact</string>
+    <string name="menu_favorite">Add favorite</string>
     <string name="menu_new_task">New task</string>
+
+    <!-- Buttons -->
+    <string name="button_login">Login</string>
+    <string name="button_signup">Sign Up</string>
+    <string name="button_verify">Verify</string>
+    <string name="button_finish">Let\'s Go</string>
+    <string name="button_gotcha">Gotcha</string>
 
     <!-- Error Message -->
     <string name="error_title">Sorry</string>

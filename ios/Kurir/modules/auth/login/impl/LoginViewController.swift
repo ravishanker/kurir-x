@@ -2,16 +2,9 @@ import UIKit
 import Mobilex
 import Crazybean
 
-class LoginViewController: AppViewController, LoginView {
+class LoginViewController: BaseViewController<LoginView, LoginViewModel, LoginDelegate>, LoginView {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
-    private(set) lazy var delegate = UIViewController.resolve(type: LoginDelegate.self, argument: self as LoginView)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        delegate?.authorise(self)
-    }
     
     func showError(auth: Auth?) {
     }
@@ -24,6 +17,9 @@ class LoginViewController: AppViewController, LoginView {
     }
     
     func showDashboard() {
+        let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "Dashboard")
+        self.present(viewController, animated: true, completion: nil)
     }
     
     func showNotFound() {

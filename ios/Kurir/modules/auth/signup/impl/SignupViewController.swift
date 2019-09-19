@@ -9,11 +9,9 @@
 import Crazybean
 import Mobilex
 
-class SignupViewController: AppViewController, SignupView {
+class SignupViewController: BaseViewController<SignupView, SignupViewModel, SignupDelegate>, SignupView {
     @IBOutlet weak var mobileField: UITextField!
     @IBOutlet weak var emailField: UITextField!
-    
-    private(set) lazy var delegate = UIViewController.resolve(type: SignupDelegate.self, argument: self as SignupView)
     
     func showSignup() {
     }

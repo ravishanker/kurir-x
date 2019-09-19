@@ -9,33 +9,19 @@ import au.com.crazybean.mobilex.foundation.userdata.UserData
 import au.com.crazybean.mobilex.kurir.data.kEmail
 import au.com.crazybean.mobilex.kurir.data.model.Message
 import au.com.crazybean.mobilex.kurir.repository.messages.MessagesRepository
-import java.util.*
-
-private const val DELAY = 2000L
 
 class ChatViewModel(private val userData: UserData?,
                     private val repository: MessagesRepository) : ViewModel() {
 
-    private val timer by lazy {
-        Timer("polling")
-    }
-
-    private val task: TimerTask
-        get() = object : TimerTask() {
-            override fun run() {
-                checkMessage()
-            }
-        }
-
     private val liveData by lazy {
-        MutableLiveData<List<Message>?>().also {
-            timer.schedule(task, DELAY)
+        MutableLiveData<List<Message>?>().also { liveData ->
+            val from = userData?.getString(kEmail, "")?: ""
+            repository.getMessages(from, completion = { messages ->
+                liveData.value = messages
+            }, observation = { messages ->
+                liveData.value = messages
+            })
         }
-    }
-
-    override fun onRelease() {
-        super.onRelease()
-        timer.cancel()
     }
 
     val myEmail: String
@@ -49,14 +35,6 @@ class ChatViewModel(private val userData: UserData?,
         val message = Message(from, toEmail, content, 0, currentMillis)
         repository.sendMessage(message) {
             Logger.d("Message sent: ${message.content}")
-        }
-    }
-
-    private fun checkMessage() {
-        val from = userData?.getString(kEmail, "")?: ""
-        repository.getMessages(from) { messages ->
-            liveData.value = messages
-            timer.schedule(task, DELAY)
         }
     }
 }

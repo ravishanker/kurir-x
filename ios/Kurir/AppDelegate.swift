@@ -7,11 +7,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    private(set) lazy var dependency = Dependency(DomainModule(),
+    private(set) lazy var dependency = Dependency(AppModule(),
+                                                  DomainModule(),
                                                   LoginModule(),
                                                   ProfileModule(),
                                                   SignupModule(),
-                                                  VerifyModule())
+                                                  VerifyModule(),
+                                                  FindModule(),
+                                                  ContactsModule(),
+                                                  ChatModule())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

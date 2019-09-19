@@ -11,6 +11,21 @@
 "FIRST_NAME_HINT" = "First Name";
 "LAST_NAME_HINT" = "Last Name";
 
+// Tabs
+"TAB_FIND" = "Find";
+"TAB_TRACK" = "Track";
+"TAB_CHAT" = "Chat";
+"TAB_SETTINGS" = "Settings";
+
+// Labels
+"LABEL_CHAT_WITH" = "Chat with %s";
+"LABEL_ME" = "ME";
+"LABEL_HIM" = "HIM";
+
+// Menus
+"MENU_FAVORITE" = "Add favorite";
+"MENU_NEW_TASK" = "New task";
+
 // Buttons
 "BUTTON_LOGIN" = "Login";
 "BUTTON_SIGNUP" = "Sign Up";

@@ -22,8 +22,8 @@ class ContactsDelegate(view: ContactsView?,
             })
     }
 
-    fun onAddContactClick() {
-        view?.showSearch(Module.Explore.arguments)
+    fun onAddClick() {
+        view?.showExplore(Module.Explore.arguments)
     }
 
     fun onContactClick(user: User) {
