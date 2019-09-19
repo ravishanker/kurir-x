@@ -16,22 +16,24 @@ private const val TABLE_MESSAGES = "messages"
 private const val PATH_ENTITIES = "entities"
 
 class CloudMessagesSource(private val storage: CloudStorage) : MessagesSource {
-    override fun getMessages(userName: String, callback: (List<Message>?) -> Unit) {
-        storage.readArray("$TABLE_MESSAGES/$userName/$PATH_ENTITIES") { entities, throwable ->
+    override fun getMessages(userName: String, completion: (List<Message>?) -> Unit, observation: (List<Message>?) -> Unit) {
+        storage.readArray("$TABLE_MESSAGES/$userName/$PATH_ENTITIES", completion = { entities, throwable ->
             Logger.d(throwable)
             entities?.map { it.toMessage }?.let { messages ->
-                callback(messages.sortedBy { it.timestamp })
-            }?: callback(null)
-        }
+                completion(messages.sortedBy { it.timestamp })
+            }?: completion(null)
+        }, observation = { added, _, _, _ ->
+            observation(added?.map { it.toMessage })
+        })
     }
 
-    override fun sendMessage(message: Message, callback: (Boolean) -> Unit) {
-        storage.writeData("$TABLE_MESSAGES/${message.from}/$PATH_ENTITIES/${message.timestamp}", message.toMap) { success, throwable ->
+    override fun sendMessage(message: Message, completion: (Boolean) -> Unit) {
+        storage.writeData("$TABLE_MESSAGES/${message.from}/$PATH_ENTITIES/${message.timestamp}", message.toMap) { _, throwable ->
             Logger.d(throwable)
 
             // We need add another message to recipient as well.
             storage.writeData("$TABLE_MESSAGES/${message.to}/$PATH_ENTITIES/${message.timestamp}", message.toMap) { result, _ ->
-                callback(result)
+                completion(result)
             }
         }
     }

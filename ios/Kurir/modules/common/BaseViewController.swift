@@ -1,13 +1,25 @@
 //
-//  UIViewController+Dependency.swift
+//  BaseViewController.swift
 //  Kurir
 //
-//  Created by Loren on 18/8/19.
+//  Created by Loren on 19/9/19.
 //  Copyright © 2019 Crazybean Studio. All rights reserved.
 //
 
-import UIKit
 import Crazybean
+
+class BaseViewController<V, VM: ViewModel, D>: AppViewController where D: Delegate<V, VM> {
+    private(set) lazy var delegate = UIViewController.resolve(type: D.self, argument: self as! V)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate?.authorise(self, params: params)
+    }
+}
+
+func getString(_ key: String)-> String {
+    return NSLocalizedString(key, comment: "")
+}
 
 extension AppViewController {
     var isIndicatorHidden: Bool {
@@ -49,11 +61,11 @@ extension AppViewController {
 extension AppViewController {
     func showError(_ resId: String) {
         MelonAlert.Builder(self, style: .alert)
-        .setTitle(getString("ERROR_TITLE"))
-        .setMessage(getString(resId))
-        .addAction(getString("BUTTON_GOTCHA"))
-        .build()
-        .show()
+            .setTitle(getString("ERROR_TITLE"))
+            .setMessage(getString(resId))
+            .addAction(getString("BUTTON_GOTCHA"))
+            .build()
+            .show()
     }
 }
 
@@ -70,12 +82,6 @@ extension UIViewController {
     
     internal class func resolve<Target: Any, Argument: Any>(type: Target.Type, argument: Argument) -> Target? {
         return dependency?.resolve(type: type, argument: argument)
-    }
-}
-
-extension UIViewController {
-    func getString(_ key: String)-> String {
-        return NSLocalizedString(key, comment: "")
     }
 }
 

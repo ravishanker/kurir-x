@@ -9,15 +9,8 @@
 import Crazybean
 import Mobilex
 
-class VerifyViewController: AppViewController, VerifyView {
+class VerifyViewController: BaseViewController<VerifyView, VerifyViewModel, VerifyDelegate>, VerifyView {
     @IBOutlet weak var passcodeField: UITextField!
-    
-    private(set) lazy var delegate = UIViewController.resolve(type: VerifyDelegate.self, argument: self as VerifyView)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        delegate?.authorise(self, params: params)
-    }
     
     func showProfile(user: User?) {
         performSegue(withIdentifier: "profileView", sender: self, object: user)

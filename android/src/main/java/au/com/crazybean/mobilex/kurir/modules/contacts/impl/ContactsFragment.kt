@@ -42,7 +42,7 @@ class ContactsFragment : BaseFragment<ContactsDelegate>(), ContactsView, Recycle
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.menu_add_contact -> {
-                delegate?.onAddContactClick()
+                delegate?.onAddClick()
                 true
             }
 
@@ -70,7 +70,7 @@ class ContactsFragment : BaseFragment<ContactsDelegate>(), ContactsView, Recycle
         navigate(arguments)
     }
 
-    override fun showSearch(arguments: Arguments) {
+    override fun showExplore(arguments: Arguments) {
         navigate(arguments)
     }
 

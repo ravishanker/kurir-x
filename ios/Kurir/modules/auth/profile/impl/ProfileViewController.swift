@@ -9,9 +9,7 @@
 import Crazybean
 import Mobilex
 
-class ProfileViewController: AppViewController, ProfileView {
-    private(set) lazy var delegate = UIViewController.resolve(type: ProfileDelegate.self, argument: self as ProfileView)
-    
+class ProfileViewController: BaseViewController<ProfileView, ProfileViewModel, ProfileDelegate>, ProfileView {
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!

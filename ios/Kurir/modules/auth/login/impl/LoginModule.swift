@@ -13,7 +13,7 @@ class LoginModule: Module {
     override func inject() {
         // ViewModel
         factory(LoginViewModel.self) { r in
-            LoginViewModel(r.resolve(UsersRepository.self)!)
+            LoginViewModel(userData: r.resolve(UserData.self), repository: r.resolve(UsersRepository.self)!)
         }
         
         // Delegate

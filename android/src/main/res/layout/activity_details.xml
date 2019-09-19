@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_large"
         android:padding="@dimen/padding_medium"
-        android:text="@string/menu_add_contact"
-        app:drawableTopCompat="@drawable/ic_add_contact"
+        android:text="@string/menu_favorite"
+        app:drawableTopCompat="@drawable/ic_favorite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

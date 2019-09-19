@@ -20,7 +20,7 @@ class SignupViewModel: ViewModel {
     
     func signup(mobile: String, email: String)-> LiveData<Auth?> {
         return LiveData<Auth?> { [weak self] liveData in
-            self?.repository?.checkUser(mobile: mobile, email: email, callback: { auth in
+            self?.repository?.checkUser(mobile: mobile, email: email, completion: { auth in
                 if auth?.result == AuthKt.ERR_NOT_FOUND {
                     self?.enroll = Enroll(email: email, mobile: mobile, token: "")
                 }
@@ -33,7 +33,7 @@ class SignupViewModel: ViewModel {
     func register(user: User)-> LiveData<Auth?> {
         return LiveData<Auth?>() { [weak self] liveData in
             if let repository = self?.repository {
-                repository.register(user: user, callback: { auth in
+                repository.register(user: user, completion: { auth in
                     liveData.value = auth
                 })
             }

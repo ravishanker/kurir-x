@@ -18,58 +18,36 @@ class FirebaseStorage: CloudStorage {
         return firestore
     }()
     
-    func readData(tableName: String, filters: [String : Any]?, onSuccess: @escaping ([[String : Any]]) -> Void, onError: @escaping (KotlinThrowable) -> Void) {
-        let reference = firestore.collection(tableName)
-        if let filters = filters {
-            var query: Query? = reference
-            for filter in filters {
-                query = query?.whereField(filter.key, isEqualTo: filter.value)
-            }
-            query?.getDocuments { snapshot, error in
-                if let error = error {
-                    onError(error.throwable)
-                } else {
-                    let result = snapshot!.documents.map{ $0.data() }
-                    onSuccess(result)
-                }
-            }
-        } else {
-            reference.getDocuments { snapshot, error in
-                    if let error = error {
-                        onError(error.throwable)
-                    } else {
-                        let result = snapshot!.documents.map{ $0.data() }
-                        onSuccess(result)
-                    }
-            }
+    func readData(paths: String, completion: @escaping ([String : Any]?, KotlinThrowable?) -> Void) {
+        firestore.document(paths)
+            .getDocument { snapshot, error in
+                completion(snapshot?.data(), error?.throwable)
         }
     }
     
-    func writeData(tableName: String, filters: [String : Any]?, payload: [String : Any], onSuccess: @escaping (String) -> Void, onError: @escaping (KotlinThrowable) -> Void) {
-        if let identifier = filters?["id"] as? String {
-            firestore.collection(tableName)
-                .document(identifier)
-                .setData(payload) { error in
-                    if let error = error {
-                        onError(error.throwable)
-                    } else {
-                        onSuccess(identifier)
-                    }
-            }
-        } else {
-            var ref: DocumentReference? = nil
-            ref = firestore.collection(tableName)
-                .addDocument(data: payload) { error in
-                    if let error = error {
-                        onError(error.throwable)
-                    } else {
-                        if let documentId = ref?.documentID {
-                            onSuccess(documentId)
-                        } else {
-                            onError(KotlinThrowable(message: "Unknown error"))
-                        }
-                    }
-            }
+    func writeData(paths: String, payload: [String : Any], completion: @escaping (KotlinBoolean, KotlinThrowable?) -> Void) {
+        firestore.document(paths)
+            .setData(payload) { error in
+                completion((error == nil).boolean, error?.throwable)
+        }
+    }
+    
+    func delete(paths: String, completion: @escaping (KotlinBoolean, KotlinThrowable?) -> Void) {
+        firestore.document(paths)
+            .delete { error in
+                completion((error == nil).boolean, error?.throwable)
+        }
+    }
+    
+    func readArray(paths: String, completion: @escaping ([[String : Any]]?, KotlinThrowable?) -> Void,
+                   observation: (([[String : Any]]?, [[String : Any]]?, [[String : Any]]?, KotlinThrowable?) -> Void)? = nil) {
+        firestore.collection(paths)
+            .getDocuments { snapshot, error in
+                if let snapshot = snapshot {
+                    completion(snapshot.documents.map{ $0.data() }, error?.throwable)
+                } else {
+                    completion(nil, error?.throwable)
+                }
         }
     }
 }
@@ -81,3 +59,12 @@ extension Error {
         }
     }
 }
+
+extension Bool {
+    var boolean: KotlinBoolean {
+        get {
+            return KotlinBoolean(value: self)
+        }
+    }
+}
+

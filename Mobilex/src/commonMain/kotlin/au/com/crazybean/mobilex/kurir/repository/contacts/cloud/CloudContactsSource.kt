@@ -9,25 +9,25 @@ private const val kEmail = "email"
 private const val PATH = "entities"
 
 class CloudContactsSource(private val storage: CloudStorage) : ContactsSource {
-    override fun getContacts(myEmail: String, callback: (List<String>?) -> Unit) {
-        storage.readArray("$TABLE_CONTACTS/$myEmail/$PATH") { entities, _ ->
+    override fun getContacts(myEmail: String, completion: (List<String>?) -> Unit) {
+        storage.readArray("$TABLE_CONTACTS/$myEmail/$PATH", completion = { entities, _ ->
             entities?.map { it[kEmail] as String }?.let { emails ->
-                callback(emails)
-            }?: callback(null)
-        }
+                completion(emails)
+            }?: completion(null)
+        })
     }
 
-    override fun addContact(myEmail: String, email: String, callback: (Boolean) -> Unit) {
+    override fun addContact(myEmail: String, email: String, completion: (Boolean) -> Unit) {
         storage.writeData("$TABLE_CONTACTS/$myEmail/$PATH/$email", mapOf(Pair(kEmail, email))) { success, throwable ->
             Logger.d(throwable)
-            callback(success)
+            completion(success)
         }
     }
 
-    override fun removeContact(myEmail: String, email: String, callback: (Boolean) -> Unit) {
+    override fun removeContact(myEmail: String, email: String, completion: (Boolean) -> Unit) {
         storage.delete("$TABLE_CONTACTS/$email") { success, throwable ->
             Logger.d(throwable)
-            callback(success)
+            completion(success)
         }
     }
 }

@@ -19,45 +19,45 @@ private const val TABLE_USERS = "users"
 private const val TABLE_ENROLL = "enroll"
 
 class CloudUsersSource(private val storage: CloudStorage) : UsersSource {
-    override fun getUser(mobile: String?, email: String?, callback: (User?) -> Unit) {
-        storage.readArray(TABLE_USERS) { entities, _ ->
+    override fun getUser(mobile: String?, email: String?, completion: (User?) -> Unit) {
+        storage.readArray(TABLE_USERS, completion = { entities, _ ->
             entities?.firstOrNull {
                 (it[kEmail] as String?)?.equals(email, true) == true || (it[kMobile] as String?)?.equals(mobile, true) == true
             }?.let {
-                callback(it.toUser)
-            }?: callback(null)
-        }
+                completion(it.toUser)
+            }?: completion(null)
+        })
     }
 
-    override fun getUsers(emails: List<String>?, callback: (List<User>?) -> Unit) {
-        storage.readArray(TABLE_USERS) { entities, _ ->
+    override fun getUsers(emails: List<String>?, completion: (List<User>?) -> Unit) {
+        storage.readArray(TABLE_USERS, completion = { entities, _ ->
             entities?.filter {
                 emails.isNullOrEmpty() || (it[kEmail] as String?)?.let { email ->
                     emails.contains(email)
                 }?: false
             }?.let { result ->
-                callback(result.map { it.toUser })
-            }?: callback(null)
-        }
+                completion(result.map { it.toUser })
+            }?: completion(null)
+        })
     }
 
-    override fun addUser(user: User, callback: (User?) -> Unit) {
-        storage.writeData("$TABLE_USERS/${user.email}", user.toMap) { success, throwable ->
+    override fun addUser(user: User, completion: (User?) -> Unit) {
+        storage.writeData("$TABLE_USERS/${user.email}", user.toMap) { _, throwable ->
             throwable?.let {
-                callback(null)
-            }?: callback(user)
+                completion(null)
+            }?: completion(user)
         }
     }
 
-    override fun addEnroll(enroll: Enroll, callback: (Enroll?) -> Unit) {
+    override fun addEnroll(enroll: Enroll, completion: (Enroll?) -> Unit) {
         storage.writeData("$TABLE_ENROLL/${enroll.email}", enroll.toMap) { success, _ ->
-            callback(enroll.takeIf { success })
+            completion(enroll.takeIf { success })
         }
     }
 
-    override fun getEnroll(token: String, callback: (Enroll?) -> Unit) {
-        storage.readData("$TABLE_ENROLL/$token") { payload, throwable ->
-            callback(payload?.toEnroll)
+    override fun getEnroll(token: String, completion: (Enroll?) -> Unit) {
+        storage.readData("$TABLE_ENROLL/$token") { payload, _ ->
+            completion(payload?.toEnroll)
         }
     }
 
