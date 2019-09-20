@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Kurir</string>
+
     <!-- Hints -->
     <string name="user_name_hint">Mobile Number or Email</string>
     <string name="password_hint">Password</string>

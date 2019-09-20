@@ -1083,6 +1083,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A3C3F1BE9EDBE28B81CC0A8A /* Pods-Kurir.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kurir/Kurir.entitlements;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = WJYBXH459T;
@@ -1103,6 +1104,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E608E4D8299066B8C801E0D /* Pods-Kurir.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kurir/Kurir.entitlements;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
