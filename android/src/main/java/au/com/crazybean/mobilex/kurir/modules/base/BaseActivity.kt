@@ -36,7 +36,7 @@ abstract class BaseActivity<out DELEGATE: Delegate<View, ViewModel>> : AppCompat
         finish()
     }
 
-    protected fun showError(@StringRes resId: Int, onAction: (() -> Unit)? = null) {
+    fun showError(@StringRes resId: Int, onAction: (() -> Unit)? = null) {
         hideDialog(kError)
         MelonDialog.Builder()
             .setTitle(R.string.error_title)
@@ -54,7 +54,7 @@ abstract class BaseActivity<out DELEGATE: Delegate<View, ViewModel>> : AppCompat
             }
     }
 
-    protected fun showLoading() {
+    fun showLoading() {
         hideDialog(kLoading)
         MelonDialog.Builder(R.style.LoadingTheme, true)
             .setLayout(R.layout.layer_loading)
@@ -68,7 +68,7 @@ abstract class BaseActivity<out DELEGATE: Delegate<View, ViewModel>> : AppCompat
             }
     }
 
-    protected fun hideLoading() {
+    fun hideLoading() {
         hideDialog(kLoading)
     }
 
@@ -77,15 +77,18 @@ abstract class BaseActivity<out DELEGATE: Delegate<View, ViewModel>> : AppCompat
     }
 
     override fun navigate(arguments: Arguments, requestCode: Int) {
-        arguments.resolve(this).let { intent ->
+        arguments.resolve(this)?.let { intent ->
             when (requestCode != -1) {
                 true -> startActivityForResult(intent, requestCode)
                 else -> startActivity(intent)
             }
-        }
+        }?: process(arguments)
     }
 
     protected fun navigate(module: Module, requestCode: Int = -1) {
         navigate(module.arguments, requestCode)
+    }
+
+    protected open fun process(arguments: Arguments) {
     }
 }

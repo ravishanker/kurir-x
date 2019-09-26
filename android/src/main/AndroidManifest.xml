@@ -27,6 +27,9 @@
         <activity android:name=".modules.explore.impl.ExploreActivity" />
 
         <activity android:name=".modules.details.impl.DetailsActivity" />
+
+        <activity android:name=".modules.creation.impl.CreationActivity" />
+
         <service
             android:name=".modules.firebase.CloudMessagingService"
             android:exported="false">

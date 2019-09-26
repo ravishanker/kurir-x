@@ -33,7 +33,7 @@ class ProfileDelegate: Delegate<ProfileView, ProfileViewModel> {
         if let enroll = enroll {
             let newUser = User(email: enroll.email, mobile: enroll.mobile, password: password, firstName: firstName, lastName: lastName)
             view?.showSpinner()
-            viewModel.register(user: newUser).observe { [weak self] auth in
+            viewModel.register(user: newUser).observe(for: self) { [weak self] auth in
                 self?.view?.hideSpinner()
                 
                 // Check the result

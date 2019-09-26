@@ -18,7 +18,7 @@ class SignupDelegate: Delegate<SignupView, SignupViewModel> {
     
     func onRegister(mobile: String, email: String) {
         view?.showSpinner()
-        viewModel.signup(mobile: mobile, email: email).observe { [weak self] auth in
+        viewModel.signup(mobile: mobile, email: email).observe(for: self) { [weak self] auth in
             self?.view?.hideSpinner()
             
             switch auth?.result {
