@@ -42,5 +42,14 @@ class DomainModule: Module {
         single(MessagesRepository.self) { r in
             MessagesRepository(messagesSource: r.resolve(MessagesSource.self)!)
         }
+        
+        // Tasks Repository
+        single(TasksSource.self) { r in
+            CloudTasksSource(storage: r.resolve(CloudStorage.self)!)
+        }
+        
+        single(TasksRepository.self) { r in
+            TasksRepository(tasksSource: r.resolve(TasksSource.self))
+        }
     }
 }

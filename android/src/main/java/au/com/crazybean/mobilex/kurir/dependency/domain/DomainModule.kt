@@ -8,6 +8,9 @@ import au.com.crazybean.mobilex.kurir.repository.contacts.cloud.CloudContactsSou
 import au.com.crazybean.mobilex.kurir.repository.messages.MessagesRepository
 import au.com.crazybean.mobilex.kurir.repository.messages.MessagesSource
 import au.com.crazybean.mobilex.kurir.repository.messages.cloud.CloudMessagesSource
+import au.com.crazybean.mobilex.kurir.repository.tasks.TasksRepository
+import au.com.crazybean.mobilex.kurir.repository.tasks.TasksSource
+import au.com.crazybean.mobilex.kurir.repository.tasks.cloud.CloudTasksSource
 import au.com.crazybean.mobilex.kurir.repository.users.UsersRepository
 import au.com.crazybean.mobilex.kurir.repository.users.UsersSource
 import au.com.crazybean.mobilex.kurir.repository.users.cloud.CloudUsersSource
@@ -40,5 +43,13 @@ val domainModule = module {
     }
     single {
         ContactsRepository(get())
+    }
+
+    // Tasks Repository
+    single<TasksSource> {
+        CloudTasksSource(get())
+    }
+    single {
+        TasksRepository(get())
     }
 }

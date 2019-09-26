@@ -15,7 +15,7 @@ class LoginDelegate: Delegate<LoginView, LoginViewModel> {
         if let name = name, let password = password {
             view?.showSpinner()
             viewModel.login(name: name, password: password)
-                .observe { [weak self] auth in
+                .observe(for: self) { [weak self] auth in
                     self?.view?.hideSpinner()
                     switch auth?.result {
                     case AuthKt.ERR_NONE:

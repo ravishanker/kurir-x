@@ -58,6 +58,9 @@
 		B422A625230A9D82007B3CCB /* DomainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A624230A9D82007B3CCB /* DomainModule.swift */; };
 		B422A626230A9D82007B3CCB /* DomainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A624230A9D82007B3CCB /* DomainModule.swift */; };
 		B422A627230A9D82007B3CCB /* DomainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422A624230A9D82007B3CCB /* DomainModule.swift */; };
+		B44A5FA12335116B000EDA4A /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44A5FA02335116B000EDA4A /* TaskTableViewCell.swift */; };
+		B44A5FA22335116B000EDA4A /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44A5FA02335116B000EDA4A /* TaskTableViewCell.swift */; };
+		B44A5FA32335116B000EDA4A /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44A5FA02335116B000EDA4A /* TaskTableViewCell.swift */; };
 		B44C2F20231ABC0C006AF28F /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F1C231ABC0C006AF28F /* LoginDelegate.swift */; };
 		B44C2F21231ABC0C006AF28F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F1E231ABC0C006AF28F /* LoginViewController.swift */; };
 		B44C2F22231ABC0C006AF28F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44C2F1F231ABC0C006AF28F /* LoginViewModel.swift */; };
@@ -92,21 +95,21 @@
 		B4D8FB57233330DB00F4829C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB56233330DB00F4829C /* DashboardViewController.swift */; };
 		B4D8FB58233330DB00F4829C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB56233330DB00F4829C /* DashboardViewController.swift */; };
 		B4D8FB59233330DB00F4829C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB56233330DB00F4829C /* DashboardViewController.swift */; };
-		B4D8FB5C2333378D00F4829C /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5B2333378D00F4829C /* FindView.swift */; };
-		B4D8FB5D2333378D00F4829C /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5B2333378D00F4829C /* FindView.swift */; };
-		B4D8FB5E2333378D00F4829C /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5B2333378D00F4829C /* FindView.swift */; };
-		B4D8FB602333379C00F4829C /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5F2333379C00F4829C /* FindViewModel.swift */; };
-		B4D8FB612333379C00F4829C /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5F2333379C00F4829C /* FindViewModel.swift */; };
-		B4D8FB622333379C00F4829C /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5F2333379C00F4829C /* FindViewModel.swift */; };
-		B4D8FB64233337A900F4829C /* FindDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB63233337A900F4829C /* FindDelegate.swift */; };
-		B4D8FB65233337A900F4829C /* FindDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB63233337A900F4829C /* FindDelegate.swift */; };
-		B4D8FB66233337A900F4829C /* FindDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB63233337A900F4829C /* FindDelegate.swift */; };
-		B4D8FB682333387700F4829C /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB672333387700F4829C /* FindViewController.swift */; };
-		B4D8FB692333387700F4829C /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB672333387700F4829C /* FindViewController.swift */; };
-		B4D8FB6A2333387700F4829C /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB672333387700F4829C /* FindViewController.swift */; };
-		B4D8FB6D2333388E00F4829C /* FindModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB6C2333388E00F4829C /* FindModule.swift */; };
-		B4D8FB6E2333388E00F4829C /* FindModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB6C2333388E00F4829C /* FindModule.swift */; };
-		B4D8FB6F2333388E00F4829C /* FindModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB6C2333388E00F4829C /* FindModule.swift */; };
+		B4D8FB5C2333378D00F4829C /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5B2333378D00F4829C /* TasksView.swift */; };
+		B4D8FB5D2333378D00F4829C /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5B2333378D00F4829C /* TasksView.swift */; };
+		B4D8FB5E2333378D00F4829C /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5B2333378D00F4829C /* TasksView.swift */; };
+		B4D8FB602333379C00F4829C /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5F2333379C00F4829C /* TasksViewModel.swift */; };
+		B4D8FB612333379C00F4829C /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5F2333379C00F4829C /* TasksViewModel.swift */; };
+		B4D8FB622333379C00F4829C /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB5F2333379C00F4829C /* TasksViewModel.swift */; };
+		B4D8FB64233337A900F4829C /* TasksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB63233337A900F4829C /* TasksDelegate.swift */; };
+		B4D8FB65233337A900F4829C /* TasksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB63233337A900F4829C /* TasksDelegate.swift */; };
+		B4D8FB66233337A900F4829C /* TasksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB63233337A900F4829C /* TasksDelegate.swift */; };
+		B4D8FB682333387700F4829C /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB672333387700F4829C /* TasksViewController.swift */; };
+		B4D8FB692333387700F4829C /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB672333387700F4829C /* TasksViewController.swift */; };
+		B4D8FB6A2333387700F4829C /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB672333387700F4829C /* TasksViewController.swift */; };
+		B4D8FB6D2333388E00F4829C /* TasksModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB6C2333388E00F4829C /* TasksModule.swift */; };
+		B4D8FB6E2333388E00F4829C /* TasksModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB6C2333388E00F4829C /* TasksModule.swift */; };
+		B4D8FB6F2333388E00F4829C /* TasksModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB6C2333388E00F4829C /* TasksModule.swift */; };
 		B4D8FB73233339C200F4829C /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB72233339C200F4829C /* ContactsView.swift */; };
 		B4D8FB74233339C200F4829C /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB72233339C200F4829C /* ContactsView.swift */; };
 		B4D8FB75233339C200F4829C /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D8FB72233339C200F4829C /* ContactsView.swift */; };
@@ -231,6 +234,7 @@
 		B422A59C230854A4007B3CCB /* Mobilex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mobilex.framework; path = ../Mobilex/build/cocoapods/framework/Mobilex.framework; sourceTree = "<group>"; };
 		B422A61C230A9CB3007B3CCB /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		B422A624230A9D82007B3CCB /* DomainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainModule.swift; sourceTree = "<group>"; };
+		B44A5FA02335116B000EDA4A /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		B44C2F1C231ABC0C006AF28F /* LoginDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
 		B44C2F1E231ABC0C006AF28F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B44C2F1F231ABC0C006AF28F /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -245,11 +249,11 @@
 		B49ADB9D231BC74B00C79FC3 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		B49ADBA2231BC84600C79FC3 /* SignupModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModule.swift; sourceTree = "<group>"; };
 		B4D8FB56233330DB00F4829C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		B4D8FB5B2333378D00F4829C /* FindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
-		B4D8FB5F2333379C00F4829C /* FindViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewModel.swift; sourceTree = "<group>"; };
-		B4D8FB63233337A900F4829C /* FindDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDelegate.swift; sourceTree = "<group>"; };
-		B4D8FB672333387700F4829C /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
-		B4D8FB6C2333388E00F4829C /* FindModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindModule.swift; sourceTree = "<group>"; };
+		B4D8FB5B2333378D00F4829C /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		B4D8FB5F2333379C00F4829C /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		B4D8FB63233337A900F4829C /* TasksDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksDelegate.swift; sourceTree = "<group>"; };
+		B4D8FB672333387700F4829C /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		B4D8FB6C2333388E00F4829C /* TasksModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksModule.swift; sourceTree = "<group>"; };
 		B4D8FB72233339C200F4829C /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		B4D8FB76233339D800F4829C /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		B4D8FB7A23333B6D00F4829C /* ContactsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsDelegate.swift; sourceTree = "<group>"; };
@@ -401,7 +405,7 @@
 				B4D8FB9B23339C6B00F4829C /* explore */,
 				B4D8FB702333393600F4829C /* chat */,
 				B4D8FB712333398000F4829C /* contacts */,
-				B4D8FB5A2333377A00F4829C /* find */,
+				B4D8FB5A2333377A00F4829C /* tasks */,
 			);
 			path = modules;
 			sourceTree = "<group>";
@@ -482,22 +486,23 @@
 			path = impl;
 			sourceTree = "<group>";
 		};
-		B4D8FB5A2333377A00F4829C /* find */ = {
+		B4D8FB5A2333377A00F4829C /* tasks */ = {
 			isa = PBXGroup;
 			children = (
 				B4D8FB6B2333387C00F4829C /* impl */,
-				B4D8FB5B2333378D00F4829C /* FindView.swift */,
-				B4D8FB5F2333379C00F4829C /* FindViewModel.swift */,
-				B4D8FB63233337A900F4829C /* FindDelegate.swift */,
+				B4D8FB5B2333378D00F4829C /* TasksView.swift */,
+				B4D8FB5F2333379C00F4829C /* TasksViewModel.swift */,
+				B4D8FB63233337A900F4829C /* TasksDelegate.swift */,
 			);
-			path = find;
+			path = tasks;
 			sourceTree = "<group>";
 		};
 		B4D8FB6B2333387C00F4829C /* impl */ = {
 			isa = PBXGroup;
 			children = (
-				B4D8FB672333387700F4829C /* FindViewController.swift */,
-				B4D8FB6C2333388E00F4829C /* FindModule.swift */,
+				B4D8FB672333387700F4829C /* TasksViewController.swift */,
+				B4D8FB6C2333388E00F4829C /* TasksModule.swift */,
+				B44A5FA02335116B000EDA4A /* TaskTableViewCell.swift */,
 			);
 			path = impl;
 			sourceTree = "<group>";
@@ -878,14 +883,14 @@
 				B4D8FB8C233345B300F4829C /* BaseViewController.swift in Sources */,
 				B4D8FBD82333B30300F4829C /* ChatViewController.swift in Sources */,
 				B4D8FBA523339C9900F4829C /* ExploreDelegate.swift in Sources */,
-				B4D8FB5C2333378D00F4829C /* FindView.swift in Sources */,
+				B4D8FB5C2333378D00F4829C /* TasksView.swift in Sources */,
 				B4017733232685E3001750E2 /* VerifyModule.swift in Sources */,
 				B4947C0323084C6700D3971D /* Dependency.swift in Sources */,
 				B4D8FBC72333B24200F4829C /* ChatView.swift in Sources */,
 				B4D8FBBA2333AAAB00F4829C /* ContactTableViewCell.swift in Sources */,
-				B4D8FB6D2333388E00F4829C /* FindModule.swift in Sources */,
+				B4D8FB6D2333388E00F4829C /* TasksModule.swift in Sources */,
 				B422A625230A9D82007B3CCB /* DomainModule.swift in Sources */,
-				B4D8FB64233337A900F4829C /* FindDelegate.swift in Sources */,
+				B4D8FB64233337A900F4829C /* TasksDelegate.swift in Sources */,
 				B44C2F20231ABC0C006AF28F /* LoginDelegate.swift in Sources */,
 				B401772A23268459001750E2 /* VerifyViewModel.swift in Sources */,
 				B4D8FBC32333B0D800F4829C /* AppModule.swift in Sources */,
@@ -906,19 +911,20 @@
 				B4D8FBA123339C8C00F4829C /* ExploreViewModel.swift in Sources */,
 				B4D8FB8023333BA900F4829C /* ContactsModule.swift in Sources */,
 				B49ADB99231BC72F00C79FC3 /* SignupViewModel.swift in Sources */,
+				B44A5FA12335116B000EDA4A /* TaskTableViewCell.swift in Sources */,
 				B4218FB52327CA2D00B34140 /* ProfileViewController.swift in Sources */,
 				B401771923253104001750E2 /* VerifyViewController.swift in Sources */,
 				B4D8FBCB2333B24D00F4829C /* ChatViewModel.swift in Sources */,
 				B4D8FB57233330DB00F4829C /* DashboardViewController.swift in Sources */,
 				B4D8FBD42333B2A200F4829C /* ChatModule.swift in Sources */,
 				B4D8FB77233339D800F4829C /* ContactsViewModel.swift in Sources */,
-				B4D8FB602333379C00F4829C /* FindViewModel.swift in Sources */,
+				B4D8FB602333379C00F4829C /* TasksViewModel.swift in Sources */,
 				B4218FA42327C83900B34140 /* ProfileView.swift in Sources */,
 				B401771D2326802F001750E2 /* LoginView.swift in Sources */,
 				B49ADB9E231BC74B00C79FC3 /* SignupViewController.swift in Sources */,
 				B422A61D230A9CB3007B3CCB /* Module.swift in Sources */,
 				B49ADB95231BC72500C79FC3 /* SignupDelegate.swift in Sources */,
-				B4D8FB682333387700F4829C /* FindViewController.swift in Sources */,
+				B4D8FB682333387700F4829C /* TasksViewController.swift in Sources */,
 				B44C2F21231ABC0C006AF28F /* LoginViewController.swift in Sources */,
 				B44C2F27231AC017006AF28F /* FirebaseStorage.swift in Sources */,
 			);
@@ -956,23 +962,24 @@
 				B4D8FBAB23339CAA00F4829C /* ExploreModule.swift in Sources */,
 				B4D8FBC82333B24200F4829C /* ChatView.swift in Sources */,
 				B422A626230A9D82007B3CCB /* DomainModule.swift in Sources */,
-				B4D8FB612333379C00F4829C /* FindViewModel.swift in Sources */,
+				B4D8FB612333379C00F4829C /* TasksViewModel.swift in Sources */,
 				B49ADB96231BC72500C79FC3 /* SignupDelegate.swift in Sources */,
 				B401772B23268459001750E2 /* VerifyViewModel.swift in Sources */,
 				B4D8FBBB2333AAAB00F4829C /* ContactTableViewCell.swift in Sources */,
-				B4D8FB5D2333378D00F4829C /* FindView.swift in Sources */,
-				B4D8FB6E2333388E00F4829C /* FindModule.swift in Sources */,
+				B4D8FB5D2333378D00F4829C /* TasksView.swift in Sources */,
+				B4D8FB6E2333388E00F4829C /* TasksModule.swift in Sources */,
 				B401771A23253104001750E2 /* VerifyViewController.swift in Sources */,
 				B4D8FB8523333EA300F4829C /* ContactsViewController.swift in Sources */,
 				B4218FB62327CA2D00B34140 /* ProfileViewController.swift in Sources */,
 				B4D8FB78233339D800F4829C /* ContactsViewModel.swift in Sources */,
 				B4D8FBC42333B0D800F4829C /* AppModule.swift in Sources */,
-				B4D8FB692333387700F4829C /* FindViewController.swift in Sources */,
+				B4D8FB692333387700F4829C /* TasksViewController.swift in Sources */,
 				B4017722232680A3001750E2 /* LoginView.swift in Sources */,
 				B4218FA92327C84500B34140 /* ProfileViewModel.swift in Sources */,
+				B44A5FA22335116B000EDA4A /* TaskTableViewCell.swift in Sources */,
 				B4D8FB8123333BA900F4829C /* ContactsModule.swift in Sources */,
 				B4017734232685E3001750E2 /* VerifyModule.swift in Sources */,
-				B4D8FB65233337A900F4829C /* FindDelegate.swift in Sources */,
+				B4D8FB65233337A900F4829C /* TasksDelegate.swift in Sources */,
 				FAB5AA3B2273D11A0095C309 /* KurirTests.swift in Sources */,
 				B4218FA52327C83900B34140 /* ProfileView.swift in Sources */,
 				B422A61E230A9CB3007B3CCB /* Module.swift in Sources */,
@@ -1012,23 +1019,24 @@
 				B4D8FBAC23339CAA00F4829C /* ExploreModule.swift in Sources */,
 				B4D8FBC92333B24200F4829C /* ChatView.swift in Sources */,
 				B422A627230A9D82007B3CCB /* DomainModule.swift in Sources */,
-				B4D8FB622333379C00F4829C /* FindViewModel.swift in Sources */,
+				B4D8FB622333379C00F4829C /* TasksViewModel.swift in Sources */,
 				B49ADB97231BC72500C79FC3 /* SignupDelegate.swift in Sources */,
 				B401772C23268459001750E2 /* VerifyViewModel.swift in Sources */,
 				B4D8FBBC2333AAAB00F4829C /* ContactTableViewCell.swift in Sources */,
-				B4D8FB5E2333378D00F4829C /* FindView.swift in Sources */,
-				B4D8FB6F2333388E00F4829C /* FindModule.swift in Sources */,
+				B4D8FB5E2333378D00F4829C /* TasksView.swift in Sources */,
+				B4D8FB6F2333388E00F4829C /* TasksModule.swift in Sources */,
 				B401771B23253104001750E2 /* VerifyViewController.swift in Sources */,
 				B4D8FB8623333EA300F4829C /* ContactsViewController.swift in Sources */,
 				B4218FB72327CA2D00B34140 /* ProfileViewController.swift in Sources */,
 				B4D8FB79233339D800F4829C /* ContactsViewModel.swift in Sources */,
 				B4D8FBC52333B0D800F4829C /* AppModule.swift in Sources */,
-				B4D8FB6A2333387700F4829C /* FindViewController.swift in Sources */,
+				B4D8FB6A2333387700F4829C /* TasksViewController.swift in Sources */,
 				B4017723232680A4001750E2 /* LoginView.swift in Sources */,
 				B4218FAA2327C84500B34140 /* ProfileViewModel.swift in Sources */,
+				B44A5FA32335116B000EDA4A /* TaskTableViewCell.swift in Sources */,
 				B4D8FB8223333BA900F4829C /* ContactsModule.swift in Sources */,
 				B4017735232685E3001750E2 /* VerifyModule.swift in Sources */,
-				B4D8FB66233337A900F4829C /* FindDelegate.swift in Sources */,
+				B4D8FB66233337A900F4829C /* TasksDelegate.swift in Sources */,
 				FAB5AA462273D11A0095C309 /* KurirUITests.swift in Sources */,
 				B4218FA62327C83900B34140 /* ProfileView.swift in Sources */,
 				B422A61F230A9CB3007B3CCB /* Module.swift in Sources */,

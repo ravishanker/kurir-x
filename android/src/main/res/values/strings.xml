@@ -11,6 +11,7 @@
     <string name="email_hint">Email</string>
     <string name="first_name_hint">First Name</string>
     <string name="last_name_hint">Last Name</string>
+    <string name="receiver_name_hint">Receiver\'s name</string>
 
     <!-- Tabs -->
     <string name="tab_find">Find</string>
@@ -22,6 +23,9 @@
     <string name="label_chat_with" formatted="false">Chat with %s</string>
     <string name="label_me">ME</string>
     <string name="label_him">HIM</string>
+    <string name="label_desc">Parcel description</string>
+    <string name="label_parcel_dest">Where to send the parcel?</string>
+    <string name="label_upload_photos">Upload/take photos</string>
 
     <!-- Menus -->
     <string name="menu_favorite">Add favorite</string>
@@ -33,6 +37,8 @@
     <string name="button_verify">Verify</string>
     <string name="button_finish">Let\'s Go</string>
     <string name="button_gotcha">Gotcha</string>
+    <string name="button_next">Next</string>
+    <string name="button_add_request">Place Request</string>
 
     <!-- Error Message -->
     <string name="error_title">Sorry</string>
@@ -41,4 +47,5 @@
     <string name="error_user_exists">User already exists</string>
     <string name="error_wrong_password">Incorrect password</string>
     <string name="error_wrong_code">Incorrect code (Try: 123456)</string>
+    <string name="error_wrong_city">City not found</string>
 </resources>

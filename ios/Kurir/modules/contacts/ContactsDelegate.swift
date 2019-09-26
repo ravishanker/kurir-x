@@ -12,7 +12,7 @@ import Mobilex
 class ContactsDelegate: Delegate<ContactsView, ContactsViewModel> {
     override func onResume() {
         super.onResume()
-        viewModel.contacts.observe { [weak self] users in
+        viewModel.contacts.observe(for: self) { [weak self] users in
             if let users = users {
                 self?.view?.showContacts(users: users)
             } else {

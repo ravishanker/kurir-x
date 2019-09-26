@@ -8,9 +8,12 @@ import au.com.crazybean.mobilex.kurir.modules.auth.login.impl.loginModule
 import au.com.crazybean.mobilex.kurir.modules.auth.signup.impl.signupModule
 import au.com.crazybean.mobilex.kurir.modules.chat.impl.chatModule
 import au.com.crazybean.mobilex.kurir.modules.contacts.impl.contactsModule
+import au.com.crazybean.mobilex.kurir.modules.creation.desc.impl.descModule
+import au.com.crazybean.mobilex.kurir.modules.creation.impl.creationModule
+import au.com.crazybean.mobilex.kurir.modules.creation.receiver.impl.receiverModule
 import au.com.crazybean.mobilex.kurir.modules.details.impl.detailsModule
 import au.com.crazybean.mobilex.kurir.modules.explore.impl.exploreModule
-import au.com.crazybean.mobilex.kurir.modules.find.impl.findModule
+import au.com.crazybean.mobilex.kurir.modules.tasks.impl.tasksModule
 import au.com.crazybean.mobilex.kurir.modules.settings.impl.settingsModule
 import au.com.crazybean.mobilex.kurir.modules.track.impl.trackModule
 import org.koin.android.ext.koin.androidContext
@@ -34,7 +37,7 @@ class Dependency private constructor() {
 
                         // Dashboard
                         dashboardModule,
-                        findModule,
+                        tasksModule,
                         settingsModule,
                         trackModule,
 
@@ -44,7 +47,12 @@ class Dependency private constructor() {
 
                         // Search
                         exploreModule,
-                        detailsModule
+                        detailsModule,
+
+                        // Creation
+                        creationModule,
+                        descModule,
+                        receiverModule
                     )
                 )
             }

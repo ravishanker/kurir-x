@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                   ProfileModule(),
                                                   SignupModule(),
                                                   VerifyModule(),
-                                                  FindModule(),
+                                                  TasksModule(),
                                                   ContactsModule(),
                                                   ChatModule())
 

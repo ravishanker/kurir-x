@@ -42,8 +42,8 @@ fun e(throwable: Throwable?) {
 // For Android
 object Logger {
     private enum class Type {
-        INFO,
         DEBUG,
+        INFO,
         WARN,
         ERROR
     }
