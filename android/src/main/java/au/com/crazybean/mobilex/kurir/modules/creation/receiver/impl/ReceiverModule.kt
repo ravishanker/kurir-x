@@ -9,7 +9,7 @@ import org.koin.dsl.module
 val receiverModule = module {
     // ViewModel
     viewModel {
-        ReceiverViewModel()
+        ReceiverViewModel(get(), get())
     }
 
     // Delegate

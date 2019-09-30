@@ -1,85 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/padding_medium">
-
-    <TextView
-        android:id="@+id/destination_label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_large"
-        android:text="@string/label_parcel_dest"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <AutoCompleteTextView
-        android:id="@+id/auto_complete_edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/destination_label"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/photos_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/margin_small"
-        android:background="@color/dark_grey"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auto_complete_edit"
-        app:layout_constraintDimensionRatio="H, 3:2"/>
-
-    <ImageView
-        android:id="@+id/take_photo_icon"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_camera"
-        app:layout_constraintStart_toStartOf="@id/photos_layout"
-        app:layout_constraintEnd_toEndOf="@id/photos_layout"
-        app:layout_constraintTop_toTopOf="@id/photos_layout"
-        app:layout_constraintBottom_toBottomOf="@id/photos_layout"/>
+        android:padding="@dimen/padding_medium">
 
-    <TextView
-        android:id="@+id/upload_photos_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/label_upload_photos"
-        android:layout_margin="@dimen/margin_small"
-        app:layout_constraintStart_toStartOf="@id/photos_layout"
-        app:layout_constraintEnd_toEndOf="@id/photos_layout"
-        app:layout_constraintTop_toBottomOf="@id/take_photo_icon"/>
+        <TextView
+            android:id="@+id/origin_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/label_parcel_origin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/desc_input_field"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/margin_medium"
-        android:singleLine="false"
-        android:gravity="start|top"
-        android:hint="@string/label_desc"
-        android:padding="@dimen/padding_small"
-        android:background="@drawable/editor_frame"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/photos_layout"
-        app:layout_constraintDimensionRatio="H, 2:1" />
+        <AutoCompleteTextView
+            android:id="@+id/origin_auto_complete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            app:layout_constraintTop_toBottomOf="@id/origin_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
-        android:id="@+id/next_button"
-        style="@style/Button.Primary"
-        android:text="@string/button_next"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_large"
-        android:layout_marginBottom="@dimen/margin_large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/desc_input_field"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/destination_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/label_parcel_dest"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/origin_auto_complete"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <AutoCompleteTextView
+            android:id="@+id/dest_auto_complete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            app:layout_constraintTop_toBottomOf="@id/destination_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/photos_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@color/dark_grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dest_auto_complete"
+            app:layout_constraintDimensionRatio="H, 3:2"/>
+
+        <ImageView
+            android:id="@+id/take_photo_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_camera"
+            app:layout_constraintStart_toStartOf="@id/photos_layout"
+            app:layout_constraintEnd_toEndOf="@id/photos_layout"
+            app:layout_constraintTop_toTopOf="@id/photos_layout"
+            app:layout_constraintBottom_toBottomOf="@id/photos_layout"/>
+
+        <TextView
+            android:id="@+id/upload_photos_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_upload_photos"
+            android:layout_margin="@dimen/margin_small"
+            app:layout_constraintStart_toStartOf="@id/photos_layout"
+            app:layout_constraintEnd_toEndOf="@id/photos_layout"
+            app:layout_constraintTop_toBottomOf="@id/take_photo_icon"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/desc_input_field"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_medium"
+            android:singleLine="false"
+            android:gravity="start|top"
+            android:hint="@string/label_desc"
+            android:padding="@dimen/padding_small"
+            android:background="@drawable/editor_frame"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photos_layout"
+            app:layout_constraintDimensionRatio="H, 2:1" />
+
+        <TextView
+            android:id="@+id/next_button"
+            style="@style/Button.Primary"
+            android:text="@string/button_next"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/desc_input_field"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

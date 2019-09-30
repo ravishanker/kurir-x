@@ -4,28 +4,23 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import au.com.crazybean.foundation.navigator.Arguments
 import au.com.crazybean.foundation.widgets.RecyclerUtils
 import au.com.crazybean.mobilex.kurir.R
 import au.com.crazybean.mobilex.kurir.data.model.User
-import au.com.crazybean.mobilex.kurir.modules.base.BaseFragment
+import au.com.crazybean.mobilex.kurir.modules.base.RecyclerFragment
 import au.com.crazybean.mobilex.kurir.modules.contacts.ContactsDelegate
 import au.com.crazybean.mobilex.kurir.modules.contacts.ContactsView
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class ContactsFragment : BaseFragment<ContactsDelegate>(), ContactsView, RecyclerUtils.Delegate<User> {
+class ContactsFragment : RecyclerFragment<ContactsDelegate, User>(), ContactsView {
 
     override val delegate: ContactsDelegate? by inject {
         parametersOf(this)
     }
 
-    override val layoutRes: Int
-        get() = R.layout.sketch_recycler
-
-    private val adapter by lazy {
+    override val adapter: RecyclerUtils.Adapter<User>? by lazy {
         ContactsAdapter(this)
     }
 
@@ -50,11 +45,9 @@ class ContactsFragment : BaseFragment<ContactsDelegate>(), ContactsView, Recycle
         }
     }
 
-    override fun onViewLoad(layout: ViewGroup) {
-        super.onViewLoad(layout)
-        layout.findViewById<RecyclerView>(R.id.recycler_view)?.let {
-            it.adapter = adapter
-        }
+    override fun onRefresh() {
+        super.onRefresh()
+        delegate?.onRefresh()
     }
 
     override fun onEntitySelect(entity: User, position: Int) {
@@ -63,7 +56,7 @@ class ContactsFragment : BaseFragment<ContactsDelegate>(), ContactsView, Recycle
     }
 
     override fun showContacts(users: List<User>) {
-        adapter.addEntities(users)
+        adapter?.addEntities(users)
     }
 
     override fun showChat(arguments: Arguments) {

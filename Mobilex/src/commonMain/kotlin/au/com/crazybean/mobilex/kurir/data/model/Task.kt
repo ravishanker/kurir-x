@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 data class Task(val origin: Address,
                 val dest: Address,
                 val owner: String,
-                val picker: String,
                 val parcel: Parcel,
                 val timestamp: Long,
+                val picker: String? = null,
                 val recipient: Contact? = null)

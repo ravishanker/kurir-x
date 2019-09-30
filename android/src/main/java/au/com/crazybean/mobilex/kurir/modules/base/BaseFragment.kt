@@ -50,5 +50,5 @@ abstract class BaseFragment<out DELEGATE: Delegate<View, ViewModel>> : Fragment(
         (activity?.takeIf { it is BaseActivity<*> } as BaseActivity<*>?)?.showError(resId, onAction)
     }
 
-    fun dismiss() {}
+    open fun dismiss() {}
 }

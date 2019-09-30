@@ -3,6 +3,7 @@ package au.com.crazybean.mobilex.kurir.modules.tasks
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import au.com.crazybean.foundation.mvvm.Delegate
+import au.com.crazybean.mobilex.kurir.data.model.Task
 
 class TasksDelegate(view: TasksView?, viewModel: TasksViewModel) : Delegate<TasksView, TasksViewModel>(view, viewModel) {
 
@@ -11,7 +12,7 @@ class TasksDelegate(view: TasksView?, viewModel: TasksViewModel) : Delegate<Task
         onRefresh()
     }
 
-    private fun onRefresh() {
+    fun onRefresh() {
         view?.showSpinner()
         viewModel.tasks
             .observe(this, Observer { tasks ->
@@ -24,5 +25,8 @@ class TasksDelegate(view: TasksView?, viewModel: TasksViewModel) : Delegate<Task
 
     fun onNewTask() {
         view?.showCreation()
+    }
+
+    fun onViewDetail(task: Task) {
     }
 }

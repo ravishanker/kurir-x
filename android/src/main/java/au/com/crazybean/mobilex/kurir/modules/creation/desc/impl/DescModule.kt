@@ -9,7 +9,7 @@ import org.koin.dsl.module
 val descModule = module {
     // ViewModel
     viewModel {
-        DescViewModel()
+        DescViewModel(get())
     }
 
     // Delegate

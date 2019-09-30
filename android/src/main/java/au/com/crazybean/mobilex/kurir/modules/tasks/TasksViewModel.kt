@@ -14,7 +14,7 @@ class TasksViewModel(private val userData: UserData?,
 
     val tasks: LiveData<List<Task>?>
         get() = MutableLiveData<List<Task>?>().also { liveData ->
-            tasksRepository?.getTasks() { tasks ->
+            tasksRepository?.getTasks { tasks ->
                 liveData.value = tasks
             }
         }
