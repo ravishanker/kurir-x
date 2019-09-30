@@ -8,7 +8,7 @@ import au.com.crazybean.mobilex.kurir.data.model.Task
 import au.com.crazybean.mobilex.kurir.repository.tasks.TasksSource
 import au.com.crazybean.mobilex.kurir.storage.CloudStorage
 
-private const val TABLE_TASKS = "tasks"
+private const val PATH = "tasks"
 
 // For Task
 private const val kOrigin = "origin"
@@ -40,7 +40,7 @@ private const val kEmail = "email"
 
 class CloudTasksSource(private val storage: CloudStorage) : TasksSource {
     override fun getTasks(picker: String?, completion: (List<Task>?) -> Unit) {
-        storage.readArray(TABLE_TASKS, completion = { entities, throwable ->
+        storage.readArray(PATH, completion = { entities, throwable ->
             Logger.d(throwable)
             entities?.map { entity ->
                 entity.toTask
@@ -68,14 +68,14 @@ class CloudTasksSource(private val storage: CloudStorage) : TasksSource {
     }
 
     override fun createTask(task: Task, forPicker: String?, completion: (Boolean) -> Unit) {
-        storage.writeData("$TABLE_TASKS/${task.timestamp}", task.toMap) { success, throwable ->
+        storage.writeData("$PATH/${task.timestamp}", task.toMap) { success, throwable ->
             Logger.d(throwable)
             completion(success && throwable == null)
         }
     }
 
     override fun deleteTask(task: Task, completion: (Boolean) -> Unit) {
-        storage.delete("$TABLE_TASKS/${task.timestamp}") { success, throwable ->
+        storage.delete("$PATH/${task.timestamp}") { success, throwable ->
             Logger.d(throwable)
             completion(success && throwable == null)
         }
@@ -86,9 +86,9 @@ class CloudTasksSource(private val storage: CloudStorage) : TasksSource {
             (get(kOrigin) as Map<String, Any?>).toAddress,
             (get(kDest) as Map<String, Any?>).toAddress,
             get(kOwner) as String,
-            get(kPicker) as String,
             (get(kParcel) as Map<String, Any?>).toParcel,
             get(kTimestamp) as Long,
+            get(kPicker) as String?,
             (get(kRecipient) as Map<String, Any?>?)?.toContact
         )
 

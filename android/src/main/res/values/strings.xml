@@ -24,8 +24,12 @@
     <string name="label_me">ME</string>
     <string name="label_him">HIM</string>
     <string name="label_desc">Parcel description</string>
-    <string name="label_parcel_dest">Where to send the parcel?</string>
+    <string name="label_parcel_origin">Origin:</string>
+    <string name="label_parcel_dest">Destination:</string>
     <string name="label_upload_photos">Upload/take photos</string>
+
+    <!-- Title -->
+    <string name="title_pick_image">Pick Image(s)</string>
 
     <!-- Menus -->
     <string name="menu_favorite">Add favorite</string>

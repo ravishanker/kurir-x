@@ -9,4 +9,6 @@ interface ContactsView : View {
     fun showChat(arguments: Arguments)
     fun showExplore(arguments: Arguments)
     fun showEmpty()
+    fun showSpinner()
+    fun hideSpinner()
 }

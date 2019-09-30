@@ -5,6 +5,9 @@ import au.com.crazybean.mobilex.kurir.impl.FirebaseStorage
 import au.com.crazybean.mobilex.kurir.repository.contacts.ContactsRepository
 import au.com.crazybean.mobilex.kurir.repository.contacts.ContactsSource
 import au.com.crazybean.mobilex.kurir.repository.contacts.cloud.CloudContactsSource
+import au.com.crazybean.mobilex.kurir.repository.geo.GeoRepository
+import au.com.crazybean.mobilex.kurir.repository.geo.GeoSource
+import au.com.crazybean.mobilex.kurir.repository.geo.network.GeoBytesSource
 import au.com.crazybean.mobilex.kurir.repository.messages.MessagesRepository
 import au.com.crazybean.mobilex.kurir.repository.messages.MessagesSource
 import au.com.crazybean.mobilex.kurir.repository.messages.cloud.CloudMessagesSource
@@ -51,5 +54,13 @@ val domainModule = module {
     }
     single {
         TasksRepository(get())
+    }
+
+    // Geo Repository
+    single<GeoSource> {
+        GeoBytesSource()
+    }
+    single {
+        GeoRepository(get())
     }
 }
