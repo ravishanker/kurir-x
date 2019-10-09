@@ -3,23 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
-	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>FAB5AA212273D1190095C309</key>
+		<key>Kurir.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>primary</key>
-			<true/>
+			<key>orderHint</key>
+			<integer>21</integer>
 		</dict>
-		<key>FAB5AA352273D11A0095C309</key>
+		<key>Mobilex.xcscheme</key>
 		<dict>
-			<key>primary</key>
+			<key>isShown</key>
 			<true/>
-		</dict>
-		<key>FAB5AA402273D11A0095C309</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<key>orderHint</key>
+			<integer>16</integer>
 		</dict>
 	</dict>
 </dict>

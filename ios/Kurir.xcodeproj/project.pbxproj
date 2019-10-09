@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -77,9 +77,6 @@
 		B4947C0323084C6700D3971D /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0123084C6700D3971D /* Dependency.swift */; };
 		B4947C0423084C6700D3971D /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0123084C6700D3971D /* Dependency.swift */; };
 		B4947C0523084C6700D3971D /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0123084C6700D3971D /* Dependency.swift */; };
-		B4947C0623084C6700D3971D /* DefaultsUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* DefaultsUserData.swift */; };
-		B4947C0723084C6700D3971D /* DefaultsUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* DefaultsUserData.swift */; };
-		B4947C0823084C6700D3971D /* DefaultsUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4947C0223084C6700D3971D /* DefaultsUserData.swift */; };
 		B49ADB95231BC72500C79FC3 /* SignupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49ADB94231BC72400C79FC3 /* SignupDelegate.swift */; };
 		B49ADB96231BC72500C79FC3 /* SignupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49ADB94231BC72400C79FC3 /* SignupDelegate.swift */; };
 		B49ADB97231BC72500C79FC3 /* SignupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49ADB94231BC72400C79FC3 /* SignupDelegate.swift */; };
@@ -243,7 +240,6 @@
 		B480F15F232E6051006E2810 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		B4889A33232782AE00186D36 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		B4947C0123084C6700D3971D /* Dependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
-		B4947C0223084C6700D3971D /* DefaultsUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsUserData.swift; sourceTree = "<group>"; };
 		B49ADB94231BC72400C79FC3 /* SignupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDelegate.swift; sourceTree = "<group>"; };
 		B49ADB98231BC72F00C79FC3 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		B49ADB9D231BC74B00C79FC3 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -460,7 +456,6 @@
 		B4947C0023084C5200D3971D /* impl */ = {
 			isa = PBXGroup;
 			children = (
-				B4947C0223084C6700D3971D /* DefaultsUserData.swift */,
 				B44C2F26231AC017006AF28F /* FirebaseStorage.swift */,
 			);
 			path = impl;
@@ -790,36 +785,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Kurir/Pods-Kurir-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/Crazybean/Crazybean.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Kurir/Pods-Kurir-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Crazybean.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Kurir/Pods-Kurir-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kurir/Pods-Kurir-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kurir/Pods-Kurir-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		44FD8BAB7607653BEF8BCC50 /* [CP] Check Pods Manifest.lock */ = {
@@ -850,20 +824,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Kurir/Pods-Kurir-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-Kurir/Pods-Kurir-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-Kurir/Pods-Kurir-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kurir/Pods-Kurir-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kurir/Pods-Kurir-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -905,7 +874,6 @@
 				B4D8FB7B23333B6D00F4829C /* ContactsDelegate.swift in Sources */,
 				B44C2F25231ABDBF006AF28F /* LoginModule.swift in Sources */,
 				B40177262326844A001750E2 /* VerifyView.swift in Sources */,
-				B4947C0623084C6700D3971D /* DefaultsUserData.swift in Sources */,
 				B4218FA82327C84500B34140 /* ProfileViewModel.swift in Sources */,
 				B4D8FBAA23339CAA00F4829C /* ExploreModule.swift in Sources */,
 				B4D8FBA123339C8C00F4829C /* ExploreViewModel.swift in Sources */,
@@ -943,7 +911,6 @@
 				B49ADB9F231BC74B00C79FC3 /* SignupViewController.swift in Sources */,
 				B4D8FB74233339C200F4829C /* ContactsView.swift in Sources */,
 				B4D8FBCC2333B24D00F4829C /* ChatViewModel.swift in Sources */,
-				B4947C0723084C6700D3971D /* DefaultsUserData.swift in Sources */,
 				B4D8FB8D233345B300F4829C /* BaseViewController.swift in Sources */,
 				B4889A35232782BD00186D36 /* UIColor+Hex.swift in Sources */,
 				B4947C0423084C6700D3971D /* Dependency.swift in Sources */,
@@ -1000,7 +967,6 @@
 				B49ADBA0231BC74B00C79FC3 /* SignupViewController.swift in Sources */,
 				B4D8FB75233339C200F4829C /* ContactsView.swift in Sources */,
 				B4D8FBCD2333B24D00F4829C /* ChatViewModel.swift in Sources */,
-				B4947C0823084C6700D3971D /* DefaultsUserData.swift in Sources */,
 				B4D8FB8E233345B300F4829C /* BaseViewController.swift in Sources */,
 				B4889A36232782BD00186D36 /* UIColor+Hex.swift in Sources */,
 				B4947C0523084C6700D3971D /* Dependency.swift in Sources */,

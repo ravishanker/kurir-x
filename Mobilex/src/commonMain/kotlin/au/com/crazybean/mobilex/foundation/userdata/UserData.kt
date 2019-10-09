@@ -1,32 +1,34 @@
 package au.com.crazybean.mobilex.foundation.userdata
 
-interface UserData {
+import au.com.crazybean.mobilex.foundation.internal.UserDataInterface
+
+expect open class UserData : UserDataInterface {
     /**
      * Save value
      */
-    fun setInt(value: Int, forKey: String)
-    fun setLong(value: Long, forKey: String)
-    fun setBool(value: Boolean, forKey: String)
-    fun setString(value: String, forKey: String)
+    override fun setInt(value: Int, forKey: String)
+    override fun setLong(value: Long, forKey: String)
+    override fun setBool(value: Boolean, forKey: String)
+    override fun setString(value: String, forKey: String)
 
     /**
      * Fetch value
      */
-    fun getInt(forKey: String, defaultValue: Int = 0): Int
-    fun getLong(forKey: String, defaultValue: Long = 0L): Long
-    fun getBool(forKey: String, defaultValue: Boolean = false): Boolean
-    fun getString(forKey: String, defaultValue: String? = null): String?
+    override fun getInt(forKey: String, defaultValue: Int): Int
+    override fun getLong(forKey: String, defaultValue: Long): Long
+    override fun getBool(forKey: String, defaultValue: Boolean): Boolean
+    override fun getString(forKey: String, defaultValue: String?): String?
 
     /**
      * Remove the key.
      */
-    fun delete(forKey: String): UserData
+    override fun delete(forKey: String)
 
     /**
      * Checking existence of a key.
      */
-    fun exists(key: String): Boolean
+    override fun exists(key: String): Boolean
 
     // Release the storage
-    fun clear()
+    override fun clear()
 }
