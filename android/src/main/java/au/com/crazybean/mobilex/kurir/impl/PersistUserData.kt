@@ -5,7 +5,7 @@ import android.content.Context
 import android.preference.PreferenceManager
 import au.com.crazybean.mobilex.foundation.userdata.UserData
 
-class PersistUserData(context: Context, fileName: String? = null) : UserData {
+class PersistUserData(context: Context, fileName: String? = null) : UserData() {
     private val preference = fileName?.takeIf { it.isNotBlank() }?.let {
         context.getSharedPreferences(it, Application.MODE_PRIVATE)
     } ?: PreferenceManager.getDefaultSharedPreferences(context)
@@ -42,11 +42,10 @@ class PersistUserData(context: Context, fileName: String? = null) : UserData {
         return preference.getString(forKey, defaultValue)
     }
 
-    override fun delete(forKey: String): UserData {
+    override fun delete(forKey: String) {
         forKey.takeIf { it.isNotBlank() }?.let {
             preference.edit().remove(it).apply()
         }
-        return this
     }
 
     override fun exists(key: String): Boolean {

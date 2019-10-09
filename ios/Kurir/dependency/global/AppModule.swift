@@ -13,7 +13,7 @@ class AppModule: Module {
     override func inject() {
         // User Data
         single(UserData.self) { _ in
-            DefaultsUserData()
+            UserData()
         }
     }
 }
