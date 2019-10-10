@@ -1,8 +1,8 @@
 package au.com.crazybean.mobilex.foundation.userdata
 
-import au.com.crazybean.mobilex.foundation.internal.UserDataInterface
+import au.com.crazybean.mobilex.foundation.internal.Persist
 
-class MemUserData : UserDataInterface {
+class MemUserData : Persist {
     private val entities by lazy {
         mutableMapOf<String, Any?>()
     }

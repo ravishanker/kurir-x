@@ -1,9 +1,9 @@
 package au.com.crazybean.mobilex.foundation.userdata
 
-import au.com.crazybean.mobilex.foundation.internal.UserDataInterface
+import au.com.crazybean.mobilex.foundation.internal.Persist
 import au.com.crazybean.mobilex.foundation.logger.Logger
 
-actual open class UserData : UserDataInterface {
+actual open class UserData : Persist {
     init {
         Logger.e("Mobilex: Android app should override UserData implementation!")
     }

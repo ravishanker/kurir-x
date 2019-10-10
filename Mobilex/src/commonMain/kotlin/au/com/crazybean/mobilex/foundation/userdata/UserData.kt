@@ -1,8 +1,8 @@
 package au.com.crazybean.mobilex.foundation.userdata
 
-import au.com.crazybean.mobilex.foundation.internal.UserDataInterface
+import au.com.crazybean.mobilex.foundation.internal.Persist
 
-expect open class UserData : UserDataInterface {
+expect open class UserData : Persist {
     /**
      * Save value
      */

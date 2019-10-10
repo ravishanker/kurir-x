@@ -1,6 +1,6 @@
 package au.com.crazybean.mobilex.foundation.internal
 
-internal interface UserDataInterface {
+internal interface Persist {
     /**
      * Save value
      */
