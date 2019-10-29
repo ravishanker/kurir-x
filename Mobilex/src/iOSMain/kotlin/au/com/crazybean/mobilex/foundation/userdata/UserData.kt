@@ -1,10 +1,10 @@
 package au.com.crazybean.mobilex.foundation.userdata
 
-import au.com.crazybean.mobilex.foundation.internal.UserDataInterface
+import au.com.crazybean.mobilex.foundation.internal.Persist
 import platform.Foundation.NSRegistrationDomain
 import platform.Foundation.NSUserDefaults
 
-actual open class UserData : UserDataInterface {
+actual open class UserData : Persist {
     private val userDefaults by lazy {
         NSUserDefaults.standardUserDefaults
     }

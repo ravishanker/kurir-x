@@ -12,24 +12,28 @@
         android:roundIcon="@mipmap/ic_circular_logo"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
-        <activity android:name=".modules.auth.login.impl.LoginActivity">
+        <activity android:name=".modules.auth.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".modules.auth.signup.impl.SignupActivity" />
+        <activity android:name=".modules.auth.signup.SignupActivity" />
 
-        <activity android:name=".modules.chat.impl.ChatActivity" />
+        <activity android:name=".modules.auth.verify.VerifyActivity" />
 
-        <activity android:name=".modules.dashboard.impl.DashboardActivity" />
+        <activity android:name=".modules.auth.profile.ProfileActivity" />
 
-        <activity android:name=".modules.explore.impl.ExploreActivity" />
+        <activity android:name=".modules.chat.ChatActivity" />
 
-        <activity android:name=".modules.details.impl.DetailsActivity" />
+        <activity android:name=".modules.dashboard.DashboardActivity" />
 
-        <activity android:name=".modules.creation.impl.CreationActivity" />
+        <activity android:name=".modules.explore.ExploreActivity" />
+
+        <activity android:name=".modules.details.DetailsActivity" />
+
+        <activity android:name=".modules.creation.CreationActivity" />
 
         <service
             android:name=".modules.firebase.CloudMessagingService"

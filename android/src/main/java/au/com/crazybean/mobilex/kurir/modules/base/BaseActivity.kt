@@ -4,23 +4,32 @@ import android.content.DialogInterface
 import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import au.com.crazybean.foundation.mvvm.Delegate
-import au.com.crazybean.foundation.mvvm.ViewModel
 import au.com.crazybean.foundation.navigator.Arguments
 import au.com.crazybean.foundation.navigator.Navigator
 import au.com.crazybean.foundation.widgets.MelonDialog
+import au.com.crazybean.mobilex.foundation.saw.Worker
+import au.com.crazybean.mobilex.foundation.saw.Adviser
+import au.com.crazybean.mobilex.foundation.saw.awareness.Awareness
+import au.com.crazybean.mobilex.foundation.saw.awareness.AwarenessOwner
 import au.com.crazybean.mobilex.kurir.R
+import au.com.crazybean.mobilex.kurir.extension.params
 
-private const val kError = "errorDialog"
-private const val kLoading = "loadingDialog"
-
-abstract class BaseActivity<out DELEGATE: Delegate<View, ViewModel>> : AppCompatActivity(), Navigator {
-    protected abstract val delegate: DELEGATE?
+abstract class BaseActivity<out ADVISER: Adviser<Scene, Worker>> : AppCompatActivity(), Navigator, AwarenessOwner {
+    private val kError = "errorDialog"
+    private val kLoading = "loadingDialog"
+    protected abstract val adviser: ADVISER?
     protected abstract val layoutRes: Int
 
     private val dialogs by lazy {
         mutableMapOf<String, MelonDialog?>()
     }
+
+    private val dispatcher by lazy {
+        LifecycleDispatcher(adviser)
+    }
+
+    override val awareness: Awareness?
+        get() = adviser?.awareness
 
     protected open fun onViewLoad() {
     }
@@ -29,7 +38,8 @@ abstract class BaseActivity<out DELEGATE: Delegate<View, ViewModel>> : AppCompat
         super.onCreate(savedInstanceState)
         setContentView(layoutRes)
         onViewLoad()
-        delegate?.authorise(this, intent.extras)
+        adviser?.consult(this, intent.params)
+        lifecycle.addObserver(dispatcher)
     }
 
     fun dismiss() {

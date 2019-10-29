@@ -5,19 +5,30 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
-import au.com.crazybean.foundation.mvvm.Delegate
-import au.com.crazybean.foundation.mvvm.ViewModel
 import au.com.crazybean.foundation.navigator.Arguments
 import au.com.crazybean.foundation.navigator.Navigator
+import au.com.crazybean.mobilex.foundation.saw.Worker
+import au.com.crazybean.mobilex.foundation.saw.Adviser
+import au.com.crazybean.mobilex.foundation.saw.awareness.Awareness
+import au.com.crazybean.mobilex.foundation.saw.awareness.AwarenessOwner
+import au.com.crazybean.mobilex.kurir.extension.params
 
-abstract class BaseFragment<out DELEGATE: Delegate<View, ViewModel>> : Fragment(), Navigator {
-    protected abstract val delegate: DELEGATE?
+abstract class BaseFragment<out ADVISER: Adviser<Scene, Worker>> : Fragment(), Navigator, AwarenessOwner {
+    protected abstract val adviser: ADVISER?
     protected abstract val layoutRes: Int
+
+    private val dispatcher by lazy {
+        LifecycleDispatcher(adviser)
+    }
+
+    override val awareness: Awareness?
+        get() = adviser?.awareness
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): android.view.View? {
         return inflater.inflate(layoutRes, container, false)?.also { layout ->
             onViewLoad(layout as ViewGroup)
-            delegate?.authorise(this, arguments)
+            adviser?.consult(this, arguments?.params)
+            lifecycle.addObserver(dispatcher)
         }
     }
 

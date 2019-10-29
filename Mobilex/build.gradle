@@ -5,7 +5,20 @@ apply plugin: 'co.touchlab.kotlinxcodesync'
 apply from: '../version.gradle'
 
 kotlin {
-    jvm {
+    jvm {}
+
+    targets {
+        def  buildForDevice = project.findProperty("kotlin.native.cocoapods.target") == "ios_arm"
+        if (buildForDevice) {
+            iosArm64("iOS64")
+            iosArm32("iOS32")
+
+            def iOSMain = sourceSets.iOSMain
+            sourceSets["iOS64Main"].dependsOn(iOSMain)
+            sourceSets["iOS32Main"].dependsOn(iOSMain)
+        } else {
+            iosX64("iOS")
+        }
     }
 
     sourceSets {
@@ -21,63 +34,49 @@ kotlin {
             }
 
             dependencies {
-                api "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVersion"
-                api "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$coroutinesVersion"
-                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serializationVersion"
-                api "io.ktor:ktor-client-core:$ktorVersion"
-                api "io.ktor:ktor-client-json:$ktorVersion"
-                api "io.ktor:ktor-client-logging:$ktorVersion"
-                api "io.ktor:ktor-client-serialization:$ktorVersion"
+                implementation "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlinVersion"
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$coroutinesVersion"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serializationVersion"
+                implementation "io.ktor:ktor-client-core:$ktorVersion"
+                implementation "io.ktor:ktor-client-json:$ktorVersion"
+                implementation "io.ktor:ktor-client-logging:$ktorVersion"
+                implementation "io.ktor:ktor-client-serialization:$ktorVersion"
             }
         }
 
         commonTest {
             dependencies {
-                api "org.jetbrains.kotlin:kotlin-test-common:$kotlinVersion"
+                implementation "org.jetbrains.kotlin:kotlin-test-common:$kotlinVersion"
             }
         }
 
         iOSMain {
             dependencies {
-                api "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$coroutinesVersion"
-                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serializationVersion"
-                api "io.ktor:ktor-client-ios:$ktorVersion"
-                api "io.ktor:ktor-client-json-native:$ktorVersion"
-                api "io.ktor:ktor-client-logging-native:$ktorVersion"
-                api "io.ktor:ktor-client-serialization-native:$ktorVersion"
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$coroutinesVersion"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serializationVersion"
+                implementation "io.ktor:ktor-client-ios:$ktorVersion"
+                implementation "io.ktor:ktor-client-json-native:$ktorVersion"
+                implementation "io.ktor:ktor-client-logging-native:$ktorVersion"
+                implementation "io.ktor:ktor-client-serialization-native:$ktorVersion"
             }
         }
 
         jvmMain {
             dependencies {
-                api "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-                api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion"
-                api "io.ktor:ktor-client-json-jvm:$ktorVersion"
-                api "io.ktor:ktor-client-logging-jvm:$ktorVersion"
-                api "io.ktor:ktor-client-serialization-jvm:$ktorVersion"
+                implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion"
+                implementation "io.ktor:ktor-client-json-jvm:$ktorVersion"
+                implementation "io.ktor:ktor-client-logging-jvm:$ktorVersion"
+                implementation "io.ktor:ktor-client-serialization-jvm:$ktorVersion"
             }
         }
 
         jvmTest {
             dependencies {
-                api "junit:junit:$junitVersion"
-                api "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
-                api "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+                implementation "junit:junit:$junitVersion"
+                implementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+                implementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
             }
-        }
-    }
-
-    targets {
-        def buildForDevice = project.findProperty("kotlin.native.cocoapods.target") == "ios_arm"
-        if (buildForDevice) {
-            iosArm64("iOS64")
-            iosArm32("iOS32")
-
-            def iOSMain = sourceSets.iOSMain
-            sourceSets["iOS64Main"].dependsOn(iOSMain)
-            sourceSets["iOS32Main"].dependsOn(iOSMain)
-        } else {
-            iosX64("iOS")
         }
     }
 

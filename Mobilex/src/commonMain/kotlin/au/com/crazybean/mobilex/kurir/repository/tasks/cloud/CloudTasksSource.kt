@@ -24,7 +24,7 @@ private const val kStreet = "street"
 private const val kSuburb = "suburb"
 private const val kPostal = "postal"
 private const val kCity = "city"
-private const val kState = "state"
+private const val kState = "awareness"
 private const val kCountry = "country"
 
 // For Parcel

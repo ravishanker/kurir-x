@@ -1,0 +1,151 @@
+//
+//  ViewController.swift
+//  Kurir
+//
+//  Created by Loren on 27/10/19.
+//  Copyright © 2019 Crazybean Studio. All rights reserved.
+//
+
+import UIKit
+import Mobilex
+
+open class AppViewController: UIViewController, AwarenessOwner {
+    public var awareness: Awareness? = nil
+    private lazy var targets = [String : Any?]()
+    internal var selectors = [NSNotification.Name:Selector]()
+    
+    // Parameters for receiving data from outside
+    private(set) public var params: [String : Any]? = nil
+    
+    // Params cache for targets
+    private lazy var payloads = [String:[String:Any?]]()
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        initialise()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialise()
+    }
+    
+    // Callbacks
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        awareness?.handleEvent(event: Awareness.Event.onload)
+    }
+    
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        awareness?.handleEvent(event: Awareness.Event.onappear)
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        awareness?.handleEvent(event: Awareness.Event.onactivate)
+        updateObserver(UIApplication.willResignActiveNotification, UIApplication.didEnterBackgroundNotification)
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        awareness?.handleEvent(event: Awareness.Event.ondeactivate)
+    }
+    
+    open override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        awareness?.handleEvent(event: Awareness.Event.ondismiss)
+        updateObserver()
+    }
+    
+    deinit {
+        awareness?.handleEvent(event: Awareness.Event.onrelease)
+        targets.removeAll()
+    }
+    
+    private func initialise() {
+        awareness = Awareness(owner: self)
+        // Backgrounded
+        selectors[UIApplication.willResignActiveNotification] = #selector(willResignActive)
+        selectors[UIApplication.didEnterBackgroundNotification] = #selector(didEnterBackground)
+        
+        // Foreground
+        selectors[UIApplication.willEnterForegroundNotification] = #selector(willEnterForeground)
+        selectors[UIApplication.didBecomeActiveNotification] = #selector(didBecomeActive)
+    }
+    
+    public func set<Target: Any>(forType type: Target.Type, target: Target?, label: String? = nil) {
+        if let target = target {
+            targets[key(forType: type, label: label)] = target
+        }
+    }
+    
+    public func get<Target: Any>(forType type: Target.Type, label: String? = nil)-> Target? {
+        if let target = targets[key(forType: type, label: label)] {
+            return target as? Target
+        }
+        
+        return nil
+    }
+    
+    public func performSegue(withIdentifier identifier: String, sender: Any?, object: Any?) {
+        if let object = object {
+            var params = [String:Any?]()
+            var key: String
+            if let clazz = object_getClass(object) {
+                key = NSStringFromClass(clazz)
+            } else {
+                key = String(describing: type(of: self))
+            }
+            params[key] = object
+            payloads[identifier] = params
+        }
+        super.performSegue(withIdentifier: identifier, sender: sender)
+    }
+    
+    public func performSegue(withIdentifier identifier: String, sender: Any?, params: [String : Any?]?) {
+        if let params = params {
+            payloads[identifier] = params
+        }
+        super.performSegue(withIdentifier: identifier, sender: sender)
+    }
+    
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier, let params = payloads[identifier], let target = segue.destination as? AppViewController {
+            target.params = params
+        }
+    }
+}
+
+private func key<Target: Any>(forType type: Target.Type, label: String? = nil) -> String {
+    return "\(String(describing: type))-\(label ?? "")"
+}
+
+extension AppViewController {
+    internal func updateObserver(_ names: NSNotification.Name...) {
+        NotificationCenter.default.removeObserver(self)
+        for name in names {
+            if let selector = selectors[name] {
+                NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
+            }
+        }
+    }
+    
+    @objc internal func willEnterForeground() {
+        awareness?.handleEvent(event: Awareness.Event.ondeactivate)
+    }
+    
+    @objc internal func didBecomeActive() {
+        awareness?.handleEvent(event: Awareness.Event.onactivate)
+        updateObserver(UIApplication.willResignActiveNotification, UIApplication.didEnterBackgroundNotification)
+    }
+    
+    @objc internal func didEnterBackground() {
+        awareness?.handleEvent(event: Awareness.Event.ondismiss)
+        updateObserver(UIApplication.willEnterForegroundNotification, UIApplication.didBecomeActiveNotification)
+    }
+    
+    @objc internal func willResignActive() {
+        awareness?.handleEvent(event: Awareness.Event.onappear)
+    }
+}

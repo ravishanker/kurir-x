@@ -27,14 +27,16 @@ class CloudMessagesSource(private val storage: CloudStorage) : MessagesSource {
     }
 
     override fun sendMessage(message: Message, completion: (Boolean) -> Unit) {
-        storage.writeData("${PATH.replace("$0", message.from)}/${message.timestamp}", message.toMap) { _, throwable ->
-            Logger.d(throwable)
+        message.takeIf { it.from.isNotBlank() && it.to.isNotBlank() }?.let {
+            storage.writeData("${PATH.replace("$0", it.from)}/${it.timestamp}", message.toMap) { _, throwable ->
+                Logger.d(throwable)
 
-            // We need add another message to recipient as well.
-            storage.writeData("${PATH.replace("$0", message.to)}/${message.timestamp}", message.toMap) { result, _ ->
-                completion(result)
+                // We need add another message to recipient as well.
+                storage.writeData("${PATH.replace("$0", it.to)}/${it.timestamp}", message.toMap) { result, _ ->
+                    completion(result)
+                }
             }
-        }
+        }?: completion(false)
     }
 
     private val Map<String, Any?>.toMessage: Message

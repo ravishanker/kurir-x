@@ -5,7 +5,7 @@
     android:id="@+id/sketch_placeholder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modules.auth.login.impl.LoginActivity">
+    tools:context=".modules.auth.login.LoginActivity">
 
     <FrameLayout
         android:id="@+id/fragment_placeholder"
