@@ -10,3 +10,6 @@ actual val currentMillis: Long
 internal actual fun log(message: String) {
     print(message)
 }
+
+internal actual val Any.simpleName: String
+    get() = ""

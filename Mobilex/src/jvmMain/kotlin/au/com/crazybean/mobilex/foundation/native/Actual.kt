@@ -9,3 +9,6 @@ actual val currentMillis: Long
 internal actual fun log(message: String) {
     println(message)
 }
+
+internal actual val Any.simpleName: String
+    get() = javaClass.simpleName

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding_small"
-    tools:context=".modules.chat.impl.ChatActivity">
+    tools:context=".modules.chat.ChatActivity">
 
     <TextView
         android:id="@+id/chat_with_label"

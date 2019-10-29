@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding_small"
-    tools:context=".modules.explore.impl.ExploreActivity">
+    tools:context=".modules.explore.ExploreActivity">
 
     <au.com.crazybean.foundation.widgets.TextViewCompat
         android:id="@+id/action_button"

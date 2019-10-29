@@ -3,13 +3,13 @@ package au.com.crazybean.mobilex.kurir.modules.base
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import au.com.crazybean.foundation.mvvm.Delegate
-import au.com.crazybean.foundation.mvvm.ViewModel
 import au.com.crazybean.foundation.widgets.RecyclerUtils
+import au.com.crazybean.mobilex.foundation.saw.Worker
+import au.com.crazybean.mobilex.foundation.saw.Adviser
 import au.com.crazybean.mobilex.kurir.R
 
-abstract class RecyclerFragment<out DELEGATE: Delegate<View, ViewModel>, TYPE: Any> : BaseFragment<DELEGATE>(), RecyclerUtils.Delegate<TYPE> {
-    abstract override val delegate: DELEGATE?
+abstract class RecyclerFragment<out WRAPPER: Adviser<Scene, Worker>, TYPE: Any> : BaseFragment<WRAPPER>(), RecyclerUtils.Delegate<TYPE> {
+    abstract override val adviser: WRAPPER?
 
     override val layoutRes: Int
         get() = R.layout.sketch_recycler

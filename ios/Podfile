@@ -8,7 +8,6 @@ target 'Kurir' do
   use_frameworks!
   
   pod 'Mobilex', :path => '../Mobilex'
-  pod 'Crazybean', :git => 'https://github.com/crazybeanstudio/crazybean-ios.git', :tag => '1.0.0'
   pod 'Swinject'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'

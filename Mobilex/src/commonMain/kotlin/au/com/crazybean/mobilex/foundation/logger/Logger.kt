@@ -48,10 +48,6 @@ object Logger {
         ERROR
     }
 
-    private val builder by lazy {
-        StringBuilder()
-    }
-
     // Info
     fun i(message: String, throwable: Throwable? = null) {
         output(Type.INFO, message, throwable)
@@ -89,7 +85,7 @@ object Logger {
     }
 
     private fun output(type: Type, message: String?, throwable: Throwable? = null) {
-        builder.clear()
+        val builder = StringBuilder()
             .append(type.name.first().toUpperCase())
             .append('/')
 
