@@ -10,25 +10,25 @@ import UIKit
 import Mobilex
 
 open class AppViewController: UIViewController, AwarenessOwner {
-    public var awareness: Awareness? = nil
+    public lazy var awareness: Awareness? = Awareness(owner: self)
     private lazy var targets = [String : Any?]()
-    internal var selectors = [NSNotification.Name:Selector]()
+
+    // Selectors
+    private lazy var selectors: [NSNotification.Name:Selector] = [
+        // Backgrounded
+        UIApplication.willResignActiveNotification: #selector(willResignActive),
+        UIApplication.didEnterBackgroundNotification: #selector(didEnterBackground),
+        
+        // Foreground
+        UIApplication.willEnterForegroundNotification: #selector(willEnterForeground),
+        UIApplication.didBecomeActiveNotification: #selector(didBecomeActive)
+    ]
     
     // Parameters for receiving data from outside
     private(set) public var params: [String : Any]? = nil
     
     // Params cache for targets
-    private lazy var payloads = [String:[String:Any?]]()
-    
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        initialise()
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        initialise()
-    }
+    private lazy var payloads = [String:[String:Any]]()
     
     // Callbacks
     open override func viewDidLoad() {
@@ -63,17 +63,6 @@ open class AppViewController: UIViewController, AwarenessOwner {
         targets.removeAll()
     }
     
-    private func initialise() {
-        awareness = Awareness(owner: self)
-        // Backgrounded
-        selectors[UIApplication.willResignActiveNotification] = #selector(willResignActive)
-        selectors[UIApplication.didEnterBackgroundNotification] = #selector(didEnterBackground)
-        
-        // Foreground
-        selectors[UIApplication.willEnterForegroundNotification] = #selector(willEnterForeground)
-        selectors[UIApplication.didBecomeActiveNotification] = #selector(didBecomeActive)
-    }
-    
     public func set<Target: Any>(forType type: Target.Type, target: Target?, label: String? = nil) {
         if let target = target {
             targets[key(forType: type, label: label)] = target
@@ -90,7 +79,7 @@ open class AppViewController: UIViewController, AwarenessOwner {
     
     public func performSegue(withIdentifier identifier: String, sender: Any?, object: Any?) {
         if let object = object {
-            var params = [String:Any?]()
+            var params = [String:Any]()
             var key: String
             if let clazz = object_getClass(object) {
                 key = NSStringFromClass(clazz)
@@ -103,7 +92,7 @@ open class AppViewController: UIViewController, AwarenessOwner {
         super.performSegue(withIdentifier: identifier, sender: sender)
     }
     
-    public func performSegue(withIdentifier identifier: String, sender: Any?, params: [String : Any?]?) {
+    public func performSegue(withIdentifier identifier: String, sender: Any?, params: [String : Any]?) {
         if let params = params {
             payloads[identifier] = params
         }
@@ -117,7 +106,7 @@ open class AppViewController: UIViewController, AwarenessOwner {
     }
 }
 
-private func key<Target: Any>(forType type: Target.Type, label: String? = nil) -> String {
+fileprivate func key<Target: Any>(forType type: Target.Type, label: String? = nil) -> String {
     return "\(String(describing: type))-\(label ?? "")"
 }
 
