@@ -38,7 +38,7 @@ open class Adviser<out SCENE: Scene, out WORKER: Worker>(protected val scene: SC
      * onRelease: Android.Activity.onDestroy()
      *            iOS.ViewController.deInit()
      */
-    protected open  fun onRelease() {
+    protected open fun onRelease() {
         Logger.d("$simpleName: onRelease")
         owner?.awareness?.removeObserver(this)
     }
@@ -47,7 +47,7 @@ open class Adviser<out SCENE: Scene, out WORKER: Worker>(protected val scene: SC
      * onAppear: Android.Activity.onStart()
      *           iOS.ViewController.viewWillAppear()
      */
-    protected open  fun onAppear() {
+    protected open fun onAppear() {
         Logger.d("$simpleName: onAppear")
     }
 
@@ -55,7 +55,7 @@ open class Adviser<out SCENE: Scene, out WORKER: Worker>(protected val scene: SC
      * onDismiss: Android.Activity.onStop()
      *            iOS.ViewController.viewWillDisappear()
      */
-    protected open  fun onDismiss() {
+    protected open fun onDismiss() {
         Logger.d("$simpleName: onDismiss")
     }
 
@@ -63,7 +63,7 @@ open class Adviser<out SCENE: Scene, out WORKER: Worker>(protected val scene: SC
      * onActivate: Android.Activity.onResume()
      *             iOS.ViewController.viewDidAppear()
      */
-    protected open  fun onActivate() {
+    protected open fun onActivate() {
         Logger.d("$simpleName: onActivate")
     }
 
@@ -71,7 +71,7 @@ open class Adviser<out SCENE: Scene, out WORKER: Worker>(protected val scene: SC
      * onDeactivate: Android.Activity.onPause()
      *               iOS.ViewController.viewDidDisappear()
      */
-    protected open  fun onDeactivate() {
+    protected open fun onDeactivate() {
         Logger.d("$simpleName: onDeactivate")
     }
 

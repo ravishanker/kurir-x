@@ -1,4 +1,6 @@
 package au.com.crazybean.mobilex.foundation.native
+import platform.Foundation.NSStringFromClass
+import platform.objc.object_getClass
 import kotlin.system.getTimeMillis
 
 @Suppress("MayBeConstant")
@@ -12,4 +14,6 @@ internal actual fun log(message: String) {
 }
 
 internal actual val Any.simpleName: String
-    get() = ""
+    get() = object_getClass(this)?.let {
+        NSStringFromClass(it).replace("Mobilex", "")
+    }?: ""
