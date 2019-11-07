@@ -9,7 +9,7 @@
 import UIKit
 import Mobilex
 
-class ContactsViewController: BaseViewController<ContactsAdviser, ContactsScene>, ContactsScene, UITableViewDelegate, UITableViewDataSource {
+class ContactsViewController: BaseViewController<ContactsActor, ContactsScene>, ContactsScene, UITableViewDelegate, UITableViewDataSource {
     private var contacts: [User]? = nil
     
     @IBOutlet weak var tableView: UITableView!
@@ -50,7 +50,7 @@ class ContactsViewController: BaseViewController<ContactsAdviser, ContactsScene>
     }
     
     @objc private func addTapped(_ sender: Any) {
-        adviser?.onAddClick()
+        actor?.onAddClick()
     }
     
     // UITableView

@@ -2,7 +2,7 @@ buildscript {
     apply from: 'version.gradle'
     repositories {
         google()
-        maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
         maven { url "https://kotlin.bintray.com/kotlinx" }
         maven { url "https://plugins.gradle.org/m2/" }
         mavenCentral()
@@ -20,24 +20,14 @@ buildscript {
 
 subprojects {
     apply from: '../version.gradle'
-
-    buildscript{
-        repositories {
-            google()
-            maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
-            maven { url "https://kotlin.bintray.com/kotlinx" }
-            maven { url "https://plugins.gradle.org/m2/" }
-            mavenCentral()
-            jcenter()
-        }
-    }
     
     repositories {
-        mavenLocal()
-        jcenter()
         google()
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
         maven { url "https://kotlin.bintray.com/kotlinx" }
         maven { url "http://dl.bintray.com/kotlin/ktor" }
+        mavenLocal()
+        jcenter()
     }
 }
 

@@ -1,11 +1,11 @@
 package au.com.crazybean.mobilex.kurir.modules.base
 
 import androidx.lifecycle.ViewModel
-import au.com.crazybean.mobilex.foundation.saw.Worker
+import au.com.crazybean.mobilex.foundation.saw.Wrapper
 
-class ViewModel<out WORKER: Worker>(val worker: WORKER) : ViewModel() {
+class ViewModel<out WRAPPER: Wrapper>(val wrapper: WRAPPER) : ViewModel() {
     override fun onCleared() {
         super.onCleared()
-        worker.onRelease()
+        wrapper.onRelease()
     }
 }

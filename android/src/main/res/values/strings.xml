@@ -22,7 +22,6 @@
     <!-- Labels -->
     <string name="label_chat_with" formatted="false">Chat with %s</string>
     <string name="label_me">ME</string>
-    <string name="label_him">HIM</string>
     <string name="label_desc">Parcel description</string>
     <string name="label_parcel_origin">Origin:</string>
     <string name="label_parcel_dest">Destination:</string>

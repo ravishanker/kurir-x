@@ -7,17 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 import au.com.crazybean.foundation.navigator.Arguments
 import au.com.crazybean.foundation.navigator.Navigator
 import au.com.crazybean.foundation.widgets.MelonDialog
-import au.com.crazybean.mobilex.foundation.saw.Worker
-import au.com.crazybean.mobilex.foundation.saw.Adviser
+import au.com.crazybean.mobilex.foundation.saw.Wrapper
+import au.com.crazybean.mobilex.foundation.saw.Actor
 import au.com.crazybean.mobilex.foundation.saw.awareness.Awareness
 import au.com.crazybean.mobilex.foundation.saw.awareness.AwarenessOwner
 import au.com.crazybean.mobilex.kurir.R
 import au.com.crazybean.mobilex.kurir.extension.params
 
-abstract class BaseActivity<out ADVISER: Adviser<Scene, Worker>> : AppCompatActivity(), Navigator, AwarenessOwner {
+abstract class BaseActivity<out ACTOR: Actor<Scene, Wrapper>> : AppCompatActivity(), Navigator, AwarenessOwner {
     private val kError = "errorDialog"
     private val kLoading = "loadingDialog"
-    protected abstract val adviser: ADVISER?
+    protected abstract val actor: ACTOR?
     protected abstract val layoutRes: Int
 
     private val dialogs by lazy {
@@ -25,11 +25,11 @@ abstract class BaseActivity<out ADVISER: Adviser<Scene, Worker>> : AppCompatActi
     }
 
     private val dispatcher by lazy {
-        LifecycleDispatcher(adviser)
+        LifecycleDispatcher(actor)
     }
 
     override val awareness: Awareness?
-        get() = adviser?.awareness
+        get() = actor?.awareness
 
     protected open fun onViewLoad() {
     }
@@ -38,7 +38,7 @@ abstract class BaseActivity<out ADVISER: Adviser<Scene, Worker>> : AppCompatActi
         super.onCreate(savedInstanceState)
         setContentView(layoutRes)
         onViewLoad()
-        adviser?.consult(this, intent.params)
+        actor?.perform(this, intent.params)
         lifecycle.addObserver(dispatcher)
     }
 

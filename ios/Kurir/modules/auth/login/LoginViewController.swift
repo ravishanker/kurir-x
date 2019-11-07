@@ -1,7 +1,7 @@
 import UIKit
 import Mobilex
 
-class LoginViewController: BaseViewController<LoginAdviser, LoginScene>, LoginScene {
+class LoginViewController: BaseViewController<LoginActor, LoginScene>, LoginScene {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
@@ -38,6 +38,6 @@ class LoginViewController: BaseViewController<LoginAdviser, LoginScene>, LoginSc
     }
     
     @IBAction func onLoginTap(_ sender: Any) {
-        adviser?.onLoginClick(name: userNameField.text, password: passwordField.text)
+        actor?.onLoginClick(name: userNameField.text, password: passwordField.text)
     }
 }

@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val loginModule = module {
-    val qualifier = qualifier<LoginWorker>()
+    val qualifier = qualifier<LoginWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(LoginWorker(get(), get()))
+        ViewModel(LoginWrapper(get(), get()))
     }
 
-    // Adviser
+    // Actor
     factory { (scene: LoginScene?) ->
-        val viewModel = get<ViewModel<LoginWorker>>(qualifier)
-        LoginAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<LoginWrapper>>(qualifier)
+        LoginActor(scene, viewModel.wrapper)
     }
 }

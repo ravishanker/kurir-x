@@ -12,10 +12,10 @@ import org.koin.core.parameter.parametersOf
 import android.content.Intent
 import au.com.crazybean.mobilex.kurir.modules.base.*
 
-class DescFragment : BaseFragment<DescAdviser>(), DescScene {
+class DescFragment : BaseFragment<DescActor>(), DescScene {
     private val kRequestPickImage = 0x200
 
-    override val adviser: DescAdviser? by inject {
+    override val actor: DescActor? by inject {
         parametersOf(this)
     }
 
@@ -39,26 +39,26 @@ class DescFragment : BaseFragment<DescAdviser>(), DescScene {
     override fun onViewLoad(layout: ViewGroup) {
         super.onViewLoad(layout)
         layout.findViewById<View>(R.id.next_button)?.setOnClickListener {
-            adviser?.onNextClick()
+            actor?.onNextClick()
         }
 
         layout.findViewById<EditText>(R.id.desc_input_field)?.watcher = { _, desc ->
-            adviser?.onDescUpdate(desc)
+            actor?.onDescUpdate(desc)
         }
 
         layout.findViewById<View>(R.id.take_photo_icon)?.setOnClickListener {
-            adviser?.onAddImageClick()
+            actor?.onAddImageClick()
         }
 
         layout.findViewById<AutoCompleteTextView?>(R.id.origin_auto_complete)?.also {
             it.setAdapter(originAdapter)
             it.watcher = { _, query ->
                 adapter = originAdapter
-                adviser?.onQuery(query)
+                actor?.onQuery(query)
             }
 
             it.setOnItemClickListener { _, _, position, _ ->
-                adviser?.onOriginSelect(position)
+                actor?.onOriginSelect(position)
             }
         }
 
@@ -66,11 +66,11 @@ class DescFragment : BaseFragment<DescAdviser>(), DescScene {
             it.setAdapter(destAdapter)
             it.watcher = { _, query ->
                 adapter = destAdapter
-                adviser?.onQuery(query)
+                actor?.onQuery(query)
             }
 
             it.setOnItemClickListener { _, _, position, _ ->
-                adviser?.onDestSelect(position)
+                actor?.onDestSelect(position)
             }
         }
     }

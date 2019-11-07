@@ -8,8 +8,8 @@ import au.com.crazybean.mobilex.kurir.modules.base.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class SignupActivity : BaseActivity<SignupAdviser>(), SignupScene {
-    override val adviser: SignupAdviser? by inject {
+class SignupActivity : BaseActivity<SignupActor>(), SignupScene {
+    override val actor: SignupActor? by inject {
         parametersOf(this)
     }
 
@@ -27,13 +27,13 @@ class SignupActivity : BaseActivity<SignupAdviser>(), SignupScene {
     override fun onViewLoad() {
         super.onViewLoad()
         findViewById<View>(R.id.login_button)?.setOnClickListener {
-            adviser?.onLoginClick()
+            actor?.onLoginClick()
         }
 
         findViewById<View>(R.id.signup_button)?.setOnClickListener {
             val mobile = mobEditText?.text?.toString()?.trim()
             val email = emailEditText?.text?.toString()?.trim()
-            adviser?.onRegister(mobile, email)
+            actor?.onRegister(mobile, email)
         }
     }
 

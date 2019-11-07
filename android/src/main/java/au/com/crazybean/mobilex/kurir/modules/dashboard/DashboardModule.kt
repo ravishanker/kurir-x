@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val dashboardModule = module {
-    val qualifier = qualifier<DashboardWorker>()
+    val qualifier = qualifier<DashboardWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(DashboardWorker())
+        ViewModel(DashboardWrapper())
     }
 
-    // Adviser
+    // Actor
     factory { (scene: DashboardScene?) ->
-        val viewModel = get<ViewModel<DashboardWorker>>(qualifier)
-        DashboardAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<DashboardWrapper>>(qualifier)
+        DashboardActor(scene, viewModel.wrapper)
     }
 }

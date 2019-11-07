@@ -10,16 +10,16 @@ import Mobilex
 
 class TasksModule: Module {
     override func inject() {
-        // Worker
-        factory(TasksWorker.self) { r in
-            TasksWorker(userData: r.resolve(UserData.self),
-                        usersRepository: r.resolve(UsersRepository.self)!,
-                        tasksRepository: r.resolve(TasksRepository.self)!)
+        // Wrapper
+        factory(TasksWrapper.self) { r in
+            TasksWrapper(userData: r.resolve(UserData.self),
+                         usersRepository: r.resolve(UsersRepository.self)!,
+                         tasksRepository: r.resolve(TasksRepository.self)!)
         }
         
-        // Adviser
-        factory(TasksAdviser.self) { (r, scene: TasksScene) -> TasksAdviser in
-            TasksAdviser(scene: scene, worker: r.resolve(TasksWorker.self)!)
+        // Actor
+        factory(TasksActor.self) { (r, scene: TasksScene) -> TasksActor in
+            TasksActor(scene: scene, wrapper: r.resolve(TasksWrapper.self)!)
         }
     }
 }

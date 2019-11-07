@@ -10,8 +10,8 @@ import au.com.crazybean.mobilex.kurir.modules.contacts.ContactsAdapter
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class ExploreActivity : BaseActivity<ExploreAdviser>(), ExploreScene, RecyclerUtils.Delegate<User>, SearchView.OnQueryTextListener {
-    override val adviser: ExploreAdviser? by inject {
+class ExploreActivity : BaseActivity<ExploreActor>(), ExploreScene, RecyclerUtils.Delegate<User>, SearchView.OnQueryTextListener {
+    override val actor: ExploreActor? by inject {
         parametersOf(this)
     }
 
@@ -23,7 +23,7 @@ class ExploreActivity : BaseActivity<ExploreAdviser>(), ExploreScene, RecyclerUt
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        adviser?.onQuery(query)
+        actor?.onQuery(query)
         return true
     }
 
@@ -33,7 +33,7 @@ class ExploreActivity : BaseActivity<ExploreAdviser>(), ExploreScene, RecyclerUt
 
     override fun onEntitySelect(entity: User, position: Int) {
         super.onEntitySelect(entity, position)
-        adviser?.onContactClick(entity)
+        actor?.onContactClick(entity)
     }
 
     override fun onViewLoad() {

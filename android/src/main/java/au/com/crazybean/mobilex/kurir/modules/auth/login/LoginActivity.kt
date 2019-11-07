@@ -8,11 +8,11 @@ import au.com.crazybean.mobilex.kurir.modules.base.Module
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class LoginActivity : BaseActivity<LoginAdviser>(), LoginScene {
+class LoginActivity : BaseActivity<LoginActor>(), LoginScene {
     private var userEditor: EditText? = null
     private var passwordEditor: EditText? = null
 
-    override val adviser: LoginAdviser? by inject {
+    override val actor: LoginActor? by inject {
         parametersOf(this)
     }
 
@@ -28,11 +28,11 @@ class LoginActivity : BaseActivity<LoginAdviser>(), LoginScene {
             val name = userEditor?.text?.toString()
             val password= passwordEditor?.text?.toString()
 
-            adviser?.onLoginClick(name, password)
+            actor?.onLoginClick(name, password)
         }
 
         findViewById<View?>(R.id.signup_button)?.setOnClickListener {
-            adviser?.onSignupClick()
+            actor?.onSignupClick()
         }
     }
 

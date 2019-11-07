@@ -8,7 +8,7 @@ import au.com.crazybean.mobilex.kurir.modules.base.BaseFragment
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class ReceiverFragment : BaseFragment<ReceiverAdviser>(), ReceiverScene {
+class ReceiverFragment : BaseFragment<ReceiverActor>(), ReceiverScene {
     private val nameEditor by lazy {
         view?.findViewById<EditText>(R.id.user_name_edit)
     }
@@ -21,7 +21,7 @@ class ReceiverFragment : BaseFragment<ReceiverAdviser>(), ReceiverScene {
         view?.findViewById<EditText>(R.id.email_edit)
     }
 
-    override val adviser: ReceiverAdviser? by inject {
+    override val actor: ReceiverActor? by inject {
         parametersOf(this)
     }
 
@@ -32,7 +32,7 @@ class ReceiverFragment : BaseFragment<ReceiverAdviser>(), ReceiverScene {
         super.onViewLoad(layout)
 
         layout.findViewById<View?>(R.id.place_button)?.setOnClickListener {
-            adviser?.onPlaceClick(nameEditor?.text?.toString(), mobileEditor?.text?.toString(), emailEditor?.text?.toString())
+            actor?.onPlaceClick(nameEditor?.text?.toString(), mobileEditor?.text?.toString(), emailEditor?.text?.toString())
         }
     }
 

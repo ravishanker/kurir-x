@@ -7,16 +7,16 @@ import org.koin.dsl.module
 
 
 val profileModule = module {
-    val qualifier = qualifier<ProfileWorker>()
+    val qualifier = qualifier<ProfileWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(ProfileWorker(get()))
+        ViewModel(ProfileWrapper(get()))
     }
 
-    // Adviser
+    // Actor
     factory { (scene: ProfileScene?) ->
-        val viewModel = get<ViewModel<ProfileWorker>>(qualifier)
-        ProfileAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<ProfileWrapper>>(qualifier)
+        ProfileActor(scene, viewModel.wrapper)
     }
 }

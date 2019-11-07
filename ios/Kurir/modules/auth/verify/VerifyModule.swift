@@ -11,14 +11,14 @@ import Mobilex
 
 class VerifyModule: Module {
     override func inject() {
-        // Worker
-        factory(VerifyWorker.self) { r in
-            VerifyWorker(repository: r.resolve(UsersRepository.self)!)
+        // Wrapper
+        factory(VerifyWrapper.self) { r in
+            VerifyWrapper(repository: r.resolve(UsersRepository.self)!)
         }
         
-        // Adviser
-        factory(VerifyAdviser.self) { (r, scene: VerifyScene) -> VerifyAdviser in
-            VerifyAdviser(scene: scene, worker: r.resolve(VerifyWorker.self)!)
+        // Actor
+        factory(VerifyActor.self) { (r, scene: VerifyScene) -> VerifyActor in
+            VerifyActor(scene: scene, wrapper: r.resolve(VerifyWrapper.self)!)
         }
     }
 }

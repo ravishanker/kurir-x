@@ -10,14 +10,14 @@ import Mobilex
 
 class ExploreModule: Module {
     override func inject() {
-        // Worker
-        factory(ExploreWorker.self) { r in
-            ExploreWorker(repository: r.resolve(UsersRepository.self))
+        // Wrapper
+        factory(ExploreWrapper.self) { r in
+            ExploreWrapper(repository: r.resolve(UsersRepository.self))
         }
         
-        // Adviser
-        factory(ExploreAdviser.self) { (r, scene: ExploreScene) -> ExploreAdviser in
-            ExploreAdviser(scene: scene, worker: r.resolve(ExploreWorker.self)!)
+        // Actor
+        factory(ExploreActor.self) { (r, scene: ExploreScene) -> ExploreActor in
+            ExploreActor(scene: scene, wrapper: r.resolve(ExploreWrapper.self)!)
         }
     }
 }

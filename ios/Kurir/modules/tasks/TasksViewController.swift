@@ -9,7 +9,7 @@
 import UIKit
 import Mobilex
 
-class TasksViewController: BaseViewController<TasksAdviser, TasksScene>, TasksScene, UITableViewDelegate, UITableViewDataSource {
+class TasksViewController: BaseViewController<TasksActor, TasksScene>, TasksScene, UITableViewDelegate, UITableViewDataSource {
     private var tasks: [Task]? = nil
     weak var tableView: UITableView? = nil
     
