@@ -9,8 +9,8 @@ import au.com.crazybean.mobilex.kurir.modules.base.Module
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class ProfileActivity : BaseActivity<ProfileAdviser>(), ProfileScene {
-    override val adviser: ProfileAdviser? by inject {
+class ProfileActivity : BaseActivity<ProfileActor>(), ProfileScene {
+    override val actor: ProfileActor? by inject {
         parametersOf(this)
     }
 
@@ -44,7 +44,7 @@ class ProfileActivity : BaseActivity<ProfileAdviser>(), ProfileScene {
             val firstName = firstNameEdit?.text?.toString()?.trim()
             val lastName = lastNameEdit?.text?.toString()?.trim()
             val password = passwordEdit?.text?.toString()
-            adviser?.onRegister(firstName, lastName, password)
+            actor?.onRegister(firstName, lastName, password)
         }
 
         passwordEdit?.addTextChangedListener(object: EditorWatcher {
@@ -97,6 +97,6 @@ class ProfileActivity : BaseActivity<ProfileAdviser>(), ProfileScene {
     private fun onPasswordEditing() {
         val password = passwordEdit?.text?.toString()?.trim()
         val confirm = confirmEdit?.text?.toString()?.trim()
-        adviser?.onPasswordType(password, confirm)
+        actor?.onPasswordType(password, confirm)
     }
 }

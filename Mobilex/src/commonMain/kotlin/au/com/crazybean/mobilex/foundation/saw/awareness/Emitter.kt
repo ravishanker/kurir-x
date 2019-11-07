@@ -4,7 +4,7 @@ private const val INVALID_VERSION = -1
 
 class Emitter<T>: AwarenessObserver {
     private var version = INVALID_VERSION
-    private var wrapper: Wrapper<T>? = null
+    private var wrapper: DataWrapper<T>? = null
     private val observers by lazy {
         mutableListOf<Observer<T>>()
     }
@@ -22,7 +22,7 @@ class Emitter<T>: AwarenessObserver {
         set(data) {
             ++version
             if (wrapper == null) {
-                wrapper = Wrapper(data)
+                wrapper = DataWrapper(data)
             } else {
                 wrapper?.data = data
             }
@@ -61,7 +61,7 @@ class Emitter<T>: AwarenessObserver {
     /**
      * Wrapper
      */
-    private class Wrapper<T>(var data: T)
+    private class DataWrapper<T>(var data: T)
 
     /**
      * Observer

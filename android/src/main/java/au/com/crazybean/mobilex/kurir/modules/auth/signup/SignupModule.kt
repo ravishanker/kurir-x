@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val signupModule = module {
-    val qualifier = qualifier<SignupWorker>()
+    val qualifier = qualifier<SignupWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(SignupWorker(get()))
+        ViewModel(SignupWrapper(get()))
     }
 
-    // Adviser
+    // Actor
     factory { (scene: SignupScene?) ->
-        val viewModel = get<ViewModel<SignupWorker>>(qualifier)
-        SignupAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<SignupWrapper>>(qualifier)
+        SignupActor(scene, viewModel.wrapper)
     }
 }

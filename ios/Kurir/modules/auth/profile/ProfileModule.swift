@@ -11,14 +11,14 @@ import Mobilex
 
 class ProfileModule: Module {
     override func inject() {
-        // Worker
-        factory(ProfileWorker.self) { r in
-            ProfileWorker(repository: r.resolve(UsersRepository.self)!)
+        // Wrapper
+        factory(ProfileWrapper.self) { r in
+            ProfileWrapper(repository: r.resolve(UsersRepository.self)!)
         }
         
-        // Adviser
-        factory(ProfileAdviser.self) { (r, scene: ProfileScene) -> ProfileAdviser in
-            ProfileAdviser(scene: scene, worker: r.resolve(ProfileWorker.self)!)
+        // Actor
+        factory(ProfileActor.self) { (r, scene: ProfileScene) -> ProfileActor in
+            ProfileActor(scene: scene, wrapper: r.resolve(ProfileWrapper.self)!)
         }
     }
 }

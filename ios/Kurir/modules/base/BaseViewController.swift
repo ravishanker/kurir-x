@@ -9,12 +9,12 @@
 import UIKit
 import Mobilex
 
-class BaseViewController<ADVISER: Adviser, SCENE: Scene>: AppViewController {
-    private(set) lazy var adviser = UIViewController.resolve(type: ADVISER.self, argument: self as! SCENE)
+class BaseViewController<ACTOR: Actor, SCENE: Scene>: AppViewController {
+    private(set) lazy var actor = UIViewController.resolve(type: ACTOR.self, argument: self as! SCENE)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adviser?.consult(owner: self, params: params)
+        actor?.perform(owner: self, params: params)
     }
     
     @objc open func dismiss() {

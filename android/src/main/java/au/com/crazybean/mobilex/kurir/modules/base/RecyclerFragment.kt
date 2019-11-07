@@ -4,12 +4,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import au.com.crazybean.foundation.widgets.RecyclerUtils
-import au.com.crazybean.mobilex.foundation.saw.Worker
-import au.com.crazybean.mobilex.foundation.saw.Adviser
+import au.com.crazybean.mobilex.foundation.saw.Wrapper
+import au.com.crazybean.mobilex.foundation.saw.Actor
 import au.com.crazybean.mobilex.kurir.R
 
-abstract class RecyclerFragment<out WRAPPER: Adviser<Scene, Worker>, TYPE: Any> : BaseFragment<WRAPPER>(), RecyclerUtils.Delegate<TYPE> {
-    abstract override val adviser: WRAPPER?
+abstract class RecyclerFragment<out WRAPPER: Actor<Scene, Wrapper>, TYPE: Any> : BaseFragment<WRAPPER>(), RecyclerUtils.Delegate<TYPE> {
+    abstract override val actor: WRAPPER?
 
     override val layoutRes: Int
         get() = R.layout.sketch_recycler

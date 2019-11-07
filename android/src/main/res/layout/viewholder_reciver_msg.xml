@@ -11,12 +11,12 @@
         android:id="@+id/name_label"
         android:layout_width="@dimen/name_square_size"
         android:layout_height="@dimen/name_square_size"
-        android:text="@string/label_him"
+        android:text="@string/label_me"
         android:textAllCaps="true"
         android:gravity="center"
         android:textColor="@color/dark_text"
         android:background="@color/label_other_bk"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_tiny"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -25,7 +25,7 @@
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/name_label"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/name_label"
         app:layout_constraintEnd_toEndOf="parent">
 

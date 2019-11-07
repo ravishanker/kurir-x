@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val verifyModule = module {
-    val qualifier = qualifier<VerifyWorker>()
+    val qualifier = qualifier<VerifyWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(VerifyWorker(get()))
+        ViewModel(VerifyWrapper(get()))
     }
 
-    // Adviser
+    // Actor
     factory { (scene: VerifyScene?) ->
-        val viewModel = get<ViewModel<VerifyWorker>>(qualifier)
-        VerifyAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<VerifyWrapper>>(qualifier)
+        VerifyActor(scene, viewModel.wrapper)
     }
 }

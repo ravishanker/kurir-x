@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val trackModule = module {
-    val qualifier = qualifier<TrackWorker>()
+    val qualifier = qualifier<TrackWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(TrackWorker())
+        ViewModel(TrackWrapper())
     }
 
-    // Adviser
+    // Actor
     factory { (scene: TrackScene?) ->
-        val viewModel = get<ViewModel<TrackWorker>>(qualifier)
-        TrackAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<TrackWrapper>>(qualifier)
+        TrackActor(scene, viewModel.wrapper)
     }
 }

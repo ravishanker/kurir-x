@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val settingsModule = module {
-    val qualifier = qualifier<SettingsWorker>()
+    val qualifier = qualifier<SettingsWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(SettingsWorker())
+        ViewModel(SettingsWrapper())
     }
 
-    // Adviser
+    // Actor
     factory { (scene: SettingsScene?) ->
-        val viewModel = get<ViewModel<SettingsWorker>>(qualifier)
-        SettingsAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<SettingsWrapper>>(qualifier)
+        SettingsActor(scene, viewModel.wrapper)
     }
 }

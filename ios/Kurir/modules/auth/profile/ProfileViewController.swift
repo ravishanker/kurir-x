@@ -9,7 +9,7 @@
 import UIKit
 import Mobilex
 
-class ProfileViewController: BaseViewController<ProfileAdviser, ProfileScene>, ProfileScene {
+class ProfileViewController: BaseViewController<ProfileActor, ProfileScene>, ProfileScene {
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -49,12 +49,12 @@ class ProfileViewController: BaseViewController<ProfileAdviser, ProfileScene>, P
         let firstName = firstNameField.text
         let lastName = lastNameField.text
         let password = passwordField.text
-        adviser?.onRegister(firstName: firstName, lastName: lastName, password: password)
+        actor?.onRegister(firstName: firstName, lastName: lastName, password: password)
     }
     
     @IBAction func onPasswordEditChanged(_ sender: Any) {
         let password = passwordField.text
         let confirm = confirmField.text
-        adviser?.onPasswordType(password: password, confirm: confirm)
+        actor?.onPasswordType(password: password, confirm: confirm)
     }
 }

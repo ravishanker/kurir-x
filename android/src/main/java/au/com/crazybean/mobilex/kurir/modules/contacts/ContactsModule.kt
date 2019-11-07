@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val contactsModule = module {
-    val qualifier = qualifier<ContactsWorker>()
+    val qualifier = qualifier<ContactsWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(ContactsWorker(get(), get(), get()))
+        ViewModel(ContactsWrapper(get(), get(), get()))
     }
 
-    // Adviser
+    // Actor
     factory { (scene: ContactsScene?) ->
-        val viewModel = get<ViewModel<ContactsWorker>>(qualifier)
-        ContactsAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<ContactsWrapper>>(qualifier)
+        ContactsActor(scene, viewModel.wrapper)
     }
 }

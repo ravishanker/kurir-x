@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val creationModule = module {
-    val qualifier = qualifier<CreationWorker>()
+    val qualifier = qualifier<CreationWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(CreationWorker())
+        ViewModel(CreationWrapper())
     }
 
-    // Adviser
+    // Actor
     factory { (scene: CreationScene?) ->
-        val viewModel = get<ViewModel<CreationWorker>>(qualifier)
-        CreationAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<CreationWrapper>>(qualifier)
+        CreationActor(scene, viewModel.wrapper)
     }
 }

@@ -11,10 +11,12 @@ import au.com.crazybean.mobilex.kurir.data.model.Message
 private const val TYPE_SENDER = 0
 private const val TYPE_RECEIVER = 1
 
-class MessagesAdapter(var myEmail: String? = null) : RecyclerUtils.Adapter<Message>() {
+class MessagesAdapter(private val myEmail: String? = null,
+                      initial: String? = null) : RecyclerUtils.Adapter<Message>() {
     init {
         addHolderType(TYPE_SENDER, R.layout.viewholder_sender_msg, SenderHolder::class.java)
         addHolderType(TYPE_RECEIVER, R.layout.viewholder_reciver_msg, ReceiverHolder::class.java)
+            .parameter(String::class.java, initial)
     }
 
     override fun getViewType(entity: Message): Int {
@@ -40,5 +42,15 @@ class MessagesAdapter(var myEmail: String? = null) : RecyclerUtils.Adapter<Messa
 
     private class SenderHolder(itemView: View) : MessageHolder(itemView)
 
-    private class ReceiverHolder(itemView: View) : MessageHolder(itemView)
+    private class ReceiverHolder(itemView: View,
+                                 private val initial: String?) : MessageHolder(itemView) {
+
+        private val nameLabel: TextView? = itemView.findViewById(R.id.name_label)
+
+        override fun setData(context: Context, data: Message?) {
+            super.setData(context, data)
+
+            nameLabel?.text = initial
+        }
+    }
 }

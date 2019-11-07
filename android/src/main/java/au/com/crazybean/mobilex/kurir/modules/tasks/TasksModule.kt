@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val tasksModule = module {
-    val qualifier = qualifier<TasksWorker>()
+    val qualifier = qualifier<TasksWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(TasksWorker(get(), get(), get()))
+        ViewModel(TasksWrapper(get(), get(), get()))
     }
 
-    // Adviser
+    // Actor
     factory { (scene: TasksScene?) ->
-        val viewModel = get<ViewModel<TasksWorker>>(qualifier)
-        TasksAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<TasksWrapper>>(qualifier)
+        TasksActor(scene, viewModel.wrapper)
     }
 }

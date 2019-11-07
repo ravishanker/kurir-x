@@ -11,8 +11,8 @@ import au.com.crazybean.mobilex.kurir.modules.base.EditorWatcher
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class ChatActivity : BaseActivity<ChatAdviser>(), ChatScene {
-    override val adviser: ChatAdviser? by inject {
+class ChatActivity : BaseActivity<ChatActor>(), ChatScene {
+    override val actor: ChatActor? by inject {
         parametersOf(this)
     }
 
@@ -24,9 +24,7 @@ class ChatActivity : BaseActivity<ChatAdviser>(), ChatScene {
     private var sendButton: ImageView? = null
     private var recyclerView: RecyclerView? = null
 
-    private val adapter by lazy {
-        MessagesAdapter()
-    }
+    private var adapter: MessagesAdapter? = null
 
     override fun onViewLoad() {
         super.onViewLoad()
@@ -40,26 +38,30 @@ class ChatActivity : BaseActivity<ChatAdviser>(), ChatScene {
         })
         sendButton?.setOnClickListener {
             editor?.text?.toString()?.takeIf { it.isNotEmpty() }?.let {
-                adviser?.onSendClick(it)
+                actor?.onSendClick(it)
             }
         }
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView?.adapter = adapter
     }
 
-    override fun showName(myEmail: String, name: String) {
-        adapter.myEmail = myEmail
+    override fun showName(myEmail: String, name: String, initial: String) {
+        if (recyclerView?.adapter == null) {
+            adapter = MessagesAdapter(myEmail, initial).also {
+                recyclerView?.adapter = it
+            }
+        }
         chatLabel?.text = getString(R.string.label_chat_with, name)
     }
 
     override fun showMessages(messages: List<Message>) {
-        adapter.addEntities(messages)
-        recyclerView?.scrollToPosition(adapter.itemCount - 1)
+        adapter?.addEntities(messages)
+        recyclerView?.smoothScrollToPosition(adapter?.itemCount?: 0)
     }
 
     override fun showMore(messages: List<Message>) {
-        adapter.addEntities(messages, true)
-        recyclerView?.scrollToPosition(adapter.itemCount - 1)
+        adapter?.addEntities(messages, true)
+        recyclerView?.smoothScrollToPosition(adapter?.itemCount?: 0)
     }
 
     override fun showEmpty() {

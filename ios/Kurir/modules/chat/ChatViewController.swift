@@ -8,9 +8,8 @@
 
 import Mobilex
 
-class ChatViewController: BaseViewController<ChatAdviser, ChatScene>, ChatScene {
-    func showName(myEmail: String, name: String) {
-        
+class ChatViewController: BaseViewController<ChatActor, ChatScene>, ChatScene {
+    func showName(myEmail: String, name: String, initial: String) {
     }
     
     func showMessages(messages: [Message]) {

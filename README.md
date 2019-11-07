@@ -14,20 +14,22 @@ The foundation provides non-feature related implementation for reusable componen
 This layer are the modules and user features without actual UI implementation integrated. All the modules have their own SAW components to reflect the feature.
 
 ##
-# SAW (Scene - Adviser - Worker) framework
-https://github.com/crazybeanstudio/kurir-x/tree/develop/assets/saw_logo.png
+# SAW (Scene - Actor - Wrapper) framework
+[![SAW](https://github.com/crazybeanstudio/kurir-x/tree/develop/assets/saw_logo.png)]
 ### Scene
 The pure interface definition of UI creation, like showList, showError. (Similar concept to View in MVP pattern)
-### Worker
-Worker provides the Data from Repository to Adviser. It normally provides the result via Emitter class which is lifecycle awared. (Similar concept to ViewMode in MVVM pattern)
-### Adviser
-Adviser holdes the reference to Scene and Worker. It observes Emitter result provided in corresponding Worker class in order to process the result and drive the UI flow via interfaces defined in Scene. (Similar concept to Presenter to MVP pattern)
+### Actor
+Actor holds the reference to Scene and Wrapper. It observes Emitter result provided in corresponding Worker class in order to process the result and drive the UI flow via interfaces defined in Scene. (Similar concept to Presenter to MVP pattern)
+### Wrapper
+Wrapper provides the Data from Repository to Adviser. It normally provides the result via Emitter class which is lifecycle awared. (Similar concept to ViewMode in MVVM pattern)
 
 # Awareness
 Awareness provides the lifecycle-like concept implementation from Android platform. To make the lifecycle callbacks consistent across Android and iOS, iOS adopts the same lifecycle callbacks method from Awareness class.
 
 ## Lifecycle callback mapping for Android and iOS
-```/**
+```
+    
+    /**
      * Lifecycle callback definition
      * onLoad: Android.Activity.onCreate()
      *         iOS.ViewController.viewDidLoad()
@@ -75,8 +77,9 @@ Awareness provides the lifecycle-like concept implementation from Android platfo
      */
     protected open  fun onDeactivate() {
         Logger.d("$simpleName: onDeactivate")
-    }```
-
+    }
+    
+```
 # Troubleshoting
 run "gradle wrapper" to solve the issue "Error: Could not find or load main class 
 

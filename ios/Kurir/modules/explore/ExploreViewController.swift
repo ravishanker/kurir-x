@@ -8,7 +8,7 @@
 
 import Mobilex
 
-class ExploreViewController: BaseViewController<ExploreAdviser, ExploreScene>, ExploreScene {
+class ExploreViewController: BaseViewController<ExploreActor, ExploreScene>, ExploreScene {
     func showResult(users: [User]) {
     }
     

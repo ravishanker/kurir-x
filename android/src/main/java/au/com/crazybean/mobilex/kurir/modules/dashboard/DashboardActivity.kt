@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayout
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class DashboardActivity : BaseActivity<DashboardAdviser>(), DashboardScene {
+class DashboardActivity : BaseActivity<DashboardActor>(), DashboardScene {
 
     private val tabIcons by lazy {
         arrayOf(Pair(R.drawable.ic_find, R.drawable.ic_find_on),
@@ -25,7 +25,7 @@ class DashboardActivity : BaseActivity<DashboardAdviser>(), DashboardScene {
         arrayOf(R.string.tab_find, R.string.tab_track, R.string.tab_chat, R.string.tab_settings)
     }
 
-    override val adviser: DashboardAdviser? by inject {
+    override val actor: DashboardActor? by inject {
         parametersOf(this)
     }
 
@@ -52,7 +52,7 @@ class DashboardActivity : BaseActivity<DashboardAdviser>(), DashboardScene {
             .setObserver(object : FragmentBoard.Observer {
                 override fun onSelected(tab: TabLayout.Tab, tag: String, size: Int, manually: Boolean) {
                     tab.setIcon(tabIcons[tab.position].second)
-                    adviser?.takeIf { manually }?.onTabSelect(tab.position)
+                    actor?.takeIf { manually }?.onTabSelect(tab.position)
                 }
 
                 override fun onUnselected(tab: TabLayout.Tab, tag: String, size: Int) {

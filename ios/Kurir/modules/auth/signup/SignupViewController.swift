@@ -9,7 +9,7 @@
 import UIKit
 import Mobilex
 
-class SignupViewController: BaseViewController<SignupAdviser, SignupScene>, SignupScene {
+class SignupViewController: BaseViewController<SignupActor, SignupScene>, SignupScene {
     @IBOutlet weak var mobileField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     
@@ -41,7 +41,7 @@ class SignupViewController: BaseViewController<SignupAdviser, SignupScene>, Sign
     }
     
     @IBAction func onLoginTap(_ sender: Any) {
-        adviser?.onLoginClick()
+        actor?.onLoginClick()
     }
     
     @IBAction func onCancelTap(_ sender: Any) {
@@ -49,6 +49,6 @@ class SignupViewController: BaseViewController<SignupAdviser, SignupScene>, Sign
     }
     
     @IBAction func onSignupTap(_ sender: Any) {
-        adviser?.onRegister(mobile: mobileField?.text ?? "", email: emailField?.text ?? "")
+        actor?.onRegister(mobile: mobileField?.text ?? "", email: emailField?.text ?? "")
     }
 }

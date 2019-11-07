@@ -8,8 +8,8 @@ import au.com.crazybean.mobilex.kurir.modules.base.BaseActivity
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class VerifyActivity : BaseActivity<VerifyAdviser>(), VerifyScene {
-    override val adviser: VerifyAdviser? by inject {
+class VerifyActivity : BaseActivity<VerifyActor>(), VerifyScene {
+    override val actor: VerifyActor? by inject {
         parametersOf(this)
     }
 
@@ -24,7 +24,7 @@ class VerifyActivity : BaseActivity<VerifyAdviser>(), VerifyScene {
         super.onViewLoad()
 
         findViewById<View>(R.id.verify_button)?.setOnClickListener {
-            adviser?.onVerifyClick(editText?.text.toString().trim())
+            actor?.onVerifyClick(editText?.text.toString().trim())
         }
     }
 

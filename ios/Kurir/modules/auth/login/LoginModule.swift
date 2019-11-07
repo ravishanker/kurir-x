@@ -11,14 +11,14 @@ import Mobilex
 
 class LoginModule: Module {
     override func inject() {
-        // Worker
-        factory(LoginWorker.self) { r in
-            LoginWorker(userData: r.resolve(UserData.self), repository: r.resolve(UsersRepository.self)!)
+        // Wrapper
+        factory(LoginWrapper.self) { r in
+            LoginWrapper(userData: r.resolve(UserData.self), repository: r.resolve(UsersRepository.self)!)
         }
         
-        // Adviser
-        factory(LoginAdviser.self) { (r, scene: LoginScene) -> LoginAdviser in
-            LoginAdviser(scene: scene, worker: r.resolve(LoginWorker.self)!)
+        // Actor
+        factory(LoginActor.self) { (r, scene: LoginScene) -> LoginActor in
+            LoginActor(scene: scene, wrapper: r.resolve(LoginWrapper.self)!)
         }
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Mobilex
 
-class VerifyViewController: BaseViewController<VerifyAdviser, VerifyScene>, VerifyScene {
+class VerifyViewController: BaseViewController<VerifyActor, VerifyScene>, VerifyScene {
     @IBOutlet weak var passcodeField: UITextField!
     
     func showProfile(user: User?) {
@@ -29,6 +29,6 @@ class VerifyViewController: BaseViewController<VerifyAdviser, VerifyScene>, Veri
     }
     
     @IBAction func onVerifyTap(_ sender: Any) {
-        adviser?.onVerifyClick(passcode: passcodeField?.text ?? "")
+        actor?.onVerifyClick(passcode: passcodeField?.text ?? "")
     }
 }

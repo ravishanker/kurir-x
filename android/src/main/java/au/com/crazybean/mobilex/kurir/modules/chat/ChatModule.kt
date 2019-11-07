@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val chatModule = module {
-    val qualifier = qualifier<ChatWorker>()
+    val qualifier = qualifier<ChatWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(ChatWorker(get(), get()))
+        ViewModel(ChatWrapper(get(), get()))
     }
 
-    // Adviser
+    // Actor
     factory { (scene: ChatScene?) ->
-        val viewModel = get<ViewModel<ChatWorker>>(qualifier)
-        ChatAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<ChatWrapper>>(qualifier)
+        ChatActor(scene, viewModel.wrapper)
     }
 }

@@ -10,12 +10,12 @@ import au.com.crazybean.mobilex.kurir.modules.base.fullName
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class DetailsActivity : BaseActivity<DetailsAdviser>(), DetailsScene {
+class DetailsActivity : BaseActivity<DetailsActor>(), DetailsScene {
     private var nameLabel: TextView? = null
     private var emailLabel: TextView? = null
     private var mobileLabel: TextView? = null
 
-    override val adviser: DetailsAdviser? by inject {
+    override val actor: DetailsActor? by inject {
         parametersOf(this)
     }
 
@@ -29,7 +29,7 @@ class DetailsActivity : BaseActivity<DetailsAdviser>(), DetailsScene {
         mobileLabel = findViewById(R.id.mobile_label)
 
         findViewById<View>(R.id.action_button)?.setOnClickListener {
-            adviser?.onButtonClick()
+            actor?.onButtonClick()
         }
     }
 

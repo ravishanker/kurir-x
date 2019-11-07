@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val exploreModule = module {
-    val qualifier = qualifier<ExploreWorker>()
+    val qualifier = qualifier<ExploreWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(ExploreWorker(get()))
+        ViewModel(ExploreWrapper(get()))
     }
 
-    // Adviser
+    // Actor
     factory { (scene: ExploreScene?) ->
-        val viewModel = get<ViewModel<ExploreWorker>>(qualifier)
-        ExploreAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<ExploreWrapper>>(qualifier)
+        ExploreActor(scene, viewModel.wrapper)
     }
 }

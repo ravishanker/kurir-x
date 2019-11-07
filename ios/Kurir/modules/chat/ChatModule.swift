@@ -11,14 +11,14 @@ import Mobilex
 class ChatModule: Module {
     override func inject() {
         // Worker
-        factory(ChatWorker.self) { r in
-            ChatWorker(userData: r.resolve(UserData.self),
-                       repository: r.resolve(MessagesRepository.self)!)
+        factory(ChatWrapper.self) { r in
+            ChatWrapper(userData: r.resolve(UserData.self),
+                        repository: r.resolve(MessagesRepository.self)!)
         }
         
-        // Adviser
-        factory(ChatAdviser.self) { (r, scene: ChatScene) -> ChatAdviser in
-            ChatAdviser(scene: scene, worker: r.resolve(ChatWorker.self)!)
+        // Actor
+        factory(ChatActor.self) { (r, scene: ChatScene) -> ChatActor in
+            ChatActor(scene: scene, wrapper: r.resolve(ChatWrapper.self)!)
         }
     }
 }

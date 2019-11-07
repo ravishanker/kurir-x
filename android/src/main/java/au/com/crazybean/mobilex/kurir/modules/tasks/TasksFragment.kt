@@ -12,8 +12,8 @@ import au.com.crazybean.mobilex.kurir.modules.base.RecyclerFragment
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class TasksFragment : RecyclerFragment<TasksAdviser, Task>(), TasksScene {
-    override val adviser: TasksAdviser? by inject {
+class TasksFragment : RecyclerFragment<TasksActor, Task>(), TasksScene {
+    override val actor: TasksActor? by inject {
         parametersOf(this)
     }
 
@@ -34,7 +34,7 @@ class TasksFragment : RecyclerFragment<TasksAdviser, Task>(), TasksScene {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.menu_new_task -> {
-                adviser?.onNewTask()
+                actor?.onNewTask()
                 true
             }
 
@@ -44,11 +44,11 @@ class TasksFragment : RecyclerFragment<TasksAdviser, Task>(), TasksScene {
 
     override fun onEntitySelect(entity: Task, position: Int) {
         super.onEntitySelect(entity, position)
-        adviser?.onViewDetail(entity)
+        actor?.onViewDetail(entity)
     }
 
     override fun onRefresh() {
-        adviser?.onRefresh()
+        actor?.onRefresh()
     }
 
     override fun showTasks(tasks: List<Task>) {

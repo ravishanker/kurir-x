@@ -14,10 +14,10 @@ import org.koin.core.parameter.parametersOf
 private const val kDesc = "DESC"
 private const val kRecv = "RECEIVER"
 
-class CreationActivity : BaseActivity<CreationAdviser>(), CreationScene {
+class CreationActivity : BaseActivity<CreationActor>(), CreationScene {
     private var fragmentBoard: FragmentBoard? = null
 
-    override val adviser: CreationAdviser? by inject {
+    override val actor: CreationActor? by inject {
         parametersOf(this)
     }
 

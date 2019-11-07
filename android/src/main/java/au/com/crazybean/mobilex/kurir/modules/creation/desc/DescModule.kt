@@ -6,16 +6,16 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val descModule = module {
-    val qualifier = qualifier<DescWorker>()
+    val qualifier = qualifier<DescWrapper>()
 
-    // Worker via ViewModel
+    // Wrapper via ViewModel
     viewModel(qualifier) {
-        ViewModel(DescWorker(get()))
+        ViewModel(DescWrapper(get()))
     }
 
-    // Adviser
+    // Actor
     factory { (scene: DescScene?) ->
-        val viewModel = get<ViewModel<DescWorker>>(qualifier)
-        DescAdviser(scene, viewModel.worker)
+        val viewModel = get<ViewModel<DescWrapper>>(qualifier)
+        DescActor(scene, viewModel.wrapper)
     }
 }

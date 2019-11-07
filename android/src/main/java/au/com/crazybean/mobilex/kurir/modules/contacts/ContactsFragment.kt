@@ -11,9 +11,9 @@ import au.com.crazybean.mobilex.kurir.modules.base.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class ContactsFragment : RecyclerFragment<ContactsAdviser, User>(), ContactsScene {
+class ContactsFragment : RecyclerFragment<ContactsActor, User>(), ContactsScene {
 
-    override val adviser: ContactsAdviser? by inject {
+    override val actor: ContactsActor? by inject {
         parametersOf(this)
     }
 
@@ -34,7 +34,7 @@ class ContactsFragment : RecyclerFragment<ContactsAdviser, User>(), ContactsScen
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.menu_add_contact -> {
-                adviser?.onAddClick()
+                actor?.onAddClick()
                 true
             }
 
@@ -44,12 +44,12 @@ class ContactsFragment : RecyclerFragment<ContactsAdviser, User>(), ContactsScen
 
     override fun onRefresh() {
         super.onRefresh()
-        adviser?.onRefresh()
+        actor?.onRefresh()
     }
 
     override fun onEntitySelect(entity: User, position: Int) {
         super.onEntitySelect(entity, position)
-        adviser?.onContactClick(entity)
+        actor?.onContactClick(entity)
     }
 
     override fun showContacts(users: List<User>) {
