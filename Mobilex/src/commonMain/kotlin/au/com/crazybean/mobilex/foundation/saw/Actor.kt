@@ -2,27 +2,28 @@ package au.com.crazybean.mobilex.foundation.saw
 
 import au.com.crazybean.mobilex.foundation.logger.Logger
 import au.com.crazybean.mobilex.foundation.native.simpleName
-import au.com.crazybean.mobilex.foundation.saw.awareness.Awareness
-import au.com.crazybean.mobilex.foundation.saw.awareness.AwarenessObserver
-import au.com.crazybean.mobilex.foundation.saw.awareness.AwarenessOwner
+import au.com.crazybean.mobilex.foundation.saw.pulse.Pulse
+import au.com.crazybean.mobilex.foundation.saw.pulse.PulseObserver
+import au.com.crazybean.mobilex.foundation.saw.pulse.PulseOwner
+
 
 open class Actor<out SCENE: Scene, out WRAPPER: Wrapper>(protected val scene: SCENE?,
-                                                         protected val wrapper: WRAPPER) : AwarenessObserver, AwarenessOwner {
-    private var owner: AwarenessOwner? = null
+                                                         protected val wrapper: WRAPPER) : PulseObserver,
+    PulseOwner {
+    private var owner: PulseOwner? = null
 
-    private val current: Awareness by lazy {
-        Awareness(this)
+    // From AwarenessOwner
+    override val pulse: Pulse? by lazy {
+        Pulse(this)
     }
 
     /**
      * Delegate the awareness provider to Actor instance.
      */
-    fun perform(owner: AwarenessOwner?, params: Map<String, Any?>? = null) {
-        owner?.let {
-            this.owner = it
-            it.awareness?.addObserver(this)
-            onLoad(params?: emptyMap())
-        }
+    fun perform(owner: PulseOwner?, params: Map<String, Any?>? = null) {
+        this.owner = owner
+        owner?.pulse?.addObserver(this)
+        onLoad(params?: emptyMap())
     }
 
     /**
@@ -40,7 +41,7 @@ open class Actor<out SCENE: Scene, out WRAPPER: Wrapper>(protected val scene: SC
      */
     protected open fun onRelease() {
         Logger.d("$simpleName: onRelease")
-        owner?.awareness?.removeObserver(this)
+        owner?.pulse?.removeObserver(this)
     }
 
     /**
@@ -76,37 +77,35 @@ open class Actor<out SCENE: Scene, out WRAPPER: Wrapper>(protected val scene: SC
     }
 
     // From StateObserver
-    override fun onEventUpdate(event: Awareness.Event) {
+    override fun onEventUpdate(event: Pulse.Event) {
         when (event) {
-            Awareness.Event.OnAppear -> {
-                awareness?.status = Awareness.Status.Appeared
+            Pulse.Event.OnAppear -> {
+                pulse?.status = Pulse.Status.Appeared
                 onAppear()
             }
 
-            Awareness.Event.OnActivate -> {
-                awareness?.status = Awareness.Status.Activated
+            Pulse.Event.OnActivate -> {
+                pulse?.status = Pulse.Status.Activated
                 onActivate()
             }
 
-            Awareness.Event.OnDeactivate -> {
-                awareness?.status = Awareness.Status.Appeared
+            Pulse.Event.OnDeactivate -> {
+                pulse?.status = Pulse.Status.Appeared
                 onDeactivate()
             }
 
-            Awareness.Event.OnDismiss -> {
-                awareness?.status = Awareness.Status.Loaded
+            Pulse.Event.OnDismiss -> {
+                pulse?.status = Pulse.Status.Loaded
                 onDismiss()
             }
 
-            Awareness.Event.OnRelease -> {
-                awareness?.status = Awareness.Status.Released
+            Pulse.Event.OnRelease -> {
+                pulse?.status = Pulse.Status.Released
                 onRelease()
             }
             else -> Unit
         }
-    }
 
-    // From AwarenessOwner
-    override val awareness: Awareness?
-        get() = current
+        pulse?.handleEvent(event)
+    }
 }

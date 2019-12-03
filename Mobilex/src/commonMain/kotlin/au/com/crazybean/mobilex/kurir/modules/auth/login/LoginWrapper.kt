@@ -1,7 +1,7 @@
 package au.com.crazybean.mobilex.kurir.modules.auth.login
 
 import au.com.crazybean.mobilex.foundation.saw.Wrapper
-import au.com.crazybean.mobilex.foundation.saw.awareness.Emitter
+import au.com.crazybean.mobilex.foundation.saw.pulse.LiveData
 import au.com.crazybean.mobilex.foundation.userdata.UserData
 import au.com.crazybean.mobilex.kurir.data.kEmail
 import au.com.crazybean.mobilex.kurir.data.kPassword
@@ -17,8 +17,8 @@ class LoginWrapper(private val userData: UserData?,
         repository?.onRelease()
     }
 
-    fun login(name: String, password: String): Emitter<Auth?> {
-        return Emitter<Auth?>().also { result ->
+    fun login(name: String, password: String): LiveData<Auth?> {
+        return LiveData<Auth?>().also { result ->
             repository?.login(name, password) { auth ->
                 result.value = auth
 
