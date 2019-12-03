@@ -9,8 +9,8 @@
 import UIKit
 import Mobilex
 
-open class AppViewController: UIViewController, AwarenessOwner {
-    public lazy var awareness: Awareness? = Awareness(owner: self)
+open class AppViewController: UIViewController, PulseOwner {
+    public lazy var pulse: Pulse? = Pulse(owner: self)
     private lazy var targets = [String : Any?]()
 
     // Selectors
@@ -33,33 +33,33 @@ open class AppViewController: UIViewController, AwarenessOwner {
     // Callbacks
     open override func viewDidLoad() {
         super.viewDidLoad()
-        awareness?.handleEvent(event: Awareness.Event.onload)
+        pulse?.handleEvent(event: Pulse.Event.onload)
     }
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        awareness?.handleEvent(event: Awareness.Event.onappear)
+        pulse?.handleEvent(event: Pulse.Event.onappear)
     }
     
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        awareness?.handleEvent(event: Awareness.Event.onactivate)
+        pulse?.handleEvent(event: Pulse.Event.onactivate)
         updateObserver(UIApplication.willResignActiveNotification, UIApplication.didEnterBackgroundNotification)
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        awareness?.handleEvent(event: Awareness.Event.ondeactivate)
+        pulse?.handleEvent(event: Pulse.Event.ondeactivate)
     }
     
     open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        awareness?.handleEvent(event: Awareness.Event.ondismiss)
+        pulse?.handleEvent(event: Pulse.Event.ondismiss)
         updateObserver()
     }
     
     deinit {
-        awareness?.handleEvent(event: Awareness.Event.onrelease)
+        pulse?.handleEvent(event: Pulse.Event.onrelease)
         targets.removeAll()
     }
     
@@ -121,20 +121,20 @@ extension AppViewController {
     }
     
     @objc internal func willEnterForeground() {
-        awareness?.handleEvent(event: Awareness.Event.ondeactivate)
+        pulse?.handleEvent(event: Pulse.Event.ondeactivate)
     }
     
     @objc internal func didBecomeActive() {
-        awareness?.handleEvent(event: Awareness.Event.onactivate)
+        pulse?.handleEvent(event: Pulse.Event.onactivate)
         updateObserver(UIApplication.willResignActiveNotification, UIApplication.didEnterBackgroundNotification)
     }
     
     @objc internal func didEnterBackground() {
-        awareness?.handleEvent(event: Awareness.Event.ondismiss)
+        pulse?.handleEvent(event: Pulse.Event.ondismiss)
         updateObserver(UIApplication.willEnterForegroundNotification, UIApplication.didBecomeActiveNotification)
     }
     
     @objc internal func willResignActive() {
-        awareness?.handleEvent(event: Awareness.Event.onappear)
+        pulse?.handleEvent(event: Pulse.Event.onappear)
     }
 }

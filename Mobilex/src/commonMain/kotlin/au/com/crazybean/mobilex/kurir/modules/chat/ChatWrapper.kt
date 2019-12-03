@@ -3,7 +3,7 @@ package au.com.crazybean.mobilex.kurir.modules.chat
 import au.com.crazybean.mobilex.foundation.logger.Logger
 import au.com.crazybean.mobilex.foundation.native.currentMillis
 import au.com.crazybean.mobilex.foundation.saw.Wrapper
-import au.com.crazybean.mobilex.foundation.saw.awareness.Emitter
+import au.com.crazybean.mobilex.foundation.saw.pulse.LiveData
 import au.com.crazybean.mobilex.foundation.userdata.UserData
 import au.com.crazybean.mobilex.kurir.data.kEmail
 import au.com.crazybean.mobilex.kurir.data.model.Message
@@ -13,7 +13,7 @@ class ChatWrapper(private val userData: UserData?,
                   private val repository: MessagesRepository) : Wrapper() {
 
     private val liveData by lazy {
-        Emitter<List<Message>?>().also { result ->
+        LiveData<List<Message>?>().also { result ->
             val from = userData?.getString(kEmail, "")?: ""
             repository.getMessages(from, completion = { messages ->
                 result.value = messages
@@ -26,7 +26,7 @@ class ChatWrapper(private val userData: UserData?,
     val myEmail: String
         get() = userData?.getString(kEmail, "")?: ""
 
-    val messages: Emitter<List<Message>?>
+    val messages: LiveData<List<Message>?>
         get() = liveData
 
     fun sendMessage(content: String, toEmail: String) {

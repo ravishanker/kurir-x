@@ -1,30 +1,28 @@
-package au.com.crazybean.mobilex.foundation.saw.awareness
+package au.com.crazybean.mobilex.foundation.saw.pulse
 
-class Awareness(private val owner: AwarenessOwner?) {
+class Pulse(private val owner: PulseOwner?) {
     private val observers by lazy {
-        mutableListOf<AwarenessObserver>()
+        mutableListOf<PulseObserver>()
     }
 
-    fun addObserver(observer: AwarenessObserver) {
+    fun addObserver(observer: PulseObserver) {
         observers.takeUnless { it.contains(observer) }?.add(observer)
     }
 
-    fun removeObserver(observer: AwarenessObserver) {
+    fun removeObserver(observer: PulseObserver) {
         observers.remove(observer)
     }
 
-    var status: Status = Status.Released
+    var status: Status =
+        Status.Released
         internal set
 
     val shouldBeActive: Boolean
         get() = status.atLeast(Status.Appeared)
 
     fun handleEvent(event: Event) {
-        owner?.awareness?.let { state ->
-            state.status = Status.Activated
-            observers.forEach { observer ->
-                observer.onEventUpdate(event)
-            }
+        observers.filterNot { it == owner }.forEach { observer ->
+            observer.onEventUpdate(event)
         }
     }
 

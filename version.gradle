@@ -6,8 +6,8 @@ ext {
     minSdkVersion = 19
 
     // Kotlin/Native
-    kotlinVersion = '1.3.50'
-    ktorVersion = '1.2.5'
+    kotlinVersion = '1.3.60'
+    ktorVersion = '1.2.6'
     coroutinesVersion = '1.3.2'
     serializationVersion = '0.13.0'
 

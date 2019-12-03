@@ -9,11 +9,11 @@ import au.com.crazybean.foundation.navigator.Arguments
 import au.com.crazybean.foundation.navigator.Navigator
 import au.com.crazybean.mobilex.foundation.saw.Wrapper
 import au.com.crazybean.mobilex.foundation.saw.Actor
-import au.com.crazybean.mobilex.foundation.saw.awareness.Awareness
-import au.com.crazybean.mobilex.foundation.saw.awareness.AwarenessOwner
+import au.com.crazybean.mobilex.foundation.saw.pulse.Pulse
+import au.com.crazybean.mobilex.foundation.saw.pulse.PulseOwner
 import au.com.crazybean.mobilex.kurir.extension.params
 
-abstract class BaseFragment<out ACTOR: Actor<Scene, Wrapper>> : Fragment(), Navigator, AwarenessOwner {
+abstract class BaseFragment<out ACTOR: Actor<Scene, Wrapper>> : Fragment(), Navigator, PulseOwner {
     protected abstract val actor: ACTOR?
     protected abstract val layoutRes: Int
 
@@ -21,8 +21,8 @@ abstract class BaseFragment<out ACTOR: Actor<Scene, Wrapper>> : Fragment(), Navi
         LifecycleDispatcher(actor)
     }
 
-    override val awareness: Awareness?
-        get() = actor?.awareness
+    override val pulse: Pulse?
+        get() = actor?.pulse
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): android.view.View? {
         return inflater.inflate(layoutRes, container, false)?.also { layout ->

@@ -1,7 +1,7 @@
 package au.com.crazybean.mobilex.kurir.modules.auth.signup
 
 import au.com.crazybean.mobilex.foundation.saw.Wrapper
-import au.com.crazybean.mobilex.foundation.saw.awareness.Emitter
+import au.com.crazybean.mobilex.foundation.saw.pulse.LiveData
 import au.com.crazybean.mobilex.kurir.data.model.Auth
 import au.com.crazybean.mobilex.kurir.data.model.ERR_NOT_FOUND
 import au.com.crazybean.mobilex.kurir.data.model.Enroll
@@ -17,8 +17,8 @@ class SignupWrapper(private val repository: UsersRepository?) : Wrapper() {
         repository?.onRelease()
     }
 
-    fun signup(mobile: String, email: String): Emitter<Auth?> {
-        return Emitter<Auth?>().also { result ->
+    fun signup(mobile: String, email: String): LiveData<Auth?> {
+        return LiveData<Auth?>().also { result ->
             repository?.checkUser(mobile, email) { auth ->
                 if (auth?.result == ERR_NOT_FOUND) {
                     getUserToken { token ->
@@ -34,8 +34,8 @@ class SignupWrapper(private val repository: UsersRepository?) : Wrapper() {
         }
     }
 
-    fun register(firstName: String, lastName: String, password: String): Emitter<Auth?> {
-        return Emitter<Auth?>().also { result ->
+    fun register(firstName: String, lastName: String, password: String): LiveData<Auth?> {
+        return LiveData<Auth?>().also { result ->
             enroll?.let {
                 val user = User(mobile = it.mobile, email = it.email, firstName = firstName, lastName = lastName, password = password)
                 repository?.register(user) { auth ->

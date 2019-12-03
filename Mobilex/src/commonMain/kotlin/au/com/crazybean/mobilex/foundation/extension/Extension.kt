@@ -1,7 +1,9 @@
 package au.com.crazybean.mobilex.foundation.extension
 
 import au.com.crazybean.mobilex.foundation.logger.Logger
+import au.com.crazybean.mobilex.foundation.userdata.UserData
 import kotlinx.serialization.DeserializationStrategy
+import kotlinx.serialization.SerializationStrategy
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 
@@ -20,4 +22,14 @@ fun <T: Any> String.decode(deserializer: DeserializationStrategy<T>): T? {
         Logger.d(throwable)
         null
     }
+}
+
+fun <T : Any> UserData.setObject(value: T, forKey: String, serializer: SerializationStrategy<T>) {
+    setString(Json.stringify(serializer, value), forKey)
+}
+
+fun <T : Any> UserData.getObject(forKey: String, deserializer: DeserializationStrategy<T>, defaultValue: T? = null): T? {
+    return getString(forKey, "")?.takeIf {
+        it.isNotBlank()
+    }?.decode(deserializer) ?: defaultValue
 }

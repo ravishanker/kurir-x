@@ -9,12 +9,12 @@ import au.com.crazybean.foundation.navigator.Navigator
 import au.com.crazybean.foundation.widgets.MelonDialog
 import au.com.crazybean.mobilex.foundation.saw.Wrapper
 import au.com.crazybean.mobilex.foundation.saw.Actor
-import au.com.crazybean.mobilex.foundation.saw.awareness.Awareness
-import au.com.crazybean.mobilex.foundation.saw.awareness.AwarenessOwner
+import au.com.crazybean.mobilex.foundation.saw.pulse.Pulse
+import au.com.crazybean.mobilex.foundation.saw.pulse.PulseOwner
 import au.com.crazybean.mobilex.kurir.R
 import au.com.crazybean.mobilex.kurir.extension.params
 
-abstract class BaseActivity<out ACTOR: Actor<Scene, Wrapper>> : AppCompatActivity(), Navigator, AwarenessOwner {
+abstract class BaseActivity<out ACTOR: Actor<Scene, Wrapper>> : AppCompatActivity(), Navigator, PulseOwner {
     private val kError = "errorDialog"
     private val kLoading = "loadingDialog"
     protected abstract val actor: ACTOR?
@@ -28,8 +28,8 @@ abstract class BaseActivity<out ACTOR: Actor<Scene, Wrapper>> : AppCompatActivit
         LifecycleDispatcher(actor)
     }
 
-    override val awareness: Awareness?
-        get() = actor?.awareness
+    override val pulse: Pulse?
+        get() = actor?.pulse
 
     protected open fun onViewLoad() {
     }
